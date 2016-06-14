@@ -27,6 +27,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         lsbinario = new javax.swing.JComboBox<>();
@@ -61,6 +62,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(Cbbinario);
         Cbbinario.setText("Compuestos binarios ");
         Cbbinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,8 +70,10 @@ public class VentanaPricipal extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(cbterciario);
         cbterciario.setText("Compuesto Terciario");
 
+        buttonGroup1.add(cbcuaternario);
         cbcuaternario.setText("Compuestos cuaternarios");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -243,6 +247,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton Cbbinario;
     private javax.swing.JButton btnListo;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton cbcuaternario;
     private javax.swing.JRadioButton cbterciario;
     private javax.swing.JLabel jLabel1;
