@@ -149,7 +149,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
     }//GEN-LAST:event_cbterciarioActionPerformed
 
     private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
-        if (Cbbinario.getFocusTraversalKeysEnabled()){
+        if (Cbbinario.isSelected()){
             if (lsbinario.getSelectedIndex()==0){
             Oxidos aux = new Oxidos();
             aux.setVisible(true);
