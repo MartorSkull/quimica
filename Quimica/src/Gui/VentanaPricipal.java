@@ -5,7 +5,6 @@ package Gui;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author tobias
@@ -52,6 +51,11 @@ public class VentanaPricipal extends javax.swing.JFrame {
         });
 
         lsbinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxidos ", "Hidruros ", "Hidracidos", "Peroxidos ", "Sales Binarias " }));
+        lsbinario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lsbinarioActionPerformed(evt);
+            }
+        });
 
         cbterciario.setText("Compuestos Terciarios ");
         cbterciario.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +70,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
 
         lscuaternario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sales Cuaternarias " }));
 
-        btnListo.setText("jButton1");
+        btnListo.setText("Listo ");
         btnListo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListoActionPerformed(evt);
@@ -88,9 +92,6 @@ public class VentanaPricipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(48, 48, 48)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Cbbinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -104,12 +105,17 @@ public class VentanaPricipal extends javax.swing.JFrame {
                                 .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cbcuaternario, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                    .addComponent(lscuaternario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addComponent(btnListo)))
+                                    .addComponent(lscuaternario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(39, 39, 39))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(btnListo, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,8 +139,9 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 .addComponent(cbcuaternario)
                 .addGap(18, 18, 18)
                 .addComponent(lscuaternario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(btnListo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnListo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,13 +156,56 @@ public class VentanaPricipal extends javax.swing.JFrame {
     }//GEN-LAST:event_cbterciarioActionPerformed
 
     private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
-        if (Cbbinario.isSelected()){
-            if (lsbinario.getSelectedIndex()==0){
-            Oxidos aux = new Oxidos();
-            aux.setVisible(true);
+        if (Cbbinario.isSelected()) {
+            if (lsbinario.getSelectedIndex() == 0) {
+                Oxidos aux = new Oxidos();
+                aux.setVisible(true);
+            }
+            if (lsbinario.getSelectedIndex() == 1) {
+                Hidruros aux = new Hidruros();
+                aux.setVisible(true);
+
+            }
+            if (lsbinario.getSelectedIndex() == 2) {
+                Hidracidos aux = new Hidracidos();
+                aux.setVisible(true);
+            }
+            if (lsbinario.getSelectedIndex() == 3) {
+                Peroxidos aux = new Peroxidos();
+                aux.setVisible(true);
+            }
+            if (lsbinario.getSelectedIndex() == 4) {
+                SalBinaria aux = new SalBinaria();
+                aux.setVisible(true);
             }
         }
+
+        if (cbterciario.isSelected()) {
+            if (lsterciario.getSelectedIndex() == 0) {
+                Oxoacidos aux = new Oxoacidos();
+                aux.setVisible(true);
+            }
+            if (lsterciario.getSelectedIndex() == 1) {
+                Hidroxidos aux = new Hidroxidos();
+                aux.setVisible(true);
+            }
+            if (lsterciario.getSelectedIndex() == 2) {
+                SalTerciaria aux = new SalTerciaria();
+                aux.setVisible(true);
+            }
+        }
+        
+        if (cbcuaternario.isSelected()) {
+            if (lscuaternario.getSelectedIndex()==0){
+                SalCuaternaria aux = new SalCuaternaria();
+            }
+        }
+
     }//GEN-LAST:event_btnListoActionPerformed
+
+    private void lsbinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lsbinarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lsbinarioActionPerformed
 
     /**
      * @param args the command line arguments
