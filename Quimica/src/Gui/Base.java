@@ -63,7 +63,7 @@ public class Base {
         int[] arr = null;
         try {
             while (this.rsNM.next()) {
-                if (rsNM.getInt("ID") == id+1) {
+                if (rsNM.getInt("ID") == id + 1) {
                     strArr = rsNM.getString("Estados");
                     break;
                 }
@@ -103,11 +103,9 @@ public class Base {
     public String getElementNomNM(int id) {
         String nom = null;
         try {
-            while (this.rsNM.next()) {
-                if (rsNM.getInt("ID") == id + 1) {
+            while (this.rsNM.next())
+                if (rsNM.getInt("ID") == id + 1)
                     nom = rsNM.getString("Nomencaltura");
-                }
-            }
         } catch (SQLException e) {
             nom = null;
         }
@@ -117,14 +115,36 @@ public class Base {
     public String getElementNomM(int id) {
         String nom = null;
         try {
-            while (this.rsM.next()) {
-                if (rsM.getInt("ID") == id + 1) {
+            while (this.rsM.next())
+                if (rsM.getInt("ID") == id + 1)
                     nom = rsM.getString("Nomencaltura");
-                }
-            }
         } catch (SQLException e) {
             nom = null;
         }
         return nom;
+    }
+
+    public String getElementNameNM(int id) {
+        String name = null;
+        try {
+            while (this.rsNM.next()) 
+                if (rsNM.getInt("ID") == id + 1) 
+                    name = rsNM.getString("Nombre");
+        } catch (SQLException e) {
+            name = null;
+        }
+        return name;
+    }
+
+    public String getElementNameM(int id) {
+        String name = null;
+        try {
+            while (this.rsM.next()) 
+                if (rsM.getInt("ID") == id + 1) 
+                    name = rsM.getString("Nombre");
+        } catch (SQLException e) {
+            name = null;
+        }
+        return name;
     }
 }
