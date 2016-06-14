@@ -1,6 +1,4 @@
-
-import Gui.Hidracidos;
-import Gui.SalBinaria;
+package Gui;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -30,183 +28,134 @@ public class VentanaPricipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        oxido = new javax.swing.JButton();
-        peroxidos = new javax.swing.JButton();
-        hidruros = new javax.swing.JButton();
-        hidraxidos = new javax.swing.JButton();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
-        jPanel3 = new javax.swing.JPanel();
-        oxoacidos = new javax.swing.JButton();
-        salterciaria = new javax.swing.JButton();
-        salcuaternaria = new javax.swing.JButton();
-        salbinarias = new javax.swing.JButton();
-        hidracidos = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        Cbbinario = new javax.swing.JCheckBox();
+        lsbinario = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
+        cbterciario = new javax.swing.JCheckBox();
+        lsterciario = new javax.swing.JComboBox<>();
+        jSeparator3 = new javax.swing.JSeparator();
+        cbcuaternario = new javax.swing.JCheckBox();
+        lscuaternario = new javax.swing.JComboBox<>();
+        btnListo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        oxido.setText("OXIDO");
-        oxido.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("Que compuesto desea realizar ");
+
+        Cbbinario.setText("Compuestos Binarios");
+        Cbbinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oxidoActionPerformed(evt);
+                CbbinarioActionPerformed(evt);
             }
         });
 
-        peroxidos.setText("PEROXIDOS");
-        peroxidos.addActionListener(new java.awt.event.ActionListener() {
+        lsbinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxidos ", "Hidruros ", "Hidracidos", "Peroxidos ", "Sales Binarias " }));
+
+        cbterciario.setText("Compuestos Terciarios ");
+        cbterciario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                peroxidosActionPerformed(evt);
+                cbterciarioActionPerformed(evt);
             }
         });
 
-        hidruros.setText("HIDRUROS");
+        lsterciario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxoacidos ", "Hidroxidos ", "Sal terciaria " }));
 
-        hidraxidos.setText("HIDROXIDOS");
+        cbcuaternario.setText("Compuesto Cuaternario");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hidraxidos, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(peroxidos, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(oxido, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(hidruros, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(oxido, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(peroxidos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hidruros, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hidraxidos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(302, Short.MAX_VALUE))
-        );
+        lscuaternario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sales Cuaternarias " }));
 
-        jTabbedPane1.addTab("Compuestos Simples", jPanel2);
-
-        oxoacidos.setText("OXOACIDOS");
-        oxoacidos.addActionListener(new java.awt.event.ActionListener() {
+        btnListo.setText("jButton1");
+        btnListo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oxoacidosActionPerformed(evt);
+                btnListoActionPerformed(evt);
             }
         });
-
-        salterciaria.setText(" SALES TERCIARIAS");
-
-        salcuaternaria.setText(" SALES CUATERNARIAS");
-
-        salbinarias.setText("SALES BINARIAS");
-        salbinarias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salbinariasActionPerformed(evt);
-            }
-        });
-
-        hidracidos.setText("HIDRACIDOS");
-        hidracidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hidracidosActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(salcuaternaria))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(oxoacidos, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(hidracidos, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(salbinarias, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(salterciaria, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(oxoacidos, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(hidracidos, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(salbinarias, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(salterciaria, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(salcuaternaria, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Compuestos Complejos", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
-                    .addComponent(jTabbedPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator2)
+                            .addComponent(jSeparator3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Cbbinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lsbinario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbterciario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lsterciario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbcuaternario, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                    .addComponent(lscuaternario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(99, 99, 99)
+                                .addComponent(btnListo)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Cbbinario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lsbinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addComponent(cbterciario)
+                .addGap(18, 18, 18)
+                .addComponent(lsterciario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cbcuaternario)
+                .addGap(18, 18, 18)
+                .addComponent(lscuaternario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(btnListo))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void peroxidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peroxidosActionPerformed
-        // TODO dd your handling code here:
-    }//GEN-LAST:event_peroxidosActionPerformed
+    private void CbbinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbbinarioActionPerformed
 
-    private void oxoacidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oxoacidosActionPerformed
+    }//GEN-LAST:event_CbbinarioActionPerformed
+
+    private void cbterciarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbterciarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_oxoacidosActionPerformed
+    }//GEN-LAST:event_cbterciarioActionPerformed
 
-    private void salbinariasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salbinariasActionPerformed
-        
-    }//GEN-LAST:event_salbinariasActionPerformed
-
-    private void hidracidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hidracidosActionPerformed
-         Hidracidos aux = new Hidracidos();
-        aux.setVisible(true);
-    }//GEN-LAST:event_hidracidosActionPerformed
-
-    private void oxidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oxidoActionPerformed
-     Oxidos aux = new Oxidos();
-        aux.setVisible(true);
-    }//GEN-LAST:event_oxidoActionPerformed
+    private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
+        if (Cbbinario.getFocusTraversalKeysEnabled()){
+            if (lsbinario.getSelectedIndex()==0){
+            Oxidos aux = new Oxidos();
+            aux.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_btnListoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,19 +193,16 @@ public class VentanaPricipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton hidracidos;
-    private javax.swing.JButton hidraxidos;
-    private javax.swing.JButton hidruros;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JCheckBox Cbbinario;
+    private javax.swing.JButton btnListo;
+    private javax.swing.JCheckBox cbcuaternario;
+    private javax.swing.JCheckBox cbterciario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JButton oxido;
-    private javax.swing.JButton oxoacidos;
-    private javax.swing.JButton peroxidos;
-    private javax.swing.JButton salbinarias;
-    private javax.swing.JButton salcuaternaria;
-    private javax.swing.JButton salterciaria;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JComboBox<String> lsbinario;
+    private javax.swing.JComboBox<String> lscuaternario;
+    private javax.swing.JComboBox<String> lsterciario;
     // End of variables declaration//GEN-END:variables
 }
