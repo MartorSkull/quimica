@@ -145,12 +145,13 @@ public class VentanaPricipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
-      
+
         if (Cbbinario.isSelected()) {
 
             if (lsbinario.getSelectedIndex() == 0) {
                 Oxidos aux = new Oxidos();
                 aux.setVisible(true);
+
             }
             if (lsbinario.getSelectedIndex() == 1) {
                 Hidruros aux = new Hidruros();
@@ -160,6 +161,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
             if (lsbinario.getSelectedIndex() == 2) {
                 Hidracidos aux = new Hidracidos();
                 aux.setVisible(true);
+
             }
             if (lsbinario.getSelectedIndex() == 3) {
                 Peroxidos aux = new Peroxidos();
@@ -169,8 +171,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 SalBinaria aux = new SalBinaria();
                 aux.setVisible(true);
             }
-        }
-        else if (cbterciario.isSelected()) {
+        } else if (cbterciario.isSelected()) {
             if (lsterciario.getSelectedIndex() == 0) {
                 Oxoacidos aux = new Oxoacidos();
                 aux.setVisible(true);
@@ -183,18 +184,16 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 SalTerciaria aux = new SalTerciaria();
                 aux.setVisible(true);
             }
-        }
-        
-        else if (cbcuaternario.isSelected()) {
-            if (lscuaternario.getSelectedIndex()==0){
+        } else if (cbcuaternario.isSelected()) {
+            if (lscuaternario.getSelectedIndex() == 0) {
                 SalCuaternaria aux = new SalCuaternaria();
                 aux.setVisible(true);
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "seleciona un tipo de compuesto");
+
         }
-       else{
-        JOptionPane.showMessageDialog(this,"seleciona un tipo de compuesto");
-        
-    }
+
     }//GEN-LAST:event_btnListoActionPerformed
 
     private void lsbinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lsbinarioActionPerformed
