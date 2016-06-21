@@ -55,6 +55,7 @@ public class Oxidos extends javax.swing.JFrame {
             .addGap(0, 177, Short.MAX_VALUE)
         );
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jLabel1.setText("Oxidos");
