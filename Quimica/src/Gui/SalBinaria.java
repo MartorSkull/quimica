@@ -45,8 +45,6 @@ public class SalBinaria extends javax.swing.JFrame {
 
         jLabel6.setText("jLabel6");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setText("Sales Binarias");
 
         jLabel2.setText("Hidracidos");
