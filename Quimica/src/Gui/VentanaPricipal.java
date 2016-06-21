@@ -18,6 +18,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
      */
     public VentanaPricipal() {
         initComponents();
+        this.db=new Base();
     }
 
     /* 
@@ -159,7 +160,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
 
             }
             if (lsbinario.getSelectedIndex() == 2) {
-                Hidracidos aux = new Hidracidos();
+                Hidracidos aux = new Hidracidos(this.db);
                 aux.setVisible(true);
 
             }
@@ -253,4 +254,5 @@ public class VentanaPricipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> lscuaternario;
     private javax.swing.JComboBox<String> lsterciario;
     // End of variables declaration//GEN-END:variables
+    private Base db;
 }
