@@ -197,6 +197,7 @@ public class Hidracidos extends javax.swing.JFrame {
 
         if (halogenosok.isSelected()) {
             NewElement = cbhalogeno.getSelectedIndex();
+           
             
 
         }
