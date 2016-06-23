@@ -10,15 +10,29 @@ package Gui;
  * @author tobias
  */
 public class Elemento {
+    int id;
     String nombre;
     String nom;
     int[] estados;
+    int colum;
+    int idColum;
+    
 
-    public Elemento(String nombre, String nom, int[] estados) {
+    public Elemento(int id, String nombre, String nom, int[] estados) {
         this.nombre = nombre;
         this.nom = nom;
         this.estados = estados;
     }
+
+    public Elemento(String nombre, String nom, int[] estados, int colum, int idColum) {
+        this.id = id;
+        this.nombre = nombre;
+        this.nom = nom;
+        this.estados = estados;
+        this.colum = colum;
+        this.idColum = idColum;
+    }
+    
 
     public String getNombre() {
         return nombre;
@@ -43,6 +57,4 @@ public class Elemento {
     public void setEstados(int[] estados) {
         this.estados = estados;
     }
-    
-    
 }

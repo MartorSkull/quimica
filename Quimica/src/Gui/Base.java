@@ -130,7 +130,7 @@ public class Base {
         try {
             while (rsM.next()) {
                 if (rsM.getInt("ID") == id + 1) {
-                    nom = rsM.getString("Nomencaltura");
+                    nom = rsM.getString("Nomenclatura");
                 }
             }
         } catch (SQLException e) {
@@ -223,8 +223,8 @@ public class Base {
         }
         return name;
     }
-    
-        public String getElementColumNameM(int colum, int id) throws SQLException {
+
+    public String getElementColumNameM(int colum, int id) throws SQLException {
         ResultSet rsM = stmt.executeQuery("SELECT * FROM Metales;");
         String name = null;
         try {
@@ -239,5 +239,87 @@ public class Base {
             throw e;
         }
         return name;
+    }
+
+    public String getElementColumNomNM(int colum, int id) throws SQLException {
+        ResultSet rsNM = stmt.executeQuery("SELECT * FROM 'NoMetales';");
+        String nom = null;
+        try {
+            while (rsNM.next()) {
+                if (rsNM.getInt("Columna") == colum) {
+                    if (rsNM.getInt("ID") == id + 1) {
+                        nom = rsNM.getString("Nomenclatura");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return nom;
+    }
+
+    public String getElementColumNomM(int colum, int id) throws SQLException {
+        ResultSet rsM = stmt.executeQuery("SELECT * FROM Metales;");
+        String nom = null;
+        try {
+            while (rsM.next()) {
+                if (rsM.getInt("Columna") == colum) {
+                    if (rsM.getInt("ID") == id + 1) {
+                        nom = rsM.getString("Nomencaltura");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return nom;
+    }
+
+    public int[] getElementColumStatesArrayNM(int colum, int id) throws SQLException {
+        ResultSet rsNM = stmt.executeQuery("SELECT * FROM 'NoMetales';");
+        String strArr = null;
+        int[] arr = null;
+        try {
+            while (rsNM.next()) {
+                if (rsNM.getInt("Columna") == colum) {
+                    if (rsNM.getInt("ID") == id + 1) {
+                        strArr = rsNM.getString("Estados");
+                        break;
+                    }
+                }
+                String[] strings = strArr.replace("[", "").replace("]", "").split(", ");
+                arr = new int[strings.length];
+                for (int i = 0; i < arr.length; i++) {
+                    arr[i] = Integer.parseInt(strings[i]);
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return arr;
+    }
+
+    public int[] getElementColumStatesArrayM(int colum, int id) throws SQLException {
+        ResultSet rsM = stmt.executeQuery("SELECT * FROM Metales;");
+        String strArr = null;
+        int[] arr = null;
+        try {
+            while (rsM.next()) {
+                if (rsM.getInt("Columna") == colum) {
+                    if (rsM.getInt("ID") == id + 1) {
+                        strArr = rsM.getString("Estados");
+                        break;
+                    }
+                }
+                String[] strings = strArr.replace("[", "").replace("]", "").split(", ");
+                arr = new int[strings.length];
+                for (int i = 0; i < arr.length; i++) {
+                    arr[i] = Integer.parseInt(strings[i]);
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return arr;
     }
 }
