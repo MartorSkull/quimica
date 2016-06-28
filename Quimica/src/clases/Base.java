@@ -44,7 +44,6 @@ public class Base {
                 arr[i] = aux;
                 i++;
             }
-
         } catch (SQLException e) {
             throw e;
         }

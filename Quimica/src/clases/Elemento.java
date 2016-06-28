@@ -18,20 +18,41 @@ public class Elemento {
     int idColum;
     float eleneg;
 
-    public Elemento(int id, String nombre, String nom, int[] estados) {
+    public Elemento(String nombre, String nom, int[] estados, float eleneg) {
         this.nombre = nombre;
         this.nom = nom;
         this.estados = estados;
+        this.eleneg = eleneg;
     }
 
-    public Elemento(String nombre, String nom, int[] estados, int colum, int idColum) {
+    public Elemento(int id, String nombre, String nom, int[] estados, float eleneg) {
+        this.nombre = nombre;
+        this.nom = nom;
+        this.estados = estados;
+        this.eleneg=eleneg;
+    }
+
+    public Elemento(String nombre, String nom, int[] estados, float eleneg, int colum, int idColum) {
+        this.id = id;
+        this.nombre = nombre;
+        this.nom = nom;
+        this.estados = estados;
+        this.eleneg = eleneg;
+        this.colum = colum;
+        this.idColum = idColum;
+    }
+
+    public Elemento(int id, String nombre, String nom, int[] estados, int colum, int idColum, float eleneg) {
         this.id = id;
         this.nombre = nombre;
         this.nom = nom;
         this.estados = estados;
         this.colum = colum;
         this.idColum = idColum;
+        this.eleneg = eleneg;
     }
+    
+    
     
 
     public String getNombre() {

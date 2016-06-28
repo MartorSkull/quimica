@@ -224,7 +224,8 @@ public class Hidracidos extends javax.swing.JFrame {
             colum = 2;
         }
         try {
-            Elemento ele = new Elemento(this.db.getElementColumNameM(colum, newElement), this.db.getElementColumNomM(colum, newElement), this.db.getElementColumStatesArrayM(colum, newElement), colum, newElement);
+            Elemento ele;
+            ele = new Elemento(this.db.getElementColumNameM(colum, newElement), this.db.getElementColumNomM(colum, newElement), this.db.getElementColumStatesArrayM(colum, newElement), this.db.getElementColumElenegM(colum, newElement),colum, newElement);
             tfRes.setText("hola");
         } catch (SQLException e) {
             System.out.println(e.getClass().getName()+": "+e.getMessage());
