@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Gui;
+package clases;
 
 /**
  *
@@ -15,9 +15,11 @@ public class Formulas {
         int[] cant = {0, 0};
         for (int i = 0; i < 5; i++) {
             for (int e = 0; e < 5; i++) {
+                System.out.println(i*estado1+"+"+e*estado2);
                 if ((i * estado1) + (e * estado2) == 0) {
                     cant[0] = i;
                     cant[1] = e;
+                    return cant;
                 }
             }
         }

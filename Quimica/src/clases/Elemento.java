@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Gui;
+package clases;
 
 /**
  *
@@ -57,4 +57,29 @@ public class Elemento {
     public void setEstados(int[] estados) {
         this.estados = estados;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getColum() {
+        return colum;
+    }
+
+    public void setColum(int colum) {
+        this.colum = colum;
+    }
+
+    public int getIdColum() {
+        return idColum;
+    }
+
+    public void setIdColum(int idColum) {
+        this.idColum = idColum;
+    }
+    
 }

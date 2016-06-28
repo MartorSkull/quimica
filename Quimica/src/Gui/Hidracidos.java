@@ -5,6 +5,9 @@
  */
 package Gui;
 
+import clases.Base;
+import clases.Formulas;
+import clases.Elemento;
 import java.sql.SQLException;
 
 /**
@@ -223,8 +226,8 @@ public class Hidracidos extends javax.swing.JFrame {
         }
         try {
             Elemento ele = new Elemento(this.db.getElementColumNameM(colum, newElement), this.db.getElementColumNomM(colum, newElement), this.db.getElementColumStatesArrayM(colum, newElement), colum, newElement);
-            int[] h=fm.calcularDos(-1, this.db.getElementColumStatesArrayM(colum, newElement)[0]);
-            tfRes.setText("H"+h[0]+this.db.getElementColumNomM(colum, newElement)+h[1]);
+            int[] h=this.fm.calcularDos(ele.getEstados()[0], -1);
+            tfRes.setText("H"+h[0]+ele.getNom()+h[1]);
         } catch (SQLException e) {
             System.out.println(e.getClass().getName()+": "+e.getMessage());
         }
