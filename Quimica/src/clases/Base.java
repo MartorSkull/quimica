@@ -469,4 +469,68 @@ public class Base {
         }
         return arr;
     }
+
+    public float getElementElenegNM(int id) throws SQLException {
+        ResultSet rsNM = stmt.executeQuery("SELECT * FROM NoMetales;");
+        float eleneg = 0.0f;
+        try {
+            while (rsNM.next()) {
+                if (rsNM.getInt("ID") == id + 1) {
+                    eleneg = rsNM.getFloat("Eleneg");
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return eleneg;
+    }
+
+    public float getElementElenegM(int id) throws SQLException {
+        ResultSet rsM = stmt.executeQuery("SELECT * FROM Metales;");
+        float eleneg = 0.0f;
+        try {
+            while (rsM.next()) {
+                if (rsM.getInt("ID") == id + 1) {
+                    eleneg = rsM.getFloat("Eleneg");
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return eleneg;
+    }
+
+    public float getElementColumElenegNM(int colum, int id) throws SQLException {
+        ResultSet rsNM = stmt.executeQuery("SELECT * FROM NoMetales;");
+        float eleneg = 0.0f;
+        try {
+            while (rsNM.next()) {
+                if (rsNM.getInt("Columna") == colum) {
+                    if (rsNM.getInt("IDColum") == id + 1) {
+                        eleneg = rsNM.getFloat("Eleneg");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return eleneg;
+    }
+
+    public float getElementColumElenegM(int colum, int id) throws SQLException {
+        ResultSet rsM = stmt.executeQuery("SELECT * FROM Metales;");
+        float eleneg = 0.0f;
+        try {
+            while (rsM.next()) {
+                if (rsM.getInt("Columna") == colum) {
+                    if (rsM.getInt("IDColum") == id + 1) {
+                        eleneg = rsM.getFloat("Eleneg");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return eleneg;
+    }
 }

@@ -16,7 +16,7 @@ public class Elemento {
     int[] estados;
     int colum;
     int idColum;
-    
+    float eleneg;
 
     public Elemento(int id, String nombre, String nom, int[] estados) {
         this.nombre = nombre;
@@ -80,6 +80,14 @@ public class Elemento {
 
     public void setIdColum(int idColum) {
         this.idColum = idColum;
+    }
+
+    public float getEleneg() {
+        return eleneg;
+    }
+
+    public void setEleneg(float eleneg) {
+        this.eleneg = eleneg;
     }
     
 }
