@@ -1,5 +1,7 @@
 package Gui;
 
+import clases.Base;
+import clases.Reaccion;
 import javax.swing.JOptionPane;
 
 /*
@@ -231,7 +233,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaPricipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+            
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

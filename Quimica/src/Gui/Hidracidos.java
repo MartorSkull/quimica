@@ -5,6 +5,8 @@
  */
 package Gui;
 
+import clases.Base;
+import clases.Elemento;
 import java.sql.SQLException;
 
 /**
@@ -23,8 +25,11 @@ public class Hidracidos extends javax.swing.JFrame {
             for (String i : this.db.getElementColumArrayM(1)) {
                 this.cbhalogeno.addItem(i);
             }
+            for (String e : this.db.getElementColumArrayM(2)) {
+                this.cbantigeno.addItem(e);
+            }
         } catch (SQLException e) {
-            System.out.println(e.getClass().getName()+": "+e.getMessage());
+            System.out.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -47,14 +52,13 @@ public class Hidracidos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
         halogenosok = new javax.swing.JRadioButton();
         antigenosok = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
+        tfRes = new javax.swing.JTextField();
 
         jLabel1.setText("Hidracidos");
 
@@ -82,8 +86,7 @@ public class Hidracidos extends javax.swing.JFrame {
 
         jLabel8.setText("=");
 
-        jScrollPane1.setViewportView(jTextPane1);
-
+        jTextPane2.setEditable(false);
         jScrollPane2.setViewportView(jTextPane2);
 
         jButton1.setText("Crear");
@@ -105,6 +108,8 @@ public class Hidracidos extends javax.swing.JFrame {
         antigenosok.setText("Antigenos");
 
         jButton2.setText("Menu");
+
+        tfRes.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,17 +151,17 @@ public class Hidracidos extends javax.swing.JFrame {
                                     .addComponent(cbantigeno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(4, 4, 4)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))))
+                        .addGap(41, 41, 41))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfRes))
+                        .addGap(20, 20, 20))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,19 +179,15 @@ public class Hidracidos extends javax.swing.JFrame {
                     .addComponent(cbhalogeno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(antigenosok))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)))
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel8)
+                    .addComponent(tfRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(antigenosok)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
@@ -211,11 +212,23 @@ public class Hidracidos extends javax.swing.JFrame {
     }//GEN-LAST:event_cbhalogenoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int NewElement;
+        int newElement=1;
+        int colum=1;
 
         if (halogenosok.isSelected()) {
-            NewElement = cbhalogeno.getSelectedIndex();
+            newElement = cbhalogeno.getSelectedIndex();
+            colum = 1;
 
+        } else if (antigenosok.isSelected()) {
+            newElement = cbantigeno.getSelectedIndex();
+            colum = 2;
+        }
+        try {
+            Elemento ele;
+            ele = new Elemento(this.db.getElementColumNameM(colum, newElement), this.db.getElementColumNomM(colum, newElement), this.db.getElementColumStatesArrayM(colum, newElement), this.db.getElementColumElenegM(colum, newElement),colum, newElement);
+            tfRes.setText("hola");
+        } catch (SQLException e) {
+            System.out.println(e.getClass().getName()+": "+e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -237,11 +250,10 @@ public class Hidracidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JTextField tfRes;
     // End of variables declaration//GEN-END:variables
     private Base db;
 }
