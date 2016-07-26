@@ -46,21 +46,73 @@ public class Reaccion {
     }
 
     private Compuesto hidruro_nometalico(Elemento ele) {
-        String nom=null;
+        Compuesto hnm = null;
         try {
-            Elemento H = new Elemento(1, this.db.getElementNameNM(0), this.db.getElementNomNM(0), this.db.getElementStatesArrayM(0), this.db.getElementElenegM(0));
-            if (ele.getEleneg()<H.getEleneg()){
-                
+            Elemento h = new Elemento(1, this.db.getElementNameNM(0), this.db.getElementNomNM(0), this.db.getElementStatesArrayNM(0), this.db.getElementStatesArrayNM(0)[1], this.db.getElementElenegNM(0));
+            Elemento[] arr = {ele, h};
+            int[] cant = new int[2];
+            String nom = null;
+            for (int i = 1; i <= ele.getEstado_used(); i++) {
+                for (int a = 1; a <= ele.getEstado_used(); i++) {
+                    if ((ele.getEstado_used() * i) - (h.getEstado_used() * a) == 0) {
+                        cant[0] = i;
+                        cant[1] = a;
+                        System.out.println("funco");
+                        break;
+                    }
+                }
             }
+            if (cant[0] == 1) {
+                nom = ele.getNom() + h.getNom() + cant[1];
+            } else if (cant[1] == 1) {
+                nom = ele.getNom() + cant[0] + h.getNom();
+            } else if (cant[0] == 1 && cant[1] == 1) {
+                nom = ele.getNom() + h.getNom();
+            } else {
+                nom = ele.getNom() + cant[0] + h.getNom() + cant[1];
+            }
+            nom = ele.getNom() + cant[0] + h.getNom() + cant[1];
+            hnm = new Compuesto(arr, arr.length, cant, "sha cazi", nom, Reaccion.HIDRURO_NOMETALICO);
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
+        return hnm;
     }
 
     private Compuesto hidruro_metalico(Elemento ele) {
-
+        Compuesto hm = null;
+        try {
+            Elemento h = new Elemento(1, this.db.getElementNameNM(0), this.db.getElementNomNM(0), this.db.getElementStatesArrayNM(0), this.db.getElementStatesArrayNM(0)[1], this.db.getElementElenegNM(0));
+            Elemento[] arr = {h, ele};
+            int[] cant = new int[2];
+            String nom = null;
+            for (int i = 1; i <= ele.getEstado_used(); i++) {
+                for (int a = 1; a <= ele.getEstado_used(); i++) {
+                    if ((ele.getEstado_used() * a) - (h.getEstado_used() * i) == 0) {
+                        cant[0] = i;
+                        cant[1] = a;
+                        System.out.println("funco");
+                        break;
+                    }
+                }
+            }
+            if (cant[0] == 1) {
+                nom = ele.getNom() + h.getNom() + cant[1];
+            } else if (cant[1] == 1) {
+                nom = ele.getNom() + cant[0] + h.getNom();
+            } else if (cant[0] == 1 && cant[1] == 1) {
+                nom = h.getNom() + ele.getNom();
+            } else {
+                nom =h.getNom() + cant[1] +  ele.getNom() + cant[0];
+            }
+            nom = ele.getNom() + cant[0] + h.getNom() + cant[1];
+            hm = new Compuesto(arr, arr.length, cant, "sha cazi", nom, Reaccion.HIDRURO_METALICO);
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+        return hm;
     }
-
+/*
     private Compuesto oxido_basico(Elemento ele) {
 
     }
@@ -98,6 +150,7 @@ public class Reaccion {
     }
 
     private Compuesto sal_mixta(Compuesto oxoacido, Compuesto hidroxido1, Compuesto hidroxido2) {
-
+        
     }
+*/
 }

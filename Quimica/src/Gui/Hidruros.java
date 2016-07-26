@@ -8,19 +8,6 @@ public class Hidruros extends javax.swing.JFrame {
      */
     public Hidruros() {
         initComponents();
-        Connection c = null;
-        Statement stmt =null;
-        try{
-            Class.forName("org.sqlite.JDBC");
-            c=DriverManager.getConnection("jdbc:sqlite:elementos.sqlite");
-            c.setAutoCommit(false);
-            ResultSet rs = stmt.executeQuery("SELECT * FROM NoMetales;");
-            while(rs.next()){
-                
-            }
-        }catch(Exception e){
-            
-        }
     }
 
     /**
