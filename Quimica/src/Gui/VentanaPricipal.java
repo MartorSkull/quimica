@@ -157,7 +157,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
 
             }
             if (lsbinario.getSelectedIndex() == 1) {
-                Hidruros aux = new Hidruros();
+                Hidruros aux = new Hidruros(this.db);
                 aux.setVisible(true);
 
             }

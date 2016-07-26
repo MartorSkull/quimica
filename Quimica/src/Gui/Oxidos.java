@@ -56,6 +56,7 @@ public class Oxidos extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setText("Oxidos");
 
@@ -225,7 +226,7 @@ public class Oxidos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenuActionPerformed
-        
+
                 
     }//GEN-LAST:event_btnmenuActionPerformed
 
