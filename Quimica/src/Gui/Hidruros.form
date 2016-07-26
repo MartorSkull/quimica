@@ -240,7 +240,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextPane" name="txtr1">
+        <Component class="javax.swing.JTextPane" name="resM">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
@@ -302,6 +302,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="combinar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn2">
       <Properties>

@@ -46,8 +46,10 @@ public class Reaccion {
         this.db = db;
         this.elementos = elementos;
         this.cantAtoms = cantAtoms;
-        if(tipo == Reaccion.HIDRURO_NOMETALICO){
-            this.compuesto=this.hidruro_nometalico(elementos);
+        if (tipo == Reaccion.HIDRURO_NOMETALICO) {
+            this.compuesto = this.hidruro_nometalico(elementos);
+        } else if (tipo == Reaccion.HIDRURO_METALICO) {
+            this.compuesto = this.hidruro_metalico(elementos);
         }
     }
 
@@ -67,7 +69,7 @@ public class Reaccion {
                     if ((ele[0].getEstado_used() * i) - (h.getEstado_used() * a) == 0) {
                         cant[0] = i;
                         cant[1] = a;
-                        System.out.println("funco");
+                        System.out.println("funco " + i + a);
                         break;
                     }
                 }
@@ -92,30 +94,31 @@ public class Reaccion {
     private Compuesto hidruro_metalico(Elemento[] ele) {
         Compuesto hm = null;
         try {
-            Elemento h = new Elemento(1, this.db.getElementNameNM(0), this.db.getElementNomNM(0), this.db.getElementStatesArrayNM(0), this.db.getElementStatesArrayNM(0)[1], this.db.getElementElenegNM(0));
+            Elemento h = new Elemento(1, this.db.getElementNameNM(0), this.db.getElementNomNM(0), this.db.getElementStatesArrayNM(0), this.db.getElementStatesArrayNM(0)[0], this.db.getElementElenegNM(0));
             Elemento[] arr = {h, ele[0]};
             int[] cant = new int[2];
             String nom = null;
             for (int i = 1; i <= ele[0].getEstado_used(); i++) {
                 for (int a = 1; a <= ele[0].getEstado_used(); i++) {
+                    System.out.println("nofunco" + i + a);
                     if ((ele[0].getEstado_used() * a) - (h.getEstado_used() * i) == 0) {
                         cant[0] = i;
                         cant[1] = a;
-                        System.out.println("funco");
+                        System.out.println("funco" + i + a);
                         break;
                     }
                 }
             }
-            if (cant[0] == 1) {
+            if (cant[0] == 1 && cant[1] == 1) {
+                nom = h.getNom() + ele[0].getNom();
+            }else if (cant[0] == 1) {
                 nom = ele[0].getNom() + h.getNom() + cant[1];
             } else if (cant[1] == 1) {
                 nom = ele[0].getNom() + cant[0] + h.getNom();
-            } else if (cant[0] == 1 && cant[1] == 1) {
-                nom = h.getNom() + ele[0].getNom();
             } else {
                 nom = h.getNom() + cant[1] + ele[0].getNom() + cant[0];
             }
-            nom = ele[0].getNom() + cant[0] + h.getNom() + cant[1];
+            System.out.println(nom);
             hm = new Compuesto(arr, arr.length, cant, "sha cazi", nom, Reaccion.HIDRURO_METALICO);
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());

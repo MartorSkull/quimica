@@ -1,8 +1,8 @@
-
-
 package Gui;
+
 import clases.Base;
 import clases.Elemento;
+import clases.Reaccion;
 import java.sql.SQLException;
 
 public class Hidruros extends javax.swing.JFrame {
@@ -27,7 +27,6 @@ public class Hidruros extends javax.swing.JFrame {
             System.out.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,7 +52,7 @@ public class Hidruros extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtr1 = new javax.swing.JTextPane();
+        resM = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtr2 = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -88,8 +87,8 @@ public class Hidruros extends javax.swing.JFrame {
 
         jLabel9.setText("=");
 
-        txtr1.setEditable(false);
-        jScrollPane1.setViewportView(txtr1);
+        resM.setEditable(false);
+        jScrollPane1.setViewportView(resM);
 
         txtr2.setEditable(false);
         jScrollPane2.setViewportView(txtr2);
@@ -107,6 +106,11 @@ public class Hidruros extends javax.swing.JFrame {
         jLabel10.setText("Nota: el estado de oxidacion del (H) en M es -1. En los NM es +1");
 
         btn1.setText("combinar");
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
 
         btn2.setText("combinar");
 
@@ -218,6 +222,26 @@ public class Hidruros extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        // TODO add your handling code here:
+        Reaccion r = null;
+        int id = 0;
+        int colum = this.cbmetales.getSelectedIndex();
+        int estado = 1;
+        if (this.cbmetales.getSelectedIndex() >= 4) {
+            id = this.cbmetales.getSelectedIndex() - 4;
+            colum = 2;
+            estado = 2;
+        }
+        try {
+            Elemento[] a = {this.db.getElementoCompletoColumM(id+1, colum, estado)};
+            r = new Reaccion(this.db, a, Reaccion.HIDRURO_METALICO);
+            this.resM.setText(r.getCompuesto().getNom());
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + " : " + e.getMessage());
+        }
+    }//GEN-LAST:event_btn1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
@@ -240,9 +264,9 @@ public class Hidruros extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextPane resM;
     private javax.swing.JTextArea txtinfo1;
     private javax.swing.JTextArea txtinfo2;
-    private javax.swing.JTextPane txtr1;
     private javax.swing.JTextPane txtr2;
     // End of variables declaration//GEN-END:variables
     private Base db;
