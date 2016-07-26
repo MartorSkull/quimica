@@ -36,7 +36,7 @@ public class Base {
      */
     public String[] getElementNameArrayNM() throws SQLException {
         ResultSet rsNM = stmt.executeQuery("SELECT * FROM 'NoMetales';");
-        String[] arr = new String[64];
+        String[] arr = new String[15];
         int i = 0;
         try {
             while (rsNM.next()) {
@@ -59,7 +59,7 @@ public class Base {
      */
     public String[] getElementNameArrayM() throws SQLException {
         ResultSet rsM = stmt.executeQuery("SELECT * FROM Metales;");
-        String[] arr = new String[64];
+        String[] arr = new String[34];
         int i = 0;
         try {
             while (rsM.next()) {
