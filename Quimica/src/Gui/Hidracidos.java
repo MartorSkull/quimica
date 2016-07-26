@@ -223,13 +223,6 @@ public class Hidracidos extends javax.swing.JFrame {
             newElement = cbantigeno.getSelectedIndex();
             colum = 2;
         }
-        try {
-            Elemento ele;
-            ele = new Elemento(this.db.getElementColumNameM(colum, newElement), this.db.getElementColumNomM(colum, newElement), this.db.getElementColumStatesArrayM(colum, newElement), this.db.getElementColumElenegM(colum, newElement),colum, newElement);
-            tfRes.setText("hola");
-        } catch (SQLException e) {
-            System.out.println(e.getClass().getName()+": "+e.getMessage());
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void halogenosokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halogenosokActionPerformed

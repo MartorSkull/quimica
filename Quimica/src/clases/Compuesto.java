@@ -16,6 +16,7 @@ public class Compuesto {
     private String molecula;
     private String nom;
     private int tipo;
+    private int[] estado;
 
     public Compuesto(Elemento[] elementos, int cantAtoms, int[] cant, String molecula, String nom, int tipo) {
         this.elementos = elementos;

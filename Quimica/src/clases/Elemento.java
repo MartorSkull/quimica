@@ -10,29 +10,33 @@ package clases;
  * @author tobias
  */
 public class Elemento {
-    int id;
-    String nombre;
-    String nom;
-    int[] estados;
-    int colum;
-    int idColum;
-    float eleneg;
 
-    public Elemento(String nombre, String nom, int[] estados, float eleneg) {
+    private int id;
+    private String nombre;
+    private String nom;
+    private int[] estados;
+    private int colum;
+    private int idColum;
+    private float eleneg;
+    private int estado_used;
+
+    public Elemento(String nombre, String nom, int[] estados, int estado_used, float eleneg) {
         this.nombre = nombre;
         this.nom = nom;
         this.estados = estados;
         this.eleneg = eleneg;
+        this.estado_used=estado_used;
     }
 
-    public Elemento(int id, String nombre, String nom, int[] estados, float eleneg) {
+    public Elemento(int id, String nombre, String nom, int[] estados, int estado_used, float eleneg) {
         this.nombre = nombre;
         this.nom = nom;
         this.estados = estados;
-        this.eleneg=eleneg;
+        this.eleneg = eleneg;
+        this.estado_used=estado_used;
     }
 
-    public Elemento(String nombre, String nom, int[] estados, float eleneg, int colum, int idColum) {
+    public Elemento(String nombre, String nom, int[] estados, int estado_used, float eleneg, int colum, int idColum) {
         this.id = id;
         this.nombre = nombre;
         this.nom = nom;
@@ -40,9 +44,10 @@ public class Elemento {
         this.eleneg = eleneg;
         this.colum = colum;
         this.idColum = idColum;
+        this.estado_used = estado_used;
     }
 
-    public Elemento(int id, String nombre, String nom, int[] estados, int colum, int idColum, float eleneg) {
+    public Elemento(int id, String nombre, String nom, int[] estados, int estado_used, int colum, int idColum, float eleneg) {
         this.id = id;
         this.nombre = nombre;
         this.nom = nom;
@@ -50,10 +55,8 @@ public class Elemento {
         this.colum = colum;
         this.idColum = idColum;
         this.eleneg = eleneg;
+        this.estado_used = estado_used;
     }
-    
-    
-    
 
     public String getNombre() {
         return nombre;
@@ -110,5 +113,13 @@ public class Elemento {
     public void setEleneg(float eleneg) {
         this.eleneg = eleneg;
     }
-    
+
+    public int getEstado_used() {
+        return estado_used;
+    }
+
+    public void setEstado_used(int estado_used) {
+        this.estado_used = estado_used;
+    }
+
 }
