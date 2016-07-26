@@ -47,7 +47,14 @@ public class Elemento {
         this.estado_used = estado_used;
     }
 
-    public Elemento(int id, String nombre, String nom, int[] estados, int estado_used, int colum, int idColum, float eleneg) {
+    public Elemento(int id, 
+            String nombre, 
+            String nom, 
+            int[] estados, 
+            int estado_used, 
+            int colum, 
+            int idColum, 
+            float eleneg) {
         this.id = id;
         this.nombre = nombre;
         this.nom = nom;

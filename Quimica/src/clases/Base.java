@@ -532,4 +532,92 @@ public class Base {
         }
         return eleneg;
     }
+
+    private int[] getElementColumNM(int id) throws SQLException {
+        ResultSet rsNM = stmt.executeQuery("SELECT * FROM NoMetales;");
+        int[] colum = {0, 0};
+        try {
+            while (rsNM.next()) {
+                if (rsNM.getInt("ID") == id) {
+                    colum[0] = rsNM.getInt("Columna");
+                    colum[1] = rsNM.getInt("IDColum");
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return colum;
+    }
+
+    private int[] getElementColumM(int id) throws SQLException {
+        ResultSet rsM = stmt.executeQuery("SELECT * FROM Metales;");
+        int[] colum = {0, 0};
+        try {
+            while (rsM.next()) {
+                if (rsM.getInt("ID") == id) {
+                    colum[0] = rsM.getInt("Columna");
+                    colum[1] = rsM.getInt("IDColum");
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return colum;
+    }
+
+    public Elemento getElementoCompletoNM(int id, int estado_used) throws SQLException {
+
+        Elemento a;
+        a = new Elemento(id,
+                this.getElementNameNM(id),
+                this.getElementNomNM(id),
+                this.getElementStatesArrayNM(id),
+                estado_used,
+                this.getElementColumNM(id)[0],
+                this.getElementColumNM(id)[1],
+                this.getElementElenegNM(id));
+        return a;
+    }
+
+    public Elemento getElementoCompletoM(int id, int estado_used) throws SQLException {
+
+        Elemento a;
+        a = new Elemento(id,
+                this.getElementNameM(id),
+                this.getElementNomM(id),
+                this.getElementStatesArrayM(id),
+                estado_used,
+                this.getElementColumM(id)[0],
+                this.getElementColumM(id)[1],
+                this.getElementElenegM(id));
+        return a;
+    }
+
+    public Elemento getElementoCompletoColumNM(int id, int colum, int estado_used) throws SQLException {
+
+        Elemento a;
+        a = new Elemento(id,
+                this.getElementColumNameNM(colum, id),
+                this.getElementColumNomNM(colum, id),
+                this.getElementColumStatesArrayNM(colum, id),
+                estado_used,
+                colum,
+                id,
+                this.getElementColumElenegNM(colum, id));
+        return a;
+    }
+
+    public Elemento getElementoCompletoColumM(int id, int colum, int estado_used) throws SQLException {
+
+        Elemento a;
+        a = new Elemento(id,
+                this.getElementColumNameM(colum, id),
+                this.getElementColumNomM(colum, id),
+                this.getElementColumStatesArrayM(colum, id),
+                estado_used,
+                colum,
+                id,
+                this.getElementColumElenegM(colum, id));
+        return a;
+    }
 }
