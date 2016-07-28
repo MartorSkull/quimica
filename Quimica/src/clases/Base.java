@@ -446,11 +446,13 @@ public class Base {
      * @throws SQLException
      */
     public int[] getElementColumStatesArrayM(int colum, int id) throws SQLException {
-        ResultSet rsM = stmt.executeQuery("SELECT * FROM Metales;");
+        ResultSet rsM = stmt.executeQuery("SELECT * FROM Metales;");        
         String strArr = null;
         int[] arr = null;
+        System.out.println("Columna: " + colum);
         try {
-            while (rsM.next()) {
+            while (rsM.next()) {                
+                System.out.println(rsM.getInt("Columna"));
                 if (rsM.getInt("Columna") == colum) {
                     if (rsM.getInt("IDColum") == id + 1) {
                         strArr = rsM.getString("Estados");
@@ -458,6 +460,7 @@ public class Base {
                     }
                 }
             }
+            System.out.println(strArr);
             String[] strings = strArr.replace("[", "").replace("]", "").split(", ");
             arr = new int[strings.length];
             for (int i = 0; i < arr.length; i++) {

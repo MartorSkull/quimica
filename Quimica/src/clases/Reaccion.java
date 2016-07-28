@@ -112,9 +112,9 @@ public class Reaccion {
             if (cant[0] == 1 && cant[1] == 1) {
                 nom = h.getNom() + ele[0].getNom();
             }else if (cant[0] == 1) {
-                nom = ele[0].getNom() + h.getNom() + cant[1];
+                nom = h.getNom() + cant[1] + ele[0].getNom();
             } else if (cant[1] == 1) {
-                nom = ele[0].getNom() + cant[0] + h.getNom();
+                nom =h.getNom() + ele[0].getNom() + cant[0];
             } else {
                 nom = h.getNom() + cant[1] + ele[0].getNom() + cant[0];
             }

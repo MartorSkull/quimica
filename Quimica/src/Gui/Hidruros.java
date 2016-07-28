@@ -225,8 +225,8 @@ public class Hidruros extends javax.swing.JFrame {
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
         Reaccion r = null;
-        int id = 0;
-        int colum = this.cbmetales.getSelectedIndex();
+        int id = this.cbmetales.getSelectedIndex();
+        int colum = 1;
         int estado = 1;
         if (this.cbmetales.getSelectedIndex() >= 4) {
             id = this.cbmetales.getSelectedIndex() - 4;
@@ -234,7 +234,7 @@ public class Hidruros extends javax.swing.JFrame {
             estado = 2;
         }
         try {
-            Elemento[] a = {this.db.getElementoCompletoColumM(id+1, colum, estado)};
+            Elemento[] a = {this.db.getElementoCompletoColumM(id, colum, estado)};
             r = new Reaccion(this.db, a, Reaccion.HIDRURO_METALICO);
             this.resM.setText(r.getCompuesto().getNom());
         } catch (SQLException e) {
