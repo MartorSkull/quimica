@@ -152,7 +152,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
         if (Cbbinario.isSelected()) {
 
             if (lsbinario.getSelectedIndex() == 0) {
-                Oxidos aux = new Oxidos();
+                Oxidos aux = new Oxidos(this.db);
                 aux.setVisible(true);
 
             }

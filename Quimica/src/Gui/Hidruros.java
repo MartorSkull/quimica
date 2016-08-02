@@ -20,9 +20,25 @@ public class Hidruros extends javax.swing.JFrame {
             for (String i : this.db.getElementColumArrayM(2)) {
                 this.cbmetales.addItem(i);
             }
-            for (String e : this.db.getElementNameArrayNM()) {
+            
+            
+            
+            for (String e : this.db.getElementColumArrayNM(13)) {
                 this.cbnometales.addItem(e);
             }
+            for (String e : this.db.getElementColumArrayNM(14)) {
+                this.cbnometales.addItem(e);
+            }
+            for (String e : this.db.getElementColumArrayNM(15)) {
+                this.cbnometales.addItem(e);
+            }
+            for (String e : this.db.getElementColumArrayNM(16)) {
+                this.cbnometales.addItem(e);
+            }
+            for (String e : this.db.getElementColumArrayNM(17)) {
+                this.cbnometales.addItem(e);
+            }
+            
         } catch (SQLException e) {
             System.out.println(e.getClass().getName() + ": " + e.getMessage());
         }
@@ -113,6 +129,11 @@ public class Hidruros extends javax.swing.JFrame {
         });
 
         btn2.setText("combinar");
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,6 +262,12 @@ public class Hidruros extends javax.swing.JFrame {
             System.err.println(e.getClass().getName() + " : " + e.getMessage());
         }
     }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_btn2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;

@@ -1,11 +1,33 @@
 package Gui;
+
+import clases.Base;
+import clases.Elemento;
+import clases.Reaccion;
+import java.sql.SQLException;
+
+
+
 public class Oxidos extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form Oxidos
      */
-    public Oxidos() {
+    public Oxidos(Base db) {
         initComponents();
+        this.db = db;
+        try {
+            for (String i : this.db.getElementColumArrayM(1)) {
+                this.cbmetal.addItem(i);
+            }
+            
+          for (String i : this.db.getElementNameArrayM()) {
+                this.cbnometal.addItem(i);
+            }  
+        
+        }catch (SQLException e) {
+            System.out.println(e.getClass().getName() + ": " + e.getMessage());
+        }
     }
 
     /**
@@ -22,25 +44,25 @@ public class Oxidos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbmetal = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        res1 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         btnmenu = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbnometal = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btn1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
 
@@ -63,6 +85,12 @@ public class Oxidos extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Ubuntu Medium", 1, 18)); // NOI18N
         jLabel2.setText("Basicos");
 
+        cbmetal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmetalActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Metal");
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -73,11 +101,11 @@ public class Oxidos extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jLabel7.setText("=");
 
-        jButton1.setText("crear");
+        btn2.setText("crear");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        res1.setColumns(20);
+        res1.setRows(5);
+        jScrollPane1.setViewportView(res1);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel8.setText("Acidos");
@@ -99,7 +127,12 @@ public class Oxidos extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel12.setText("=");
 
-        jButton3.setText("crear");
+        btn1.setText("crear");
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -128,7 +161,7 @@ public class Oxidos extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbmetal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -138,7 +171,7 @@ public class Oxidos extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47))
@@ -150,7 +183,7 @@ public class Oxidos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbnometal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -161,7 +194,7 @@ public class Oxidos extends javax.swing.JFrame {
                                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel9))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(83, 83, 83)))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)))
@@ -182,22 +215,20 @@ public class Oxidos extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbmetal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(74, 74, 74)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jLabel4)
+                                .addGap(47, 47, 47)
+                                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -211,12 +242,12 @@ public class Oxidos extends javax.swing.JFrame {
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbnometal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel11)
                                     .addComponent(jLabel12)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 85, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
@@ -230,12 +261,39 @@ public class Oxidos extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_btnmenuActionPerformed
 
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+    
+        Reaccion r = null;
+        int id = this.cbmetal.getSelectedIndex();
+        int colum = 1;
+        int estado = 1;
+        if (this.cbmetal.getSelectedIndex() >= 4) {
+            id = this.cbmetal.getSelectedIndex() - 4;
+            colum = 2;
+            estado = 2;
+        }
+        try {
+            Elemento[] a = {this.db.getElementoCompletoColumM(id, colum, estado)};
+            r = new Reaccion(this.db, a, Reaccion.OXIDO_BASICO);
+            this.res1.setText(r.getCompuesto().getNom());
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + " : " + e.getMessage());
+        }
+        
+        
+        
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void cbmetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalActionPerformed
+        
+    }//GEN-LAST:event_cbmetalActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn1;
+    private javax.swing.JButton btn2;
     private javax.swing.JButton btnmenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> cbmetal;
+    private javax.swing.JComboBox<String> cbnometal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -253,9 +311,10 @@ public class Oxidos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextArea res1;
     // End of variables declaration//GEN-END:variables
+  private Base db;
 }
