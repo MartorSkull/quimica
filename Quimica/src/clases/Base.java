@@ -1,6 +1,7 @@
 package clases;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -38,11 +39,16 @@ public class Base {
         ResultSet rsNM = stmt.executeQuery("SELECT * FROM 'NoMetales';");
         String[] arr = new String[15];
         int i = 0;
+        boolean firs = false;
         try {
             while (rsNM.next()) {
-                String aux = rsNM.getString("Nombre");
-                arr[i] = aux;
-                i++;
+                if (firs) {
+                    String aux = rsNM.getString("Nombre");
+                    arr[i] = aux;
+                    i++;
+                } else {
+                    firs = true;
+                }
             }
         } catch (SQLException e) {
             throw e;
@@ -619,5 +625,95 @@ public class Base {
                 id,
                 this.getElementColumElenegM(colum, id));
         return a;
+    }
+
+    public ArrayList<Elemento> getElementArrayNM() throws SQLException {
+        ArrayList<Elemento> arr = new ArrayList();
+        boolean firs = false;
+        try {
+            System.out.println(getElementNameArrayNM().length);
+            for (int i = 0; i < getElementNameArrayNM().length; i++) {
+                if (firs) {
+                    Elemento aux = new Elemento(i,
+                            this.getElementNameNM(i),
+                            this.getElementNomNM(i),
+                            this.getElementStatesArrayNM(i),
+                            this.getElementColumNM(i)[0],
+                            this.getElementColumNM(i)[1],
+                            this.getElementElenegNM(i));
+                    arr.add(aux);
+                } else {
+                    firs = true;
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return arr;
+    }
+
+    public ArrayList<Elemento> getElementArrayM() throws SQLException {
+        ArrayList<Elemento> arr = new ArrayList();
+        try {
+            for (int i = 0; i < this.getElementNameArrayM().length; i++) {
+                Elemento aux = new Elemento(i,
+                        this.getElementNameM(i),
+                        this.getElementNomM(i),
+                        this.getElementStatesArrayM(i),
+                        this.getElementColumM(i)[0],
+                        this.getElementColumM(i)[1],
+                        this.getElementElenegM(i));
+                arr.add(aux);
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return arr;
+    }
+
+    public ArrayList<Elemento> getElementColumArrayListNM(int colum) throws SQLException {
+        ResultSet rsNM = stmt.executeQuery("SELECT * FROM 'NoMetales';");
+        ArrayList<Elemento> arr = new ArrayList();
+        try {
+            while (rsNM.next()) {
+                if (rsNM.getInt("Columna") == colum) {
+                    int n = rsNM.getInt("ID");
+                    Elemento aux = new Elemento(n,
+                            this.getElementNameNM(n),
+                            this.getElementNomNM(n),
+                            this.getElementStatesArrayNM(n),
+                            this.getElementColumNM(n)[0],
+                            this.getElementColumNM(n)[1],
+                            this.getElementElenegNM(n));
+                    arr.add(aux);
+                }
+            }
+        } catch (SQLException e) {
+            throw e;
+        }
+        return arr;
+    }
+
+    public ArrayList<Elemento> getElementColumArrayListM(int colum) throws SQLException {
+        //ArrayList<Elemento>
+        ArrayList<Elemento> arr = new ArrayList();
+        try {
+         /*   while (rsM.next()) {
+                if (rsM.getInt("Columna") == colum) {
+                    int n = rsM.getInt("ID");
+                    Elemento aux = new Elemento(n,
+                                                this.getElementNameM(n),
+                                                this.getElementNomM(n),
+                                                this.getElementStatesArrayM(n),
+                                                this.getElementColumM(n)[0],
+                                                this.getElementColumM(n)[1],
+                                                this.getElementElenegM(n));
+                    boolean a = arr.add(aux);
+                }
+            }*/
+        } catch (SQLException e) {
+            throw e;
+        }
+        return arr;
     }
 }

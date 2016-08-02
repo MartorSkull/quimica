@@ -80,6 +80,27 @@ public class Elemento {
         this.estado_used = estado_used;
     }
 
+    public Elemento(int id, 
+                    String nombre, 
+                    String nom, 
+                    int[] estados, 
+                    int colum, 
+                    int idColum, 
+                    float eleneg) {
+        this.id = id;
+        this.nombre = nombre;
+        this.nom = nom;
+        this.estados = estados;
+        this.colum = colum;
+        this.idColum = idColum;
+        this.eleneg = eleneg;
+    }
+    
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
+
     public String getNombre() {
         return nombre;
     }

@@ -4,6 +4,7 @@ import clases.Base;
 import clases.Elemento;
 import clases.Reaccion;
 import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
 
 public class Hidruros extends javax.swing.JFrame {
 
@@ -12,14 +13,13 @@ public class Hidruros extends javax.swing.JFrame {
      */
     public Hidruros(Base db) {
         initComponents();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
         this.db = db;
         try {
-            for (String i : this.db.getElementColumArrayM(1)) {
-                this.cbmetales.addItem(i);
+            for (Elemento i : this.db.getElementColumArrayListM(1)) {
+                model.addElement(i);
             }
-            for (String i : this.db.getElementColumArrayM(2)) {
-                this.cbmetales.addItem(i);
-            }
+            this.cbmetales.setModel(model);
             for (String e : this.db.getElementNameArrayNM()) {
                 this.cbnometales.addItem(e);
             }
@@ -225,12 +225,12 @@ public class Hidruros extends javax.swing.JFrame {
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
         Reaccion r = null;
-        int id = this.cbmetales.getSelectedIndex()%4;
-        int colum = this.cbmetales.getSelectedIndex()/4;
+        int id = this.cbmetales.getSelectedIndex() % 4;
+        int colum = this.cbmetales.getSelectedIndex() / 4;
         int estado = 0;
-        
+
         try {
-            Elemento[] a = {this.db.getElementoCompletoColumM(id, colum+1, estado)};
+            Elemento[] a = {this.db.getElementoCompletoColumM(id, colum + 1, estado)};
             r = new Reaccion(this.db, a, Reaccion.HIDRURO_METALICO);
             this.resM.setText(r.getCompuesto().getNom());
         } catch (SQLException e) {
