@@ -60,7 +60,12 @@ public class Reaccion {
     private Compuesto hidruro_nometalico(Elemento[] ele) {
         Compuesto hnm = null;
         try {
-            Elemento h = new Elemento(1, this.db.getElementNameNM(0), this.db.getElementNomNM(0), this.db.getElementStatesArrayNM(0), this.db.getElementStatesArrayNM(0)[1], this.db.getElementElenegNM(0));
+            Elemento h = new Elemento(1, 
+                                      this.db.getElementNameNM(0), 
+                                      this.db.getElementNomNM(0), 
+                                      this.db.getElementStatesArrayNM(0), 
+                                      this.db.getElementStatesArrayNM(0)[1], 
+                                      this.db.getElementElenegNM(0));
             Elemento[] arr = {ele[0], h};
             int[] cant = new int[2];
             String nom = null;
@@ -94,17 +99,20 @@ public class Reaccion {
     private Compuesto hidruro_metalico(Elemento[] ele) {
         Compuesto hm = null;
         try {
-            Elemento h = new Elemento(1, this.db.getElementNameNM(0), this.db.getElementNomNM(0), this.db.getElementStatesArrayNM(0), this.db.getElementStatesArrayNM(0)[0], this.db.getElementElenegNM(0));
+            Elemento h = new Elemento(1, 
+                                      this.db.getElementNameNM(0), 
+                                      this.db.getElementNomNM(0), 
+                                      this.db.getElementStatesArrayNM(0), 
+                                      this.db.getElementStatesArrayNM(0)[0], 
+                                      this.db.getElementElenegNM(0));
             Elemento[] arr = {h, ele[0]};
             int[] cant = new int[2];
             String nom = null;
             for (int i = 1; i <= ele[0].getEstado_used(); i++) {
                 for (int a = 1; a <= ele[0].getEstado_used(); i++) {
-                    System.out.println("nofunco" + i + a);
                     if ((ele[0].getEstado_used() * a) - (h.getEstado_used() * i) == 0) {
                         cant[0] = i;
                         cant[1] = a;
-                        System.out.println("funco" + i + a);
                         break;
                     }
                 }

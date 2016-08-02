@@ -20,7 +20,11 @@ public class Elemento {
     private float eleneg;
     private int estado_used;
 
-    public Elemento(String nombre, String nom, int[] estados, int estado_used, float eleneg) {
+    public Elemento(String nombre, 
+                    String nom, 
+                    int[] estados, 
+                    int estado_used, 
+                    float eleneg) {
         this.nombre = nombre;
         this.nom = nom;
         this.estados = estados;
@@ -28,7 +32,12 @@ public class Elemento {
         this.estado_used=estado_used;
     }
 
-    public Elemento(int id, String nombre, String nom, int[] estados, int estado_used, float eleneg) {
+    public Elemento(int id, 
+                    String nombre, 
+                    String nom, 
+                    int[] estados, 
+                    int estado_used, 
+                    float eleneg) {
         this.nombre = nombre;
         this.nom = nom;
         this.estados = estados;
@@ -36,7 +45,13 @@ public class Elemento {
         this.estado_used=estado_used;
     }
 
-    public Elemento(String nombre, String nom, int[] estados, int estado_used, float eleneg, int colum, int idColum) {
+    public Elemento(String nombre, 
+                    String nom, 
+                    int[] estados, 
+                    int estado_used, 
+                    float eleneg, 
+                    int colum, 
+                    int idColum) {
         this.id = id;
         this.nombre = nombre;
         this.nom = nom;
@@ -122,7 +137,7 @@ public class Elemento {
     }
 
     public int getEstado_used() {
-        return estado_used;
+        return this.estados[this.estado_used];
     }
 
     public void setEstado_used(int estado_used) {
