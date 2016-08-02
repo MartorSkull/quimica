@@ -695,10 +695,11 @@ public class Base {
     }
 
     public ArrayList<Elemento> getElementColumArrayListM(int colum) throws SQLException {
-        //ArrayList<Elemento>
+        ArrayList<Elemento> m = this.getElementArrayM();
+        m.iterator()
         ArrayList<Elemento> arr = new ArrayList();
         try {
-         /*   while (rsM.next()) {
+            while (rsM.next()) {
                 if (rsM.getInt("Columna") == colum) {
                     int n = rsM.getInt("ID");
                     Elemento aux = new Elemento(n,
@@ -710,7 +711,7 @@ public class Base {
                                                 this.getElementElenegM(n));
                     boolean a = arr.add(aux);
                 }
-            }*/
+            }
         } catch (SQLException e) {
             throw e;
         }
