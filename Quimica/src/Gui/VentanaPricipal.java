@@ -176,7 +176,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
             }
         } else if (cbterciario.isSelected()) {
             if (lsterciario.getSelectedIndex() == 0) {
-                Oxoacidos aux = new Oxoacidos();
+                Oxoacidos aux = new Oxoacidos(this.db);
                 aux.setVisible(true);
             }
             if (lsterciario.getSelectedIndex() == 1) {
