@@ -17,10 +17,6 @@ public class Oxidos extends javax.swing.JFrame {
         initComponents();
         this.db = db;
         try {
-            for (String i : this.db.getElementColumArrayM(1)) {
-                this.cbmetal.addItem(i);
-            }
-            
           for (String i : this.db.getElementNameArrayM()) {
                 this.cbnometal.addItem(i);
             }  
@@ -78,7 +74,7 @@ public class Oxidos extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setAutoRequestFocus(false);
 
         jLabel1.setText("Oxidos");
 
