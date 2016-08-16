@@ -206,6 +206,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu Light" size="18" style="1"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenesq/image3398.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Oxidos"/>
         <Property name="focusCycleRoot" type="boolean" value="true"/>
       </Properties>
@@ -304,6 +307,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnmenu">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenesq/flecharec.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Menu"/>
       </Properties>
       <Events>
