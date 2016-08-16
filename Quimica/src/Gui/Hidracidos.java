@@ -5,8 +5,8 @@
  */
 package Gui;
 
-import clases.Base;
-import clases.Elemento;
+import data.Base;
+import data.Elemento;
 import java.sql.SQLException;
 
 /**
@@ -18,19 +18,8 @@ public class Hidracidos extends javax.swing.JFrame {
     /**
      * Creates new form Hidracidos
      */
-    public Hidracidos(Base db) {
+    public Hidracidos() {
         initComponents();
-        this.db = db;
-        try {
-            for (String i : this.db.getElementColumArrayM(1)) {
-                this.cbhalogeno.addItem(i);
-            }
-            for (String e : this.db.getElementColumArrayM(2)) {
-                this.cbantigeno.addItem(e);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getClass().getName() + ": " + e.getMessage());
-        }
     }
 
     /**
@@ -212,17 +201,7 @@ public class Hidracidos extends javax.swing.JFrame {
     }//GEN-LAST:event_cbhalogenoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int newElement=1;
-        int colum=1;
 
-        if (halogenosok.isSelected()) {
-            newElement = cbhalogeno.getSelectedIndex();
-            colum = 1;
-
-        } else if (antigenosok.isSelected()) {
-            newElement = cbantigeno.getSelectedIndex();
-            colum = 2;
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void halogenosokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halogenosokActionPerformed
@@ -248,5 +227,4 @@ public class Hidracidos extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextField tfRes;
     // End of variables declaration//GEN-END:variables
-    private Base db;
 }

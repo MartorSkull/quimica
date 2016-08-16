@@ -1,7 +1,7 @@
 package Gui;
 
-import clases.Base;
-import clases.Reaccion;
+import data.Base;
+import data.Reaccion;
 import javax.swing.JOptionPane;
 
 /*
@@ -20,7 +20,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
      */
     public VentanaPricipal() {
         initComponents();
-        this.db=new Base();
+        Base.load();
     }
 
     /* 
@@ -157,12 +157,12 @@ public class VentanaPricipal extends javax.swing.JFrame {
 
             }
             if (lsbinario.getSelectedIndex() == 1) {
-                Hidruros aux = new Hidruros(this.db);
+                Hidruros aux = new Hidruros();
                 aux.setVisible(true);
 
             }
             if (lsbinario.getSelectedIndex() == 2) {
-                Hidracidos aux = new Hidracidos(this.db);
+                Hidracidos aux = new Hidracidos();
                 aux.setVisible(true);
 
             }
@@ -256,5 +256,4 @@ public class VentanaPricipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> lscuaternario;
     private javax.swing.JComboBox<String> lsterciario;
     // End of variables declaration//GEN-END:variables
-    private Base db;
 }

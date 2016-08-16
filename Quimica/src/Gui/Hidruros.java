@@ -1,9 +1,10 @@
 package Gui;
 
-import clases.Base;
-import clases.Elemento;
-import clases.Reaccion;
-import java.sql.SQLException;
+import data.Base;
+import data.Elemento;
+import data.Reaccion;
+import data.Compuesto;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 
 public class Hidruros extends javax.swing.JFrame {
@@ -11,21 +12,18 @@ public class Hidruros extends javax.swing.JFrame {
     /**
      * Creates new form Hidruros
      */
-    public Hidruros(Base db) {
+    public Hidruros() {
         initComponents();
         DefaultComboBoxModel model = new DefaultComboBoxModel();
-        this.db = db;
-        try {
-            for (Elemento i : this.db.getElementColumArrayListM(1)) {
-                model.addElement(i);
-            }
-            this.cbmetales.setModel(model);
-            for (String e : this.db.getElementNameArrayNM()) {
-                this.cbnometales.addItem(e);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getClass().getName() + ": " + e.getMessage());
+
+        for (Elemento i : Base.getMetalesEnColumna(1)) {
+            System.out.println(i);
+            model.addElement(i);
         }
+        for (Elemento e : Base.getMetalesEnColumna(2)) {
+            model.addElement(e);
+        }
+        this.cbmetales.setModel(model);
     }
 
     /**
@@ -228,20 +226,18 @@ public class Hidruros extends javax.swing.JFrame {
         int id = this.cbmetales.getSelectedIndex() % 4;
         int colum = this.cbmetales.getSelectedIndex() / 4;
         int estado = 0;
+        ComboBoxModel<Elemento> mod = this.cbmetales.getModel();
+        Elemento ele = mod.getElementAt(this.cbmetales.getSelectedIndex());
 
-        try {
-            Elemento[] a = {this.db.getElementoCompletoColumM(id, colum + 1, estado)};
-            r = new Reaccion(this.db, a, Reaccion.HIDRURO_METALICO);
-            this.resM.setText(r.getCompuesto().getNom());
-        } catch (SQLException e) {
-            System.err.println(e.getClass().getName() + " : " + e.getMessage());
-        }
+        Elemento[] a = {ele};
+        r = new Reaccion(a, Reaccion.HIDRURO_METALICO);
+        this.resM.setText(r.getCompuesto().getNom());
     }//GEN-LAST:event_btn1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
-    private javax.swing.JComboBox<String> cbmetales;
+    private javax.swing.JComboBox<Elemento> cbmetales;
     private javax.swing.JComboBox<String> cbnometales;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -265,5 +261,4 @@ public class Hidruros extends javax.swing.JFrame {
     private javax.swing.JTextArea txtinfo2;
     private javax.swing.JTextPane txtr2;
     // End of variables declaration//GEN-END:variables
-    private Base db;
 }

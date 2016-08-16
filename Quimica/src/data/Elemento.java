@@ -3,39 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clases;
+package data;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  * @author tobias
  */
-public class Elemento {
+public class Elemento implements Serializable{
 
     private int id;
     private String nombre;
     private String nom;
-    private int[] estados;
+    private ArrayList<Integer> estados;
     private int colum;
     private int idColum;
     private float eleneg;
     private int estado_used;
 
-    public Elemento(String nombre, 
-                    String nom, 
-                    int[] estados, 
-                    int estado_used, 
-                    float eleneg) {
-        this.nombre = nombre;
-        this.nom = nom;
-        this.estados = estados;
-        this.eleneg = eleneg;
-        this.estado_used=estado_used;
-    }
-
     public Elemento(int id, 
                     String nombre, 
                     String nom, 
-                    int[] estados, 
+                    ArrayList<Integer> estados, 
                     int estado_used, 
                     float eleneg) {
         this.nombre = nombre;
@@ -43,29 +34,12 @@ public class Elemento {
         this.estados = estados;
         this.eleneg = eleneg;
         this.estado_used=estado_used;
-    }
-
-    public Elemento(String nombre, 
-                    String nom, 
-                    int[] estados, 
-                    int estado_used, 
-                    float eleneg, 
-                    int colum, 
-                    int idColum) {
-        this.id = id;
-        this.nombre = nombre;
-        this.nom = nom;
-        this.estados = estados;
-        this.eleneg = eleneg;
-        this.colum = colum;
-        this.idColum = idColum;
-        this.estado_used = estado_used;
     }
 
     public Elemento(int id, 
             String nombre, 
             String nom, 
-            int[] estados, 
+            ArrayList<Integer> estados, 
             int estado_used, 
             int colum, 
             int idColum, 
@@ -83,7 +57,7 @@ public class Elemento {
     public Elemento(int id, 
                     String nombre, 
                     String nom, 
-                    int[] estados, 
+                    ArrayList<Integer> estados, 
                     int colum, 
                     int idColum, 
                     float eleneg) {
@@ -98,7 +72,7 @@ public class Elemento {
     
     @Override
     public String toString(){
-        return this.nombre;
+        return this.id+" - "+this.nombre+ " - "+this.nom+" - "+this.estados+" - "+this.colum+" - "+this.idColum+" - "+this.eleneg;
     }
 
     public String getNombre() {
@@ -117,11 +91,11 @@ public class Elemento {
         this.nom = nom;
     }
 
-    public int[] getEstados() {
+    public ArrayList<Integer> getEstados() {
         return estados;
     }
 
-    public void setEstados(int[] estados) {
+    public void setEstados(ArrayList<Integer> estados) {
         this.estados = estados;
     }
 
@@ -158,11 +132,11 @@ public class Elemento {
     }
 
     public int getEstado_used() {
-        return this.estados[this.estado_used];
+        return this.estados.get(estado_used);
     }
 
-    public void setEstado_used(int estado_used) {
-        this.estado_used = estado_used;
+    public void setEstado_used(int id) {
+        this.estado_used = id;
     }
 
 }
