@@ -97,8 +97,10 @@ public class Oxoacidos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel13.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/image3398.png")); // NOI18N
         jLabel13.setText("Oxoacidos");
 
+        jToggleButton1.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/flecharec.png")); // NOI18N
         jToggleButton1.setText("Menu");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +182,7 @@ public class Oxoacidos extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1)))

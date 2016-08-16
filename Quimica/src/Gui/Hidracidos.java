@@ -61,6 +61,7 @@ public class Hidracidos extends javax.swing.JFrame {
         tfRes = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/image3398.png")); // NOI18N
         jLabel1.setText("Hidracidos");
 
         jLabel2.setText("Hidrogeno(H)");
@@ -108,6 +109,7 @@ public class Hidracidos extends javax.swing.JFrame {
         grupo1.add(antigenosok);
         antigenosok.setText("Antigenos");
 
+        jButton2.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/flecharec.png")); // NOI18N
         jButton2.setText("Menu");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
