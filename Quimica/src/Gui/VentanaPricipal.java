@@ -150,43 +150,52 @@ public class VentanaPricipal extends javax.swing.JFrame {
             if (lsbinario.getSelectedIndex() == 0) {
                 Oxidos aux = new Oxidos(this.db);
                 aux.setVisible(true);
+                this.setVisible(false);
 
             }
             if (lsbinario.getSelectedIndex() == 1) {
                 Hidruros aux = new Hidruros(this.db);
                 aux.setVisible(true);
+                this.setVisible(false);
 
             }
             if (lsbinario.getSelectedIndex() == 2) {
                 Hidracidos aux = new Hidracidos(this.db);
                 aux.setVisible(true);
+                this.setVisible(false);
 
             }
             if (lsbinario.getSelectedIndex() == 3) {
                 Peroxidos aux = new Peroxidos();
                 aux.setVisible(true);
+                this.setVisible(false);
             }
             if (lsbinario.getSelectedIndex() == 4) {
                 SalBinaria aux = new SalBinaria();
                 aux.setVisible(true);
+                this.setVisible(false);
             }
         } else if (cbterciario.isSelected()) {
             if (lsterciario.getSelectedIndex() == 0) {
                 Oxoacidos aux = new Oxoacidos(this.db);
                 aux.setVisible(true);
+                this.setVisible(false);
             }
             if (lsterciario.getSelectedIndex() == 1) {
                 Hidroxidos aux = new Hidroxidos();
                 aux.setVisible(true);
+                this.setVisible(false);
             }
             if (lsterciario.getSelectedIndex() == 2) {
                 SalTerciaria aux = new SalTerciaria();
                 aux.setVisible(true);
+                this.setVisible(false);
             }
         } else if (cbcuaternario.isSelected()) {
             if (lscuaternario.getSelectedIndex() == 0) {
                 SalCuaternaria aux = new SalCuaternaria();
                 aux.setVisible(true);
+                this.setVisible(false);
             }
         } else {
             JOptionPane.showMessageDialog(this, "seleciona un tipo de compuesto");

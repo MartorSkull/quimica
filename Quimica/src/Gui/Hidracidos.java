@@ -61,7 +61,6 @@ public class Hidracidos extends javax.swing.JFrame {
         tfRes = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/serna/Descargas/quimica/Quimica/imagenesq/image3398.png")); // NOI18N
         jLabel1.setText("Hidracidos");
 
         jLabel2.setText("Hidrogeno(H)");
@@ -109,8 +108,12 @@ public class Hidracidos extends javax.swing.JFrame {
         grupo1.add(antigenosok);
         antigenosok.setText("Antigenos");
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/home/serna/Descargas/quimica/Quimica/imagenesq/flecharec.png")); // NOI18N
         jButton2.setText("Menu");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         tfRes.setEditable(false);
 
@@ -231,6 +234,12 @@ public class Hidracidos extends javax.swing.JFrame {
     private void halogenosokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halogenosokActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_halogenosokActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    VentanaPricipal aux = new VentanaPricipal();
+    aux.setVisible(true);
+    this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton antigenosok;

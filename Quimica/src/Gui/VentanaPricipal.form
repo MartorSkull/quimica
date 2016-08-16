@@ -91,9 +91,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu Light" size="18" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/serna/Descargas/quimica/Quimica/imagenesq/image3398.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="QUIMICAREAC"/>
       </Properties>
     </Component>
@@ -145,11 +142,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnListo">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/serna/Descargas/quimica/Quimica/imagenesq/flecha.png"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListoActionPerformed"/>
       </Events>
