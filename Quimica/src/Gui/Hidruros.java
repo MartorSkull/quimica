@@ -24,6 +24,12 @@ public class Hidruros extends javax.swing.JFrame {
             model.addElement(e);
         }
         this.cbmetales.setModel(model);
+        
+        DefaultComboBoxModel nometal = new DefaultComboBoxModel();
+        for(Elemento i : Base.getTodosNoMetales()){
+            nometal.addElement(i);
+        }
+        this.cbnometales.setModel(nometal);
     }
 
     /**
@@ -91,6 +97,12 @@ public class Hidruros extends javax.swing.JFrame {
         jLabel6.setText("+");
 
         jLabel7.setText("+");
+
+        cbmetales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmetalesActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("=");
 
@@ -241,16 +253,8 @@ public class Hidruros extends javax.swing.JFrame {
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
-        Reaccion r = null;
-        int id = this.cbmetales.getSelectedIndex() % 4;
-        int colum = this.cbmetales.getSelectedIndex() / 4;
-        int estado = 0;
-        ComboBoxModel<Elemento> mod = this.cbmetales.getModel();
-        Elemento ele = mod.getElementAt(this.cbmetales.getSelectedIndex());
-
-        Elemento[] a = {ele};
-        r = new Reaccion(a, Reaccion.HIDRURO_METALICO);
-        this.resM.setText(r.getCompuesto().getNom());
+        ComboBoxModel<Elemento> modelo = this.cbmetales.getModel();
+        Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
@@ -265,11 +269,15 @@ VentanaPricipal aux = new VentanaPricipal();
     this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void cbmetalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbmetalesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JComboBox<Elemento> cbmetales;
-    private javax.swing.JComboBox<String> cbnometales;
+    private javax.swing.JComboBox<Elemento> cbnometales;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
