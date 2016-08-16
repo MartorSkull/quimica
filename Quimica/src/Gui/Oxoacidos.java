@@ -5,9 +5,9 @@
  */
 package Gui;
 
-import clases.Base;
-import clases.Elemento;
-import clases.Reaccion;
+import data.Base;
+import data.Elemento;
+import data.Reaccion;
 import java.sql.SQLException;
 /**
  *
@@ -18,29 +18,8 @@ public class Oxoacidos extends javax.swing.JFrame {
     /**
      * Creates new form Oxoacidos
      */
-    public Oxoacidos(Base db) {
+    public Oxoacidos() {
         initComponents();
-        this.db = db;
-        try {
-            for (String i : this.db.getElementColumArrayNM(13)) {
-                this.cbxnm.addItem(i);
-            }
-            for (String i : this.db.getElementColumArrayNM(14)) {
-                this.cbxnm.addItem(i);
-            }
-            for (String i : this.db.getElementColumArrayNM(15)) {
-                this.cbxnm.addItem(i);
-            }
-            for (String i : this.db.getElementColumArrayNM(16)) {
-                this.cbxnm.addItem(i);
-            }
-            for (String i : this.db.getElementColumArrayNM(17)) {
-                this.cbxnm.addItem(i);
-            }
-            
-        } catch (SQLException e) {
-            System.out.println(e.getClass().getName() + ": " + e.getMessage());
-        }
     }
 
     
@@ -217,5 +196,4 @@ VentanaPricipal aux = new VentanaPricipal();
     private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
-private Base db;
 }

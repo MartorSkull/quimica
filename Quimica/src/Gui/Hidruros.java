@@ -1,47 +1,29 @@
 package Gui;
 
-import clases.Base;
-import clases.Elemento;
-import clases.Reaccion;
-import java.sql.SQLException;
+import data.Base;
+import data.Elemento;
+import data.Reaccion;
+import data.Compuesto;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 
 public class Hidruros extends javax.swing.JFrame {
 
     /**
      * Creates new form Hidruros
      */
-    public Hidruros(Base db) {
+    public Hidruros() {
         initComponents();
-        this.db = db;
-        try {
-            for (String i : this.db.getElementColumArrayM(1)) {
-                this.cbmetales.addItem(i);
-            }
-            for (String i : this.db.getElementColumArrayM(2)) {
-                this.cbmetales.addItem(i);
-            }
-            
-            
-            
-            for (String e : this.db.getElementColumArrayNM(13)) {
-                this.cbnometales.addItem(e);
-            }
-            for (String e : this.db.getElementColumArrayNM(14)) {
-                this.cbnometales.addItem(e);
-            }
-            for (String e : this.db.getElementColumArrayNM(15)) {
-                this.cbnometales.addItem(e);
-            }
-            for (String e : this.db.getElementColumArrayNM(16)) {
-                this.cbnometales.addItem(e);
-            }
-            for (String e : this.db.getElementColumArrayNM(17)) {
-                this.cbnometales.addItem(e);
-            }
-            
-        } catch (SQLException e) {
-            System.out.println(e.getClass().getName() + ": " + e.getMessage());
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+
+        for (Elemento i : Base.getMetalesEnColumna(1)) {
+            System.out.println(i);
+            model.addElement(i);
         }
+        for (Elemento e : Base.getMetalesEnColumna(2)) {
+            model.addElement(e);
+        }
+        this.cbmetales.setModel(model);
     }
 
     /**
@@ -260,21 +242,15 @@ public class Hidruros extends javax.swing.JFrame {
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
         Reaccion r = null;
-        int id = this.cbmetales.getSelectedIndex();
-        int colum = 1;
-        int estado = 1;
-        if (this.cbmetales.getSelectedIndex() >= 4) {
-            id = this.cbmetales.getSelectedIndex() - 4;
-            colum = 2;
-            estado = 2;
-        }
-        try {
-            Elemento[] a = {this.db.getElementoCompletoColumM(id, colum, estado)};
-            r = new Reaccion(this.db, a, Reaccion.HIDRURO_METALICO);
-            this.resM.setText(r.getCompuesto().getNom());
-        } catch (SQLException e) {
-            System.err.println(e.getClass().getName() + " : " + e.getMessage());
-        }
+        int id = this.cbmetales.getSelectedIndex() % 4;
+        int colum = this.cbmetales.getSelectedIndex() / 4;
+        int estado = 0;
+        ComboBoxModel<Elemento> mod = this.cbmetales.getModel();
+        Elemento ele = mod.getElementAt(this.cbmetales.getSelectedIndex());
+
+        Elemento[] a = {ele};
+        r = new Reaccion(a, Reaccion.HIDRURO_METALICO);
+        this.resM.setText(r.getCompuesto().getNom());
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
@@ -292,7 +268,7 @@ VentanaPricipal aux = new VentanaPricipal();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
-    private javax.swing.JComboBox<String> cbmetales;
+    private javax.swing.JComboBox<Elemento> cbmetales;
     private javax.swing.JComboBox<String> cbnometales;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -317,5 +293,4 @@ VentanaPricipal aux = new VentanaPricipal();
     private javax.swing.JTextArea txtinfo2;
     private javax.swing.JTextPane txtr2;
     // End of variables declaration//GEN-END:variables
-    private Base db;
 }

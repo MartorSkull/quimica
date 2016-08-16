@@ -1,7 +1,7 @@
 package Gui;
 
-import clases.Base;
-import clases.Reaccion;
+import data.Base;
+import data.Reaccion;
 import javax.swing.JOptionPane;
 
 /*
@@ -20,7 +20,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
      */
     public VentanaPricipal() {
         initComponents();
-        this.db=new Base();
+        Base.load();
     }
 
     /* 
@@ -148,19 +148,19 @@ public class VentanaPricipal extends javax.swing.JFrame {
         if (Cbbinario.isSelected()) {
 
             if (lsbinario.getSelectedIndex() == 0) {
-                Oxidos aux = new Oxidos(this.db);
+                Oxidos aux = new Oxidos();
                 aux.setVisible(true);
                 this.setVisible(false);
 
             }
             if (lsbinario.getSelectedIndex() == 1) {
-                Hidruros aux = new Hidruros(this.db);
+                Hidruros aux = new Hidruros();
                 aux.setVisible(true);
                 this.setVisible(false);
 
             }
             if (lsbinario.getSelectedIndex() == 2) {
-                Hidracidos aux = new Hidracidos(this.db);
+                Hidracidos aux = new Hidracidos();
                 aux.setVisible(true);
                 this.setVisible(false);
 
@@ -177,7 +177,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
             }
         } else if (cbterciario.isSelected()) {
             if (lsterciario.getSelectedIndex() == 0) {
-                Oxoacidos aux = new Oxoacidos(this.db);
+                Oxoacidos aux = new Oxoacidos();
                 aux.setVisible(true);
                 this.setVisible(false);
             }
@@ -261,5 +261,4 @@ public class VentanaPricipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> lscuaternario;
     private javax.swing.JComboBox<String> lsterciario;
     // End of variables declaration//GEN-END:variables
-    private Base db;
 }

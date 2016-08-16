@@ -1,8 +1,8 @@
 package Gui;
 
-import clases.Base;
-import clases.Elemento;
-import clases.Reaccion;
+import data.Base;
+import data.Elemento;
+import data.Reaccion;
 import java.sql.SQLException;
 
 
@@ -13,17 +13,8 @@ public class Oxidos extends javax.swing.JFrame {
     /**
      * Creates new form Oxidos
      */
-    public Oxidos(Base db) {
+    public Oxidos() {
         initComponents();
-        this.db = db;
-        try {
-          for (String i : this.db.getElementNameArrayM()) {
-                this.cbnometal.addItem(i);
-            }  
-        
-        }catch (SQLException e) {
-            System.out.println(e.getClass().getName() + ": " + e.getMessage());
-        }
     }
 
     /**
@@ -291,26 +282,7 @@ public class Oxidos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmenuActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-    
-        Reaccion r = null;
-        int id = this.cbmetal.getSelectedIndex();
-        int colum = 1;
-        int estado = 1;
-        if (this.cbmetal.getSelectedIndex() >= 4) {
-            id = this.cbmetal.getSelectedIndex() - 4;
-            colum = 2;
-            estado = 2;
-        }
-        try {
-            Elemento[] a = {this.db.getElementoCompletoColumM(id, colum, estado)};
-            r = new Reaccion(this.db, a, Reaccion.OXIDO_BASICO);
-            this.res1.setText(r.getCompuesto().getNom());
-        } catch (SQLException e) {
-            System.err.println(e.getClass().getName() + " : " + e.getMessage());
-        }
-        
-        
-        
+
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void cbmetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalActionPerformed
@@ -348,5 +320,4 @@ public class Oxidos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextArea res1;
     // End of variables declaration//GEN-END:variables
-  private Base db;
 }

@@ -3,39 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clases;
+package data;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author martin
  */
 public class Compuesto {
-    private Elemento[] elementos;
-    private int cantAtoms;
-    private int[] cant;
+
+    private ArrayList<Elemento> elementos;
+    private ArrayList<Integer> cant;
     private String molecula;
     private String nom;
     private int tipo;
-    private int[] estado;
 
-    public Compuesto(Elemento[] elementos, int cantAtoms, int[] cant, String molecula, String nom, int tipo) {
+    public Compuesto(ArrayList<Elemento> elementos, ArrayList<Integer> cant, String molecula, String nom, int tipo) {
         this.elementos = elementos;
-        this.cantAtoms = cantAtoms;
         this.cant = cant;
         this.molecula = molecula;
         this.nom = nom;
         this.tipo = tipo;
     }
 
-    public Elemento[] getElementos() {
+    public ArrayList<Elemento> getElementos() {
         return elementos;
     }
 
-    public int getCantAtoms() {
-        return cantAtoms;
-    }
-
-    public int[] getCant() {
+    public ArrayList<Integer> getCant() {
         return cant;
     }
 
