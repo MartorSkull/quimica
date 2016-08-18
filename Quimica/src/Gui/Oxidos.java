@@ -4,6 +4,8 @@ import data.Base;
 import data.Elemento;
 import data.Reaccion;
 import java.sql.SQLException;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 
 
 
@@ -15,6 +17,23 @@ public class Oxidos extends javax.swing.JFrame {
      */
     public Oxidos() {
         initComponents();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+
+        for (Elemento i : Base.getMetalesEnColumna(1)) {
+            System.out.println(i);
+            model.addElement(i);
+        }
+        for (Elemento e : Base.getMetalesEnColumna(2)) {
+            model.addElement(e);
+        }
+        this.cbmetales.setModel(model);
+        
+        DefaultComboBoxModel nometal = new DefaultComboBoxModel();
+        for(Elemento i : Base.getTodosNoMetales()){
+            nometal.addElement(i);
+        }
+        this.cbnometales.setModel(nometal);    
+    
     }
 
     /**
@@ -31,7 +50,7 @@ public class Oxidos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        cbmetal = new javax.swing.JComboBox<>();
+        cbmetales = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -43,7 +62,7 @@ public class Oxidos extends javax.swing.JFrame {
         res1 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         btnmenu = new javax.swing.JButton();
-        cbnometal = new javax.swing.JComboBox<>();
+        cbnometales = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -80,9 +99,9 @@ public class Oxidos extends javax.swing.JFrame {
 
         jSeparator2.setForeground(new java.awt.Color(76, 91, 180));
 
-        cbmetal.addActionListener(new java.awt.event.ActionListener() {
+        cbmetales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmetalActionPerformed(evt);
+                cbmetalesActionPerformed(evt);
             }
         });
 
@@ -166,7 +185,7 @@ public class Oxidos extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(cbnometal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cbnometales, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel10)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -186,7 +205,7 @@ public class Oxidos extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(cbmetal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cbmetales, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel5)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -233,7 +252,7 @@ public class Oxidos extends javax.swing.JFrame {
                             .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbmetal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbmetales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
@@ -259,7 +278,7 @@ public class Oxidos extends javax.swing.JFrame {
                             .addComponent(jLabel14))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbnometal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbnometales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
                             .addComponent(jLabel12)
@@ -282,19 +301,19 @@ public class Oxidos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmenuActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-
+         
     }//GEN-LAST:event_btn1ActionPerformed
 
-    private void cbmetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalActionPerformed
-        
-    }//GEN-LAST:event_cbmetalActionPerformed
+    private void cbmetalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalesActionPerformed
+            
+    }//GEN-LAST:event_cbmetalesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btnmenu;
-    private javax.swing.JComboBox<String> cbmetal;
-    private javax.swing.JComboBox<String> cbnometal;
+    private javax.swing.JComboBox<String> cbmetales;
+    private javax.swing.JComboBox<String> cbnometales;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -16,12 +16,13 @@ import java.util.ArrayList;
  */
 public class Reaccion {
 
-    private final Elemento[] elementos;
+    private Elemento[] elementos;
     private int cantAtoms;
     private int[] cant;
     private String nom;
     private String molecula;
     private Compuesto compuesto;
+    private Elemento elemento;
 
     public static final int HIDRURO_NOMETALICO = 0;
     public static final int HIDRURO_METALICO = 1;
@@ -42,13 +43,23 @@ public class Reaccion {
      * @param elementos Array de elementos
      * @param cantAtoms Cantidad de atomos
      * @param tipo usar alguno de los final
+     *
      */
     public Reaccion(Elemento[] elementos, int tipo) {
         this.elementos = elementos;
+
+    }
+
+    public Reaccion(Compuesto compuesto, int tipo) {
+        this.compuesto = compuesto;
+    }
+
+    public Reaccion(Elemento elemento, int tipo) {
+        this.elemento = elemento;
         if (tipo == Reaccion.HIDRURO_NOMETALICO) {
-            this.compuesto = this.hidruro_nometalico(elementos);
+            this.compuesto = this.hidruro_nometalico(elemento);
         } else if (tipo == Reaccion.HIDRURO_METALICO) {
-            this.compuesto = this.hidruro_metalico(elementos);
+            this.compuesto = this.hidruro_metalico(elemento);
         }
     }
 
@@ -56,18 +67,18 @@ public class Reaccion {
         return compuesto;
     }
 
-    private Compuesto hidruro_nometalico(Elemento[] ele) {
+    private Compuesto hidruro_nometalico(Elemento ele) {
         Compuesto hnm = null;
         Elemento h = Base.getNoMetal(1);
         h.setEstado_used(0);
         ArrayList<Elemento> arr = new ArrayList();
         ArrayList<Integer> cant = new ArrayList();
-        arr.add(ele[0]);
+        arr.add(ele);
         arr.add(h);
         String nom = null;
-        for (int i = 1; i <= ele[0].getEstado_used(); i++) {
+        for (int i = 1; i <= ele.getEstado_used(); i++) {
             for (int a = 1; a <= h.getEstado_used(); i++) {
-                if ((ele[0].getEstado_used() * i) - (h.getEstado_used() * a) == 0) {
+                if ((ele.getEstado_used() * i) - (h.getEstado_used() * a) == 0) {
                     cant.add(i);
                     cant.add(a);
                     break;
@@ -75,31 +86,31 @@ public class Reaccion {
             }
         }
         if (cant.get(0) == 1 && cant.get(1) == 1) {
-            nom = ele[0].getNom() + h.getNom();
+            nom = ele.getNom() + h.getNom();
         } else if (cant.get(0) == 1) {
-            nom = ele[0].getNom() + h.getNom() + cant.get(1);
+            nom = ele.getNom() + h.getNom() + cant.get(1);
         } else if (cant.get(1) == 1) {
-            nom = ele[0].getNom() + cant.get(0) + h.getNom();
+            nom = ele.getNom() + cant.get(0) + h.getNom();
         } else {
-            nom = ele[0].getNom() + cant.get(0) + h.getNom() + cant.get(1);
+            nom = ele.getNom() + cant.get(0) + h.getNom() + cant.get(1);
         }
 
         hnm = new Compuesto(arr, cant, "sha cazi", nom, Reaccion.HIDRURO_NOMETALICO);
         return hnm;
     }
 
-    private Compuesto hidruro_metalico(Elemento[] ele) {
+    private Compuesto hidruro_metalico(Elemento ele) {
         Compuesto hm = null;
         Elemento h = Base.getNoMetal(1);
         h.setEstado_used(0);
         ArrayList<Elemento> arr = new ArrayList();
         ArrayList<Integer> cant = new ArrayList();
-        arr.add(ele[0]);
+        arr.add(ele);
         arr.add(h);
         String nom = null;
-        for (int i = 1; i <= ele[0].getEstado_used(); i++) {
+        for (int i = 1; i <= ele.getEstado_used(); i++) {
             for (int a = 1; a <= h.getEstado_used(); i++) {
-                if ((ele[0].getEstado_used() * a) - (h.getEstado_used() * i) == 0) {
+                if ((ele.getEstado_used() * a) - (h.getEstado_used() * i) == 0) {
                     cant.add(i);
                     cant.add(a);
                     break;
@@ -107,13 +118,13 @@ public class Reaccion {
             }
         }
         if (cant.get(0) == 1 && cant.get(1) == 1) {
-            nom = h.getNom() + ele[0].getNom();
+            nom = h.getNom() + ele.getNom();
         } else if (cant.get(0) == 1) {
-            nom = h.getNom() + cant.get(1) + ele[0].getNom();
+            nom = h.getNom() + cant.get(1) + ele.getNom();
         } else if (cant.get(1) == 1) {
-            nom = h.getNom() + ele[0].getNom() + cant.get(0);
+            nom = h.getNom() + ele.getNom() + cant.get(0);
         } else {
-            nom = h.getNom() + cant.get(1) + ele[0].getNom() + cant.get(0);
+            nom = h.getNom() + cant.get(1) + ele.getNom() + cant.get(0);
         }
         hm = new Compuesto(arr, cant, "sha cazi", nom, Reaccion.HIDRURO_METALICO);
         return hm;

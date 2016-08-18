@@ -254,7 +254,9 @@ public class Hidruros extends javax.swing.JFrame {
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
         ComboBoxModel<Elemento> modelo = this.cbmetales.getModel();
-        Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
+        Elemento ele = modelo.getElementAt(this.cbmetales.getSelectedIndex());
+        Reaccion r=new Reaccion(ele, Reaccion.HIDRURO_METALICO);
+        this.resM.setText(r.getCompuesto().getNom());
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
