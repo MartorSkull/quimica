@@ -18,6 +18,10 @@ public class Compuesto {
     private String molecula;
     private String nom;
     private int tipo;
+    
+    public Compuesto(){
+        
+    }
 
     public Compuesto(ArrayList<Elemento> elementos, ArrayList<Integer> cant, String molecula, String nom, int tipo) {
         this.elementos = elementos;

@@ -76,15 +76,11 @@ public class Reaccion {
         arr.add(ele);
         arr.add(h);
         String nom = null;
-        for (int i = 1; i <= ele.getEstado_used(); i++) {
-            for (int a = 1; a <= h.getEstado_used(); i++) {
-                if ((ele.getEstado_used() * i) - (h.getEstado_used() * a) == 0) {
-                    cant.add(i);
-                    cant.add(a);
-                    break;
-                }
-            }
-        }
+        
+        int mcm = mcm(h.getEstado_used(), ele.getEstado_used()*-1);
+        cant.add(mcm/ele.getEstado_used()*-1);
+        cant.add(mcm/h.getEstado_used());
+        
         if (cant.get(0) == 1 && cant.get(1) == 1) {
             nom = ele.getNom() + h.getNom();
         } else if (cant.get(0) == 1) {
@@ -102,21 +98,17 @@ public class Reaccion {
     private Compuesto hidruro_metalico(Elemento ele) {
         Compuesto hm = null;
         Elemento h = Base.getNoMetal(1);
-        h.setEstado_used(0);
+        h.setEstado_used(1);
         ArrayList<Elemento> arr = new ArrayList();
         ArrayList<Integer> cant = new ArrayList();
         arr.add(ele);
         arr.add(h);
         String nom = null;
-        for (int i = 1; i <= ele.getEstado_used(); i++) {
-            for (int a = 1; a <= h.getEstado_used(); i++) {
-                if ((ele.getEstado_used() * a) - (h.getEstado_used() * i) == 0) {
-                    cant.add(i);
-                    cant.add(a);
-                    break;
-                }
-            }
-        }
+        
+        int mcm=mcm(ele.getEstado_used(), h.getEstado_used()*-1);
+        cant.add(mcm/h.getEstado_used()*-1);
+        cant.add(mcm/ele.getEstado_used());
+        
         if (cant.get(0) == 1 && cant.get(1) == 1) {
             nom = h.getNom() + ele.getNom();
         } else if (cant.get(0) == 1) {
@@ -130,11 +122,11 @@ public class Reaccion {
         return hm;
     }
     /*
-    private Compuesto oxido_basico(Elemento[] ele) {
+    private Compuesto oxido_basico(Elemento ele) {
 
     }
 
-    private Compuesto oxido_acido(Elemento[] ele) {
+    private Compuesto oxido_acido(Elemento ele) {
 
     }
 
@@ -170,4 +162,16 @@ public class Reaccion {
         
     }
      */
+    
+    private int mcm(int num1, int num2){
+        int min = Math.min(num1, num2);
+        int mcm = 0;
+        for (int i=1; i<=min; i++) {
+            if (num1%i==0 && num2%i==0) {
+                int mcd = i;
+                mcm = (num1*num2)/mcd;
+            }
+        }
+        return mcm;
+    }
 }

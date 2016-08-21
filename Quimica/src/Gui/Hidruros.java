@@ -24,9 +24,9 @@ public class Hidruros extends javax.swing.JFrame {
             model.addElement(e);
         }
         this.cbmetales.setModel(model);
-        
+
         DefaultComboBoxModel nometal = new DefaultComboBoxModel();
-        for(Elemento i : Base.getTodosNoMetales()){
+        for (Elemento i : Base.getTodosNoMetales()) {
             nometal.addElement(i);
         }
         this.cbnometales.setModel(nometal);
@@ -59,14 +59,15 @@ public class Hidruros extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         resM = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtr2 = new javax.swing.JTextPane();
+        resNM = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtinfo1 = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtinfo2 = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
         btn1 = new javax.swing.JButton();
-        btn2 = new javax.swing.JButton();
+        btnNM = new javax.swing.JButton();
+        statesNM = new javax.swing.JComboBox<>();
 
         jLabel11.setText("jLabel11");
 
@@ -104,6 +105,12 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
 
+        cbnometales.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbnometalesItemStateChanged(evt);
+            }
+        });
+
         jLabel8.setText("=");
 
         jLabel9.setText("=");
@@ -111,8 +118,8 @@ public class Hidruros extends javax.swing.JFrame {
         resM.setEditable(false);
         jScrollPane1.setViewportView(resM);
 
-        txtr2.setEditable(false);
-        jScrollPane2.setViewportView(txtr2);
+        resNM.setEditable(false);
+        jScrollPane2.setViewportView(resNM);
 
         txtinfo1.setEditable(false);
         txtinfo1.setColumns(20);
@@ -135,10 +142,16 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
 
-        btn2.setText("combinar");
-        btn2.addActionListener(new java.awt.event.ActionListener() {
+        btnNM.setText("combinar");
+        btnNM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn2ActionPerformed(evt);
+                btnNMActionPerformed(evt);
+            }
+        });
+
+        statesNM.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                statesNMItemStateChanged(evt);
             }
         });
 
@@ -154,7 +167,7 @@ public class Hidruros extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addGap(29, 29, 29)
@@ -162,12 +175,16 @@ public class Hidruros extends javax.swing.JFrame {
                                         .addGap(35, 35, 35)
                                         .addComponent(cbnometales, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel9))
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(statesNM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                    .addComponent(btn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btnNM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(53, 53, 53)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -228,15 +245,20 @@ public class Hidruros extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(23, 23, 23)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(23, 23, 23))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(statesNM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel7)
                                     .addComponent(cbnometales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn2)
+                                .addComponent(btnNM)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(38, 38, 38)
@@ -255,29 +277,57 @@ public class Hidruros extends javax.swing.JFrame {
         // TODO add your handling code here:
         ComboBoxModel<Elemento> modelo = this.cbmetales.getModel();
         Elemento ele = modelo.getElementAt(this.cbmetales.getSelectedIndex());
-        Reaccion r=new Reaccion(ele, Reaccion.HIDRURO_METALICO);
+        Reaccion r = new Reaccion(ele, Reaccion.HIDRURO_METALICO);
         this.resM.setText(r.getCompuesto().getNom());
     }//GEN-LAST:event_btn1ActionPerformed
 
-    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        
-        
-        
-    }//GEN-LAST:event_btn2ActionPerformed
+    private void btnNMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNMActionPerformed
+        ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
+        Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
+        ele.setEstado_used(ele.getEstados().indexOf(this.statesNM.getModel().getSelectedItem()));
+        System.out.println(ele.getNombre());
+        Reaccion r = new Reaccion(ele, Reaccion.HIDRURO_NOMETALICO);
+        this.resNM.setText(r.getCompuesto().getNom());
+    }//GEN-LAST:event_btnNMActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-VentanaPricipal aux = new VentanaPricipal();
-    aux.setVisible(true);
-    this.setVisible(false);
+        VentanaPricipal aux = new VentanaPricipal();
+        aux.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cbmetalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbmetalesActionPerformed
 
+    private void statesNMItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_statesNMItemStateChanged
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_statesNMItemStateChanged
+
+    private void cbnometalesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbnometalesItemStateChanged
+        // TODO add your handling code here:
+        boolean flag = false;
+        DefaultComboBoxModel estados = new DefaultComboBoxModel();
+        ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
+        Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
+        for (int i : ele.getEstados()) {
+            if (i < 0) {
+                flag = true;
+                estados.addElement(i);
+            }
+        }
+        if (flag) {
+            btnNM.setEnabled(true);
+        } else {
+            btnNM.setEnabled(false);
+        }
+        this.statesNM.setModel(estados);
+    }//GEN-LAST:event_cbnometalesItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
-    private javax.swing.JButton btn2;
+    private javax.swing.JButton btnNM;
     private javax.swing.JComboBox<Elemento> cbmetales;
     private javax.swing.JComboBox<Elemento> cbnometales;
     private javax.swing.JButton jButton1;
@@ -299,8 +349,9 @@ VentanaPricipal aux = new VentanaPricipal();
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextPane resM;
+    private javax.swing.JTextPane resNM;
+    private javax.swing.JComboBox<Integer> statesNM;
     private javax.swing.JTextArea txtinfo1;
     private javax.swing.JTextArea txtinfo2;
-    private javax.swing.JTextPane txtr2;
     // End of variables declaration//GEN-END:variables
 }
