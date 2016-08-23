@@ -26,11 +26,14 @@ public class Oxidos extends javax.swing.JFrame {
         for (Elemento e : Base.getMetalesEnColumna(2)) {
             model.addElement(e);
         }
-        this.cbmetal.setModel(model);
+        this.cbmetales.setModel(model);
         
         DefaultComboBoxModel nometal = new DefaultComboBoxModel();
         for(Elemento i : Base.getTodosNoMetales()){
-            nometal.addElement(i);
+            System.out.println(i);
+            if (!i.getNombre().equals("Oxigeno") ) {
+                nometal.addElement(i);
+            }
         }
         this.cbnometales.setModel(nometal);    
     
@@ -50,7 +53,7 @@ public class Oxidos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        cbmetal = new javax.swing.JComboBox<>();
+        cbmetales = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -112,13 +115,13 @@ public class Oxidos extends javax.swing.JFrame {
         getContentPane().add(jSeparator2);
         jSeparator2.setBounds(0, 372, 627, 32);
 
-        cbmetal.addActionListener(new java.awt.event.ActionListener() {
+        cbmetales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmetalActionPerformed(evt);
+                cbmetalesActionPerformed(evt);
             }
         });
-        getContentPane().add(cbmetal);
-        cbmetal.setBounds(12, 199, 110, 27);
+        getContentPane().add(cbmetales);
+        cbmetales.setBounds(12, 199, 110, 27);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
@@ -263,7 +266,7 @@ public class Oxidos extends javax.swing.JFrame {
          
     }//GEN-LAST:event_btn1ActionPerformed
 
-    private void cbmetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalActionPerformed
+    private void cbmetalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalActionPerformed
             
     }//GEN-LAST:event_cbmetalActionPerformed
 
@@ -271,7 +274,7 @@ public class Oxidos extends javax.swing.JFrame {
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btnmenu;
-    private javax.swing.JComboBox<String> cbmetal;
+    private javax.swing.JComboBox<String> cbmetales;
     private javax.swing.JComboBox<String> cbnometales;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

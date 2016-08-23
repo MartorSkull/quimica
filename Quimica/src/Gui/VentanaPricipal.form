@@ -40,6 +40,9 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagenesq/image3398.png"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenesq/image3398.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="QUIMICAREAC"/>
       </Properties>
       <Constraints>

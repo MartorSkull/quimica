@@ -23,11 +23,17 @@ public class Hidroxidos extends javax.swing.JFrame {
         DefaultComboBoxModel model;
         model = new DefaultComboBoxModel();
 
-        for (Elemento i : Base.getTodosMetales()) {
+        for (Elemento i : Base.getMetalesEnColumna(1)) {
             System.out.println(i);
             model.addElement(i);
         }
-        
+        for (Elemento e : Base.getMetalesEnColumna(2)) {
+            model.addElement(e);
+        }
+
+        for (Elemento e : Base.getMetalesEnColumna(3)) {
+            model.addElement(e);
+        }
         this.cbmetales.setModel(model);
     }
 
@@ -56,6 +62,7 @@ public class Hidroxidos extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -64,13 +71,13 @@ public class Hidroxidos extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setText("Hidrogeno(H)");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(310, 160, 110, 18);
+        jLabel1.setBounds(317, 175, 96, 18);
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Oxigeno(O)");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(200, 160, 90, 18);
+        jLabel2.setBounds(202, 175, 82, 18);
 
         cbmetales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,27 +85,27 @@ public class Hidroxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmetales);
-        cbmetales.setBounds(40, 160, 120, 27);
+        cbmetales.setBounds(43, 171, 120, 27);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("+");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 160, 22, 18);
+        jLabel3.setBounds(175, 175, 22, 18);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("+");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 160, 20, 18);
+        jLabel4.setBounds(301, 175, 10, 18);
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(254, 254, 254));
         jLabel5.setText("=");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(420, 160, 20, 18);
+        jLabel5.setBounds(427, 175, 9, 18);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(440, 150, 90, 38);
+        jTextField1.setBounds(448, 166, 80, 38);
 
         jButton1.setText("Combinar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -107,16 +114,16 @@ public class Hidroxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(40, 240, 480, 55);
+        jButton1.setBounds(43, 229, 485, 55);
 
         jLabel6.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(253, 251, 251));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/image3398.png"))); // NOI18N
         jLabel6.setText("Hidroxidos");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 10, 151, 49);
+        jLabel6.setBounds(12, 12, 151, 49);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(0, 70, 739, 10);
+        jSeparator1.setBounds(0, 73, 744, 10);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecharec.png"))); // NOI18N
         jButton2.setText("Menu");
@@ -126,13 +133,13 @@ public class Hidroxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(410, 20, 111, 42);
+        jButton2.setBounds(420, 20, 111, 42);
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("Metal");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(40, 120, 70, 18);
+        jLabel7.setBounds(43, 142, 41, 18);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -140,18 +147,23 @@ public class Hidroxidos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 320, 480, 100);
+        jScrollPane1.setBounds(40, 300, 490, 110);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(254, 254, 254));
         jLabel8.setText("compuesto");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(440, 120, 79, 18);
+        jLabel8.setBounds(448, 142, 79, 18);
 
         jLabel9.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
         jLabel9.setText("jLabel9");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(0, 0, 640, 550);
+        jLabel9.setBounds(0, 0, 0, 0);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
+        jLabel10.setText("jLabel10");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(0, 0, 570, 460);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,6 +187,7 @@ public class Hidroxidos extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

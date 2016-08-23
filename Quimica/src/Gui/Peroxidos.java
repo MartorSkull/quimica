@@ -5,6 +5,10 @@
  */
 package Gui;
 
+import data.Base;
+import data.Elemento;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author tobias
@@ -16,6 +20,16 @@ public class Peroxidos extends javax.swing.JFrame {
      */
     public Peroxidos() {
         initComponents();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+
+        for (Elemento i : Base.getMetalesEnColumna(1)) {
+            System.out.println(i);
+            model.addElement(i);
+        }
+        for (Elemento e : Base.getMetalesEnColumna(2)) {
+            model.addElement(e);
+        }
+        this.cbmetales.setModel(model);   
     }
 
     /**
@@ -27,10 +41,10 @@ public class Peroxidos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cbmetales = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -43,6 +57,14 @@ public class Peroxidos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+
+        cbmetales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmetalesActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -54,7 +76,7 @@ public class Peroxidos extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(12, 18, 146, 49);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(0, 73, 446, 10);
+        jSeparator1.setBounds(0, 73, 447, 10);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecharec.png"))); // NOI18N
         jButton1.setText("Menu");
@@ -64,10 +86,7 @@ public class Peroxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(348, 25, 86, 42);
-
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(29, 149, 106, 27);
+        jButton1.setBounds(349, 25, 86, 42);
 
         jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Metal");
@@ -78,53 +97,61 @@ public class Peroxidos extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("+");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(147, 153, 10, 18);
+        jLabel3.setBounds(147, 151, 10, 18);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("(O)");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(225, 151, 26, 21);
+        jLabel4.setBounds(226, 149, 26, 21);
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(254, 254, 254));
         jLabel5.setText("oxigeno");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(163, 154, 70, 18);
+        jLabel5.setBounds(163, 151, 57, 18);
 
         jLabel6.setForeground(new java.awt.Color(254, 254, 254));
         jLabel6.setText("-1");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(257, 138, 14, 17);
+        jLabel6.setBounds(258, 138, 14, 17);
 
         jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("2");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(263, 167, 8, 17);
+        jLabel7.setBounds(264, 167, 8, 17);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(254, 254, 254));
         jLabel8.setText("=");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(283, 150, 9, 18);
+        jLabel8.setBounds(284, 150, 9, 18);
 
         jButton2.setText("crear");
         getContentPane().add(jButton2);
-        jButton2.setBounds(30, 190, 370, 50);
+        jButton2.setBounds(284, 179, 151, 29);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(304, 146, 90, 27);
+        jTextField1.setBounds(305, 146, 90, 27);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 250, 371, 87);
+        jScrollPane1.setBounds(38, 214, 371, 87);
 
         jLabel9.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
         jLabel9.setText("jLabel9");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(0, 0, 450, 360);
+        jLabel9.setBounds(0, 0, 0, 0);
+
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(29, 149, 100, 27);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
+        jLabel10.setText("jLabel10");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(0, 0, 450, 320);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -135,11 +162,17 @@ VentanaPricipal aux = new VentanaPricipal();
     this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void cbmetalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbmetalesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbmetales;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

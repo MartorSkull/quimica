@@ -8,6 +8,7 @@ package Gui;
 import data.Base;
 import data.Elemento;
 import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -20,6 +21,25 @@ public class Hidracidos extends javax.swing.JFrame {
      */
     public Hidracidos() {
         initComponents();
+        DefaultComboBoxModel modelhal = new DefaultComboBoxModel();
+        DefaultComboBoxModel modelant = new DefaultComboBoxModel();
+
+        for (Elemento i : Base.getNoMetalesEnColumna(17)) {
+            System.out.println(i);
+            modelhal.addElement(i);
+        }
+
+        this.cbhalogenos.setModel(modelhal);
+
+        for (Elemento i : Base.getNoMetalesEnColumna(16)) {
+            System.out.println(i);
+            if (!i.getNombre().equals("Oxigeno") ) {
+                modelant.addElement(i);
+            }
+
+        }
+
+        this.cbantigenos.setModel(modelant);
     }
 
     /**
@@ -36,8 +56,8 @@ public class Hidracidos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        cbhalogeno = new javax.swing.JComboBox<>();
-        cbantigeno = new javax.swing.JComboBox<>();
+        cbhalogenos = new javax.swing.JComboBox<>();
+        cbantigenos = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -57,15 +77,15 @@ public class Hidracidos extends javax.swing.JFrame {
 
         jLabel3.setText("+");
 
-        cbhalogeno.addActionListener(new java.awt.event.ActionListener() {
+        cbhalogenos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbhalogenoActionPerformed(evt);
+                cbhalogenosActionPerformed(evt);
             }
         });
 
-        cbantigeno.addActionListener(new java.awt.event.ActionListener() {
+        cbantigenos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbantigenoActionPerformed(evt);
+                cbantigenosActionPerformed(evt);
             }
         });
 
@@ -132,14 +152,14 @@ public class Hidracidos extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(antigenosok)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(cbantigeno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(cbantigenos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(4, 4, 4))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(139, 139, 139)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbhalogeno, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbhalogenos, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel6)
                                     .addComponent(halogenosok)))
@@ -173,7 +193,7 @@ public class Hidracidos extends javax.swing.JFrame {
                 .addComponent(halogenosok)
                 .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbhalogeno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbhalogenos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
@@ -188,7 +208,7 @@ public class Hidracidos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(cbantigeno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbantigenos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -200,13 +220,13 @@ public class Hidracidos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbantigenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbantigenoActionPerformed
+    private void cbantigenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbantigenosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbantigenoActionPerformed
+    }//GEN-LAST:event_cbantigenosActionPerformed
 
-    private void cbhalogenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbhalogenoActionPerformed
+    private void cbhalogenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbhalogenosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbhalogenoActionPerformed
+    }//GEN-LAST:event_cbhalogenosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
@@ -217,15 +237,15 @@ public class Hidracidos extends javax.swing.JFrame {
     }//GEN-LAST:event_halogenosokActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    VentanaPricipal aux = new VentanaPricipal();
-    aux.setVisible(true);
-    this.setVisible(false);
+        VentanaPricipal aux = new VentanaPricipal();
+        aux.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton antigenosok;
-    private javax.swing.JComboBox<String> cbantigeno;
-    private javax.swing.JComboBox<String> cbhalogeno;
+    private javax.swing.JComboBox<String> cbantigenos;
+    private javax.swing.JComboBox<String> cbhalogenos;
     private javax.swing.ButtonGroup grupo1;
     private javax.swing.JRadioButton halogenosok;
     private javax.swing.JButton jButton1;
