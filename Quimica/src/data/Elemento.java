@@ -72,7 +72,7 @@ public class Elemento implements Serializable{
     
     @Override
     public String toString(){
-        return this.id+" - "+this.nombre+ " - "+this.nom+" - "+this.estados+" - "+this.colum+" - "+this.idColum+" - "+this.eleneg;
+        return this.nombre;
     }
 
     public String getNombre() {

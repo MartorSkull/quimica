@@ -2,6 +2,7 @@ package Gui;
 
 import data.Base;
 import data.Reaccion;
+import java.io.File;
 import javax.swing.JOptionPane;
 
 /*
@@ -49,12 +50,12 @@ public class VentanaPricipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/image3398.png")); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Ubuntu Medium", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(254, 242, 242));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/image3398.png"))); // NOI18N
         jLabel1.setText("QUIMICAREAC");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(12, 12, 188, 49);
+        jLabel1.setBounds(12, 12, 210, 49);
         getContentPane().add(jSeparator2);
         jSeparator2.setBounds(12, 73, 324, 4);
 
@@ -75,7 +76,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
         getContentPane().add(lscuaternario);
         lscuaternario.setBounds(12, 339, 219, 27);
 
-        btnListo.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/flecha.png")); // NOI18N
+        btnListo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecha.png"))); // NOI18N
         btnListo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListoActionPerformed(evt);
@@ -85,6 +86,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
         btnListo.setBounds(212, 399, 95, 52);
 
         buttonGroup1.add(Cbbinario);
+        Cbbinario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         Cbbinario.setForeground(new java.awt.Color(254, 254, 254));
         Cbbinario.setText("Compuestos binarios ");
         Cbbinario.addActionListener(new java.awt.event.ActionListener() {
@@ -96,26 +98,29 @@ public class VentanaPricipal extends javax.swing.JFrame {
         Cbbinario.setBounds(12, 133, 221, 24);
 
         buttonGroup1.add(cbterciario);
+        cbterciario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         cbterciario.setForeground(new java.awt.Color(254, 254, 254));
         cbterciario.setText("Compuesto Terciario");
         getContentPane().add(cbterciario);
         cbterciario.setBounds(12, 218, 221, 24);
 
         buttonGroup1.add(cbcuaternario);
+        cbcuaternario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         cbcuaternario.setForeground(new java.awt.Color(254, 254, 254));
         cbcuaternario.setText("Compuestos cuaternarios");
         getContentPane().add(cbcuaternario);
         cbcuaternario.setBounds(12, 309, 219, 24);
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(254, 202, 202));
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Seleccione el compuesto q decea crear...");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(12, 89, 231, 15);
+        jLabel2.setBounds(12, 89, 240, 15);
         getContentPane().add(jSeparator4);
         jSeparator4.setBounds(12, 110, 324, 17);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/gwall.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 350, 480);
 
@@ -217,7 +222,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaPricipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-            
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

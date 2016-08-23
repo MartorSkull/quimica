@@ -50,7 +50,7 @@ public class SalBinaria extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/image3398.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/image3398.png"))); // NOI18N
         jLabel1.setText("Sales Binarias");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(12, 12, 178, 49);
@@ -60,45 +60,49 @@ public class SalBinaria extends javax.swing.JFrame {
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(12, 101, 109, 27);
 
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Hidracidos");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(155, 73, 73, 17);
+        jLabel2.setBounds(155, 73, 90, 18);
 
         getContentPane().add(jComboBox2);
         jComboBox2.setBounds(155, 101, 115, 27);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("+");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(133, 105, 10, 18);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("=");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(288, 105, 9, 18);
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 0, 0);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(309, 101, 88, 27);
+        jTextField1.setBounds(310, 90, 100, 40);
 
+        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("hidroxido");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(12, 73, 65, 17);
+        jLabel7.setBounds(12, 73, 80, 18);
 
         jButton1.setText("crear");
         getContentPane().add(jButton1);
-        jButton1.setBounds(423, 94, 88, 40);
+        jButton1.setBounds(10, 150, 510, 70);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(12, 152, 505, 166);
+        jScrollPane1.setBounds(12, 228, 505, 90);
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/flecharec.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecharec.png"))); // NOI18N
         jButton2.setText("Menu");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +112,7 @@ public class SalBinaria extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(379, 16, 132, 42);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/gwall.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(0, 0, 530, 350);
