@@ -28,10 +28,9 @@ public class Hidruros extends javax.swing.JFrame {
 
         DefaultComboBoxModel nometal = new DefaultComboBoxModel();
         for (Elemento i : Base.getTodosNoMetales()) {
-            if (i.getId() != 1) {
-                nometal.addElement(i);
-            }
-        }
+            if (!i.getNombre().equals("Hidrogeno") ) {
+            nometal.addElement(i);
+        }}
         this.cbnometales.setModel(nometal);
     }
 
