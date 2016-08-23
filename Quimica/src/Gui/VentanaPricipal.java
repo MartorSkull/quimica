@@ -115,8 +115,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
         getContentPane().add(jSeparator4);
         jSeparator4.setBounds(12, 110, 324, 17);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/home/serna/Descargas/gwall.png")); // NOI18N
-        jLabel3.setText("jLabel3");
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/gwall.png")); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 350, 480);
 

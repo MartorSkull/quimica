@@ -108,7 +108,7 @@ public class SalBinaria extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(379, 16, 132, 42);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("/home/serna/Descargas/gwall.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/gwall.png")); // NOI18N
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(0, 0, 530, 350);

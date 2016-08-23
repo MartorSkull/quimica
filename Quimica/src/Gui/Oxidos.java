@@ -214,7 +214,7 @@ public class Oxidos extends javax.swing.JFrame {
         getContentPane().add(jLabel15);
         jLabel15.setBounds(12, 12, 0, 0);
 
-        jLabel16.setIcon(new javax.swing.ImageIcon("/home/serna/Descargas/gwall.png")); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/gwall.png")); // NOI18N
         jLabel16.setText("jLabel16");
         getContentPane().add(jLabel16);
         jLabel16.setBounds(0, 0, 630, 610);
