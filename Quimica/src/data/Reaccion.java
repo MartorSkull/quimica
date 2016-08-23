@@ -76,20 +76,12 @@ public class Reaccion {
         arr.add(ele);
         arr.add(h);
         String nom = null;
-        
-        int mcm = mcm(h.getEstado_used(), ele.getEstado_used()*-1);
-        cant.add(mcm/ele.getEstado_used()*-1);
-        cant.add(mcm/h.getEstado_used());
-        
-        if (cant.get(0) == 1 && cant.get(1) == 1) {
-            nom = ele.getNom() + h.getNom();
-        } else if (cant.get(0) == 1) {
-            nom = ele.getNom() + h.getNom() + cant.get(1);
-        } else if (cant.get(1) == 1) {
-            nom = ele.getNom() + cant.get(0) + h.getNom();
-        } else {
-            nom = ele.getNom() + cant.get(0) + h.getNom() + cant.get(1);
-        }
+
+        int mcm = mcm(h.getEstado_used(), ele.getEstado_used() * -1);
+        cant.add(mcm / ele.getEstado_used() * -1);
+        cant.add(mcm / h.getEstado_used());
+
+        nom = nom(arr, cant);
 
         hnm = new Compuesto(arr, cant, "sha cazi", nom, Reaccion.HIDRURO_NOMETALICO);
         return hnm;
@@ -99,45 +91,73 @@ public class Reaccion {
         Compuesto hm = null;
         Elemento h = Base.getNoMetal(1);
         h.setEstado_used(1);
+
         ArrayList<Elemento> arr = new ArrayList();
         ArrayList<Integer> cant = new ArrayList();
         arr.add(ele);
         arr.add(h);
         String nom = null;
-        
-        int mcm=mcm(ele.getEstado_used(), h.getEstado_used()*-1);
-        cant.add(mcm/h.getEstado_used()*-1);
-        cant.add(mcm/ele.getEstado_used());
-        
-        if (cant.get(0) == 1 && cant.get(1) == 1) {
-            nom = h.getNom() + ele.getNom();
-        } else if (cant.get(0) == 1) {
-            nom = h.getNom() + cant.get(1) + ele.getNom();
-        } else if (cant.get(1) == 1) {
-            nom = h.getNom() + ele.getNom() + cant.get(0);
-        } else {
-            nom = h.getNom() + cant.get(1) + ele.getNom() + cant.get(0);
-        }
+
+        int mcm = mcm(ele.getEstado_used(), h.getEstado_used() * -1);
+        cant.add(mcm / ele.getEstado_used());
+        cant.add(mcm / h.getEstado_used() * -1);
+
+        nom = nom(arr, cant);
         hm = new Compuesto(arr, cant, "sha cazi", nom, Reaccion.HIDRURO_METALICO);
         return hm;
     }
-    /*
-    private Compuesto oxido_basico(Elemento ele) {
 
+    private Compuesto oxido_basico(Elemento ele) {
+        Compuesto om = null;
+        Elemento o = Base.getNoMetal(5);
+        o.setEstado_used(0);
+
+        ArrayList<Elemento> arr = new ArrayList();
+        ArrayList<Integer> cant = new ArrayList();
+        arr.add(ele);
+        arr.add(o);
+        String nom = null;
+
+        int mcm = mcm(ele.getEstado_used(), o.getEstado_used() * -1);
+        cant.add(mcm / ele.getEstado_used());
+        cant.add(mcm / o.getEstado_used() * -1);
+
+        nom = nom(arr, cant);
+
+        om = new Compuesto(arr, cant, "sha cazi", nom, Reaccion.OXIDO_BASICO);
+        return om;
     }
 
     private Compuesto oxido_acido(Elemento ele) {
+        Compuesto onm = null;
+        Elemento o = Base.getNoMetal(5);
+        o.setEstado_used(0);
 
+        ArrayList<Elemento> arr = new ArrayList();
+        ArrayList<Integer> cant = new ArrayList();
+        arr.add(ele);
+        arr.add(o);
+        String nom = null;
+
+        int mcm = mcm(ele.getEstado_used(), o.getEstado_used() * -1);
+        cant.add(mcm / ele.getEstado_used());
+        cant.add(mcm / o.getEstado_used() * -1);
+
+        nom = nom(arr, cant);
+
+        onm = new Compuesto(arr, cant, "sha cazi", nom, Reaccion.OXIDO_ACIDO);
+        return onm;
     }
 
+    /*
     private Compuesto hidroxido(Elemento[] ele) {
-
+        
     }
 
     private Compuesto acido_oxacido(Elemento[] ele) {
-
+        
     }
-
+/*
     private Compuesto acido_hidracido(Elemento[] ele) {
 
     }
@@ -162,16 +182,84 @@ public class Reaccion {
         
     }
      */
-    
-    private int mcm(int num1, int num2){
+
+    private String nom(ArrayList<Elemento> eles, ArrayList<Integer> cant) {
+        String nom = null;
+
+        if (eles.size() == 2) {
+            if(eles.get(1).getId()==1){
+                if(eles.get(0).getColum()==16 || eles.get(0).getColum()==17){
+                    nom=eles.get(1).getNom()+"%a"+eles.get(0).getNom()+"%b";
+                    if(cant.get(1)!=1){
+                        nom=nom.replace("%a", cant.get(1)+"");
+                    }else{
+                        nom= nom.replace("%a", "");
+                    }
+                    if(cant.get(0)!=1){
+                        nom=nom.replace("%b", cant.get(0)+"");
+                    }else{
+                        nom=nom.replace("%b", "");
+                    }
+                } else {
+                    nom = eles.get(0).getNom()+"%a"+eles.get(1).getNom()+"%b";
+                    if(cant.get(0)!=1){
+                        nom=nom.replace("%a", cant.get(0)+"");
+                    }else{
+                        nom=nom.replace("%a", "");
+                    }
+                    if (cant.get(1)!=1){
+                        nom=nom.replace("%b", cant.get(1)+"");
+                    }else{
+                        nom=nom.replace("%b", "");
+                    }
+                }
+            }else if(eles.get(1).getId()==5){
+                nom=eles.get(0).getNom()+"%a"+eles.get(1).getNom()+"%b";
+                if(cant.get(0)!=1){
+                    nom=nom.replace("%a", cant.get(0)+"");
+                }else{
+                    nom=nom.replace("%a", "");
+                }
+                if (cant.get(1)!=1){
+                    nom=nom.replace("%b", cant.get(1)+"");
+                }else{
+                    nom=nom.replace("%b", "");
+                }
+            }   
+        }
+        return nom;
+    }
+
+    private int mcm(int num1, int num2) {
         int min = Math.min(num1, num2);
         int mcm = 0;
-        for (int i=1; i<=min; i++) {
-            if (num1%i==0 && num2%i==0) {
+        for (int i = 1; i <= min; i++) {
+            if (num1 % i == 0 && num2 % i == 0) {
                 int mcd = i;
-                mcm = (num1*num2)/mcd;
+                mcm = (num1 * num2) / mcd;
             }
         }
         return mcm;
     }
+
+    private int mcm(int num1, int num2, int num3) {
+        int min = 0;
+        int mcm = 0;
+        if (Math.min(num1, num2) < Math.min(num2, num3)) {
+            min = num1;
+
+        } else if (Math.min(num1, num2) > Math.min(num2, num3)) {
+            min = num3;
+        } else {
+            min = num2;
+        }
+        for (int i = 1; i <= min; i++) {
+            if (num1 % i == 0 && num2 % i == 0 && num3 % i ==0) {
+                int mcd = i;
+                mcm = (num1 * num2 * num3) / mcd;
+            }
+        }
+        return mcm;
+    }
+
 }

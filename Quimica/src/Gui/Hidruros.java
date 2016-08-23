@@ -17,8 +17,9 @@ public class Hidruros extends javax.swing.JFrame {
         DefaultComboBoxModel model = new DefaultComboBoxModel();
 
         for (Elemento i : Base.getMetalesEnColumna(1)) {
-            System.out.println(i);
+
             model.addElement(i);
+
         }
         for (Elemento e : Base.getMetalesEnColumna(2)) {
             model.addElement(e);
@@ -27,7 +28,9 @@ public class Hidruros extends javax.swing.JFrame {
 
         DefaultComboBoxModel nometal = new DefaultComboBoxModel();
         for (Elemento i : Base.getTodosNoMetales()) {
-            nometal.addElement(i);
+            if (i.getId() != 1) {
+                nometal.addElement(i);
+            }
         }
         this.cbnometales.setModel(nometal);
     }
