@@ -30,7 +30,10 @@ public class Oxidos extends javax.swing.JFrame {
         
         DefaultComboBoxModel nometal = new DefaultComboBoxModel();
         for(Elemento i : Base.getTodosNoMetales()){
-            nometal.addElement(i);
+            System.out.println(i);
+            if (!i.getNombre().equals("Oxigeno") ) {
+                nometal.addElement(i);
+            }
         }
         this.cbnometales.setModel(nometal);    
     

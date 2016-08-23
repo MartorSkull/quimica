@@ -9,6 +9,8 @@ import data.Base;
 import data.Elemento;
 import data.Reaccion;
 import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author tobias
@@ -20,9 +22,14 @@ public class Oxoacidos extends javax.swing.JFrame {
      */
     public Oxoacidos() {
         initComponents();
+        DefaultComboBoxModel nometal = new DefaultComboBoxModel();
+        for (Elemento i : Base.getTodosNoMetales()) {
+            if (!i.getNombre().equals("Oxigeno") && !i.getNombre().equals("Hidrogeno")) {
+                nometal.addElement(i);
+            }
+        }
+        this.cbnometales.setModel(nometal);
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,7 +44,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        cbxnm = new javax.swing.JComboBox<>();
+        cbnometales = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -107,7 +114,7 @@ public class Oxoacidos extends javax.swing.JFrame {
                                 .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbxnm, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbnometales, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,7 +162,7 @@ public class Oxoacidos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel5)
-                            .addComponent(cbxnm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbnometales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel2)
                             .addComponent(jLabel11)
@@ -172,13 +179,13 @@ public class Oxoacidos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-VentanaPricipal aux = new VentanaPricipal();
-    aux.setVisible(true);
-    this.setVisible(false);
+        VentanaPricipal aux = new VentanaPricipal();
+        aux.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbxnm;
+    private javax.swing.JComboBox<String> cbnometales;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
