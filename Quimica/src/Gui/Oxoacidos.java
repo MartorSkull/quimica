@@ -101,7 +101,7 @@ public class Oxoacidos extends javax.swing.JFrame {
 
         jButton1.setText("Combinar");
         getContentPane().add(jButton1);
-        jButton1.setBounds(28, 192, 492, 29);
+        jButton1.setBounds(28, 192, 492, 60);
 
         jTextField2.setEditable(false);
         getContentPane().add(jTextField2);
