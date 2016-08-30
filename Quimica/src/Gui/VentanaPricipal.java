@@ -68,15 +68,15 @@ public class VentanaPricipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lsbinario);
-        lsbinario.setBounds(12, 163, 221, 27);
+        lsbinario.setBounds(12, 163, 221, 24);
 
         lsterciario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxoacidos ", "Hidroxidos ", "Sal terciaria " }));
         getContentPane().add(lsterciario);
-        lsterciario.setBounds(12, 254, 221, 27);
+        lsterciario.setBounds(12, 254, 221, 24);
 
         lscuaternario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sales Cuaternarias " }));
         getContentPane().add(lscuaternario);
-        lscuaternario.setBounds(12, 339, 219, 27);
+        lscuaternario.setBounds(12, 339, 219, 24);
 
         btnListo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecha.png"))); // NOI18N
         btnListo.addActionListener(new java.awt.event.ActionListener() {
@@ -97,21 +97,21 @@ public class VentanaPricipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Cbbinario);
-        Cbbinario.setBounds(12, 133, 221, 24);
+        Cbbinario.setBounds(12, 133, 221, 26);
 
         buttonGroup1.add(cbterciario);
         cbterciario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         cbterciario.setForeground(new java.awt.Color(254, 254, 254));
         cbterciario.setText("Compuesto Terciario");
         getContentPane().add(cbterciario);
-        cbterciario.setBounds(12, 218, 221, 24);
+        cbterciario.setBounds(12, 218, 221, 26);
 
         buttonGroup1.add(cbcuaternario);
         cbcuaternario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         cbcuaternario.setForeground(new java.awt.Color(254, 254, 254));
         cbcuaternario.setText("Compuestos cuaternarios");
         getContentPane().add(cbcuaternario);
-        cbcuaternario.setBounds(12, 309, 219, 24);
+        cbcuaternario.setBounds(12, 309, 219, 26);
 
         jLabel2.setBackground(new java.awt.Color(254, 202, 202));
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
@@ -137,24 +137,19 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 this.setVisible(false);
 
             }
-            if (lsbinario.getSelectedIndex() == 1) {
+            else if (lsbinario.getSelectedIndex() == 1) {
                 Hidruros aux = new Hidruros();
                 aux.setVisible(true);
                 this.setVisible(false);
 
             }
-            if (lsbinario.getSelectedIndex() == 2) {
+            else if (lsbinario.getSelectedIndex() == 2) {
                 Hidracidos aux = new Hidracidos();
                 aux.setVisible(true);
                 this.setVisible(false);
 
             }
-            if (lsbinario.getSelectedIndex() == 3) {
-                Peroxidos aux = new Peroxidos();
-                aux.setVisible(true);
-                this.setVisible(false);
-            }
-            if (lsbinario.getSelectedIndex() == 4) {
+            else if (lsbinario.getSelectedIndex() == 4) {
                 SalBinaria aux = new SalBinaria();
                 aux.setVisible(true);
                 this.setVisible(false);
@@ -165,12 +160,12 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 aux.setVisible(true);
                 this.setVisible(false);
             }
-            if (lsterciario.getSelectedIndex() == 1) {
+            else if (lsterciario.getSelectedIndex() == 1) {
                 Hidroxidos aux = new Hidroxidos();
                 aux.setVisible(true);
                 this.setVisible(false);
             }
-            if (lsterciario.getSelectedIndex() == 2) {
+            else if (lsterciario.getSelectedIndex() == 2) {
                 SalTerciaria aux = new SalTerciaria();
                 aux.setVisible(true);
                 this.setVisible(false);

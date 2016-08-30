@@ -60,6 +60,12 @@ public class Reaccion {
             this.compuesto = this.hidruro_nometalico(elemento);
         } else if (tipo == Reaccion.HIDRURO_METALICO) {
             this.compuesto = this.hidruro_metalico(elemento);
+        } else if (tipo == Reaccion.OXIDO_BASICO) {
+            this.compuesto = this.oxido_basico(elemento);
+        } else if (tipo == Reaccion.OXIDO_ACIDO) {
+            this.compuesto = this.oxido_acido(elemento);
+        } else if (tipo == Reaccion.HIDROXIDO) {
+            this.compuesto = this.hidroxido(elemento);
         }
     }
 
@@ -122,6 +128,9 @@ public class Reaccion {
         cant.add(mcm / ele.getEstado_used());
         cant.add(mcm / o.getEstado_used() * -1);
 
+        System.out.println(cant.get(0) + "Elemetno");
+        System.out.println(cant.get(1) + "Oxigeno");
+
         nom = nom(arr, cant);
 
         om = new Compuesto(arr, cant, "sha cazi", nom, Reaccion.OXIDO_BASICO);
@@ -149,12 +158,46 @@ public class Reaccion {
         return onm;
     }
 
-    /*
-    
-    private Compuesto hidroxido(Elemento[] ele) {
-        
+    private Compuesto hidroxido(Elemento ele) {
+        Compuesto hx = null;
+
+        ArrayList<Elemento> arr = new ArrayList();
+        ArrayList<Integer> cant = new ArrayList();
+        Elemento o = Base.getNoMetal(5);
+        Elemento h = Base.getNoMetal(1);
+        o.setEstado_used(0);
+        h.setEstado_used(0);
+
+        ArrayList<Elemento> els = new ArrayList();
+        els.add(o);
+        els.add(h);
+        ArrayList<Integer> rdc = new ArrayList();
+        Radical rd = new Radical(els, rdc, "OH");
+
+        arr.add(ele);
+        arr.add(o);
+        arr.add(h);
+
+        int mcm = mcm(ele.getEstado_used(), rd.getEstado() * -1);
+        cant.add(mcm / ele.getEstado_used());
+        cant.add(mcm);
+        cant.add(mcm);
+
+        nom = ele.getNom() + "%a("+rd.getFormula()+")%b";
+        if (cant.get(0) != 1) {
+            nom = nom.replace("%a", cant.get(0) + "");
+        } else {
+            nom = nom.replace("%a", "");
+        }
+        if (cant.get(1) != 1) {
+            nom = nom.replace("%b", cant.get(1)+"");
+        } else {
+            nom = nom.replace("%b", "");
+        }
+        hx = new Compuesto(arr, cant, "Almost there", nom, Reaccion.HIDROXIDO);
+        return hx;
     }
-     */
+
     private Compuesto acido_oxacido(Elemento ele) {
         Compuesto ao = null;
         Elemento o = Base.getNoMetal(5);
@@ -179,27 +222,28 @@ public class Reaccion {
         return ao;
     }
 
-    /*
-    private Compuesto acido_hidracido(Elemento[] ele) {
-
+/*
+    private Compuesto acido_hidracido(Elemento ele) {
+        Compuesto  ah=null;
+        
     }
-
+/*
     private Compuesto sal_hidracida(Compuesto hidracido, Compuesto hidroxido) {
 
     }
-
+/*
     private Compuesto sal_neutra(Compuesto oxoacido, Compuesto hidroxido) {
 
     }
-
+/*
     private Compuesto sal_acida(Compuesto oxoacido, Compuesto hidroxido) {
 
     }
-
+/*
     private Compuesto sal_basica(Compuesto oxoacido, Compuesto hidroxido) {
 
     }
-
+/*
     private Compuesto sal_mixta(Compuesto oxoacido, Compuesto hidroxido1, Compuesto hidroxido2) {
         
     }
