@@ -57,11 +57,12 @@ public class Oxoacidos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
 
         jLabel7.setText("jLabel7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(700, 400));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -100,6 +101,11 @@ public class Oxoacidos extends javax.swing.JFrame {
         jLabel11.setBounds(404, 155, 16, 18);
 
         jButton1.setText("Combinar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(28, 192, 492, 29);
 
@@ -146,15 +152,8 @@ public class Oxoacidos extends javax.swing.JFrame {
         jLabel4.setText("compuesto");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(427, 120, 79, 18);
-
-        jLabel8.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
         getContentPane().add(jLabel8);
         jLabel8.setBounds(0, 0, 0, 0);
-
-        jLabel9.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
-        jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(0, 0, 810, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,6 +163,10 @@ public class Oxoacidos extends javax.swing.JFrame {
         aux.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbnometales;
@@ -179,7 +182,6 @@ public class Oxoacidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;

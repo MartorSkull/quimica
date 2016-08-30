@@ -122,7 +122,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
         getContentPane().add(jSeparator4);
         jSeparator4.setBounds(12, 110, 324, 17);
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 0, 350, 480);
+        jLabel3.setBounds(20, 0, 350, 480);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -292,12 +292,30 @@ public class Reaccion {
                 }
             }
         } else if (eles.size() == 3) {
-            boolean flag = false;
-            for (Elemento i : Base.getTodosNoMetales()) {
-                if (i.equals(eles.get(0))) {
-                    flag = true;
-                }
+            if (eles.get(1).getId() == 1) {
+                boolean flag = false;
+                for (Elemento i : Base.getTodosNoMetales()) {
+                    if (i.equals(eles.get(0))) {
+                        flag = true;
+                        nom = eles.get(2).getNom() + "%a" + eles.get(0).getNom() + "%b" + eles.get(1).getNom() + "%c";
+                        if (cant.get(0) != 1) {
+                            nom = nom.replace("%b", cant.get(0) + "");
+                        } else {
+                            nom = nom.replace("%b", "");
+                        }
+                        if (cant.get(1) != 1) {
+                            nom = nom.replace("%c", cant.get(1) + "");
+                        } else {
+                            nom = nom.replace("%c", "");
+                        }
+                        if (cant.get(2) != 1) {
+                            nom = nom.replace("%a", cant.get(2) + "");
+                        } else {
+                            nom = nom.replace("%a", "");
+                        }
 
+                    }
+                }
             }
         }
         return nom;
