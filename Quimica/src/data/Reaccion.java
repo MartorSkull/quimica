@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -66,7 +66,10 @@ public class Reaccion {
             this.compuesto = this.oxido_acido(elemento);
         } else if (tipo == Reaccion.HIDROXIDO) {
             this.compuesto = this.hidroxido(elemento);
+        } else if (tipo == Reaccion.ACIDO_OXACIDO) {
+            this.compuesto = this.acido_oxacido(elemento);
         }
+
     }
 
     public Compuesto getCompuesto() {
@@ -183,14 +186,14 @@ public class Reaccion {
         cant.add(mcm);
         cant.add(mcm);
 
-        nom = ele.getNom() + "%a("+rd.getFormula()+")%b";
+        nom = ele.getNom() + "%a(" + rd.getFormula() + ")%b";
         if (cant.get(0) != 1) {
             nom = nom.replace("%a", cant.get(0) + "");
         } else {
             nom = nom.replace("%a", "");
         }
         if (cant.get(1) != 1) {
-            nom = nom.replace("%b", cant.get(1)+"");
+            nom = nom.replace("%b", cant.get(1) + "");
         } else {
             nom = nom.replace("%b", "");
         }
@@ -216,13 +219,14 @@ public class Reaccion {
         cant.add(mcm / ele.getEstado_used());
         cant.add(mcm / o.getEstado_used() * -1);
         cant.add(mcm / h.getEstado_used());
+        System.out.println(mcm);
 
         nom = nom(arr, cant);
         ao = new Compuesto(arr, cant, "almost here", nom, Reaccion.ACIDO_OXACIDO);
         return ao;
     }
 
-/*
+    /*
     private Compuesto acido_hidracido(Elemento ele) {
         Compuesto  ah=null;
         
@@ -292,29 +296,27 @@ public class Reaccion {
                 }
             }
         } else if (eles.size() == 3) {
-            if (eles.get(1).getId() == 1) {
-                boolean flag = false;
-                for (Elemento i : Base.getTodosNoMetales()) {
-                    if (i.equals(eles.get(0))) {
-                        flag = true;
-                        nom = eles.get(2).getNom() + "%a" + eles.get(0).getNom() + "%b" + eles.get(1).getNom() + "%c";
-                        if (cant.get(0) != 1) {
-                            nom = nom.replace("%b", cant.get(0) + "");
-                        } else {
-                            nom = nom.replace("%b", "");
-                        }
-                        if (cant.get(1) != 1) {
-                            nom = nom.replace("%c", cant.get(1) + "");
-                        } else {
-                            nom = nom.replace("%c", "");
-                        }
-                        if (cant.get(2) != 1) {
-                            nom = nom.replace("%a", cant.get(2) + "");
-                        } else {
-                            nom = nom.replace("%a", "");
-                        }
-
+            boolean flag = false;
+            for (Elemento i : Base.getTodosNoMetales()) {
+                if (i.equals(eles.get(0))) {
+                    flag = true;
+                    nom = eles.get(2).getNom() + "%a" + eles.get(0).getNom() + "%b" + eles.get(1).getNom() + "%c";
+                    if (cant.get(0) != 1) {
+                        nom = nom.replace("%b", cant.get(0) + "");
+                    } else {
+                        nom = nom.replace("%b", "");
                     }
+                    if (cant.get(1) != 1) {
+                        nom = nom.replace("%c", cant.get(1) + "");
+                    } else {
+                        nom = nom.replace("%c", "");
+                    }
+                    if (cant.get(2) != 1) {
+                        nom = nom.replace("%a", cant.get(2) + "");
+                    } else {
+                        nom = nom.replace("%a", "");
+                    }
+
                 }
             }
         }
@@ -334,22 +336,18 @@ public class Reaccion {
     }
 
     private int mcm(int num1, int num2, int num3) {
-        int min = 0;
+        int max = 0;
         int mcm = 0;
-        if (Math.min(num1, num2) < Math.min(num2, num3)) {
-            min = num1;
-
-        } else if (Math.min(num1, num2) > Math.min(num2, num3)) {
-            min = num3;
-        } else {
-            min = num2;
-        }
-        for (int i = 1; i <= min; i++) {
-            if (num1 % i == 0 && num2 % i == 0 && num3 % i == 0) {
-                int mcd = i;
-                mcm = (num1 * num2 * num3) / mcd;
-            }
-        }
+        
+        max = num1;
+        if(num2>max)
+            max = num2;
+        if(num3 > max)
+            max=num3;
+        
+        mcm=max;
+        while((mcm%num1 != 0) || (mcm%num2 != 0) || (mcm % num3!=0))
+            mcm++;
         return mcm;
     }
 

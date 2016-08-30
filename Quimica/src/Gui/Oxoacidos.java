@@ -183,8 +183,8 @@ public class Oxoacidos extends javax.swing.JFrame {
         ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
         Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
         ele.setEstado_used(ele.getEstados().indexOf(this.states.getModel().getSelectedItem()));
-        System.out.println(ele.getNombre());
         Reaccion r = new Reaccion(ele, Reaccion.ACIDO_OXACIDO);
+        System.out.println(r.getCompuesto().getNom());
         this.res.setText(r.getCompuesto().getNom());      
     }//GEN-LAST:event_btnActionPerformed
 
@@ -198,7 +198,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
         Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
         for (int i : ele.getEstados()) {
-            if (i < 0) {
+            if (i > 0) {
                 flag = true;
                 estados.addElement(i);
             }
