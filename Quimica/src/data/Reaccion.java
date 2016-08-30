@@ -150,14 +150,36 @@ public class Reaccion {
     }
 
     /*
+    
     private Compuesto hidroxido(Elemento[] ele) {
         
     }
+     */
+    private Compuesto acido_oxacido(Elemento ele) {
+        Compuesto ao = null;
+        Elemento o = Base.getNoMetal(5);
+        o.setEstado_used(0);
+        Elemento h = Base.getNoMetal(1);
+        h.setEstado_used(0);
 
-    private Compuesto acido_oxacido(Elemento[] ele) {
-        
+        ArrayList<Elemento> arr = new ArrayList();
+        ArrayList<Integer> cant = new ArrayList();
+        arr.add(ele);
+        arr.add(o);
+        arr.add(h);
+        String nom = null;
+
+        int mcm = mcm(ele.getEstado_used(), o.getEstado_used() * -1, h.getEstado_used());
+        cant.add(mcm / ele.getEstado_used());
+        cant.add(mcm / o.getEstado_used() * -1);
+        cant.add(mcm / h.getEstado_used());
+
+        nom = nom(arr, cant);
+        ao = new Compuesto(arr, cant, "almost here", nom, Reaccion.ACIDO_OXACIDO);
+        return ao;
     }
-/*
+
+    /*
     private Compuesto acido_hidracido(Elemento[] ele) {
 
     }
@@ -187,48 +209,58 @@ public class Reaccion {
         String nom = null;
 
         if (eles.size() == 2) {
-            if(eles.get(1).getId()==1){
-                if(eles.get(0).getColum()==16 || eles.get(0).getColum()==17){
-                    nom=eles.get(1).getNom()+"%a"+eles.get(0).getNom()+"%b";
-                    if(cant.get(1)!=1){
-                        nom=nom.replace("%a", cant.get(1)+"");
-                    }else{
-                        nom= nom.replace("%a", "");
+            if (eles.get(1).getId() == 1) {
+                if (eles.get(0).getColum() == 16 || eles.get(0).getColum() == 17) {
+                    nom = eles.get(1).getNom() + "%a" + eles.get(0).getNom() + "%b";
+                    if (cant.get(1) != 1) {
+                        nom = nom.replace("%a", cant.get(1) + "");
+                    } else {
+                        nom = nom.replace("%a", "");
                     }
-                    if(cant.get(0)!=1){
-                        nom=nom.replace("%b", cant.get(0)+"");
-                    }else{
-                        nom=nom.replace("%b", "");
+                    if (cant.get(0) != 1) {
+                        nom = nom.replace("%b", cant.get(0) + "");
+                    } else {
+                        nom = nom.replace("%b", "");
                     }
                 } else {
-                    nom = eles.get(0).getNom()+"%a"+eles.get(1).getNom()+"%b";
-                    if(cant.get(0)!=1){
-                        nom=nom.replace("%a", cant.get(0)+"");
-                    }else{
-                        nom=nom.replace("%a", "");
+                    nom = eles.get(0).getNom() + "%a" + eles.get(1).getNom() + "%b";
+                    if (cant.get(0) != 1) {
+                        nom = nom.replace("%a", cant.get(0) + "");
+                    } else {
+                        nom = nom.replace("%a", "");
                     }
-                    if (cant.get(1)!=1){
-                        nom=nom.replace("%b", cant.get(1)+"");
-                    }else{
-                        nom=nom.replace("%b", "");
+                    if (cant.get(1) != 1) {
+                        nom = nom.replace("%b", cant.get(1) + "");
+                    } else {
+                        nom = nom.replace("%b", "");
                     }
                 }
-            }else if(eles.get(1).getId()==5){
-                nom=eles.get(0).getNom()+"%a"+eles.get(1).getNom()+"%b";
-                if(cant.get(0)!=1){
-                    nom=nom.replace("%a", cant.get(0)+"");
-                }else{
-                    nom=nom.replace("%a", "");
+            } else if (eles.get(1).getId() == 5) {
+                nom = eles.get(0).getNom() + "%a" + eles.get(1).getNom() + "%b";
+                if (cant.get(0) != 1) {
+                    nom = nom.replace("%a", cant.get(0) + "");
+                } else {
+                    nom = nom.replace("%a", "");
                 }
-                if (cant.get(1)!=1){
-                    nom=nom.replace("%b", cant.get(1)+"");
-                }else{
-                    nom=nom.replace("%b", "");
+                if (cant.get(1) != 1) {
+                    nom = nom.replace("%b", cant.get(1) + "");
+                } else {
+                    nom = nom.replace("%b", "");
                 }
-            }   
-        }
-        return nom;
-    }
+            }
+        } else if (eles.size() == 3) {
+            if (eles.get(1).getId() == 1) {
+                for (Elemento i : Base.getTodosNoMetales()) {
+                    if (i.equals(eles.get(0))) {
+                        nom = eles.get(0).getNom()+"%a"+eles.get()
+                                
+                        
+                    }
+                }
+            }
+            return nom;
+
+    
 
     private int mcm(int num1, int num2) {
         int min = Math.min(num1, num2);
@@ -254,7 +286,7 @@ public class Reaccion {
             min = num2;
         }
         for (int i = 1; i <= min; i++) {
-            if (num1 % i == 0 && num2 % i == 0 && num3 % i ==0) {
+            if (num1 % i == 0 && num2 % i == 0 && num3 % i == 0) {
                 int mcd = i;
                 mcm = (num1 * num2 * num3) / mcd;
             }
