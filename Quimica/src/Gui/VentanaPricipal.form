@@ -62,12 +62,11 @@
     <Component class="javax.swing.JComboBox" name="lsbinario">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
+          <StringArray count="4">
             <StringItem index="0" value="Oxidos "/>
             <StringItem index="1" value="Hidruros "/>
             <StringItem index="2" value="Hidracidos"/>
-            <StringItem index="3" value="Peroxidos "/>
-            <StringItem index="4" value="Sales Binarias "/>
+            <StringItem index="3" value="Sales Binarias "/>
           </StringArray>
         </Property>
       </Properties>

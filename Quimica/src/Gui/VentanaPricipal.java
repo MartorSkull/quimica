@@ -61,7 +61,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
         getContentPane().add(jSeparator2);
         jSeparator2.setBounds(12, 73, 324, 4);
 
-        lsbinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxidos ", "Hidruros ", "Hidracidos", "Peroxidos ", "Sales Binarias " }));
+        lsbinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxidos ", "Hidruros ", "Hidracidos", "Sales Binarias " }));
         lsbinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lsbinarioActionPerformed(evt);
@@ -149,7 +149,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 this.setVisible(false);
 
             }
-            else if (lsbinario.getSelectedIndex() == 4) {
+            else if (lsbinario.getSelectedIndex() == 3) {
                 SalBinaria aux = new SalBinaria();
                 aux.setVisible(true);
                 this.setVisible(false);

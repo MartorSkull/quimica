@@ -334,23 +334,24 @@ public class Reaccion {
     }
 
     private int mcm(int num1, int num2, int num3) {
-        int min = 0;
-        int mcm = 0;
-        if (Math.min(num1, num2) < Math.min(num2, num3)) {
-            min = num1;
-
-        } else if (Math.min(num1, num2) > Math.min(num2, num3)) {
-            min = num3;
-        } else {
-            min = num2;
-        }
-        for (int i = 1; i <= min; i++) {
-            if (num1 % i == 0 && num2 % i == 0 && num3 % i == 0) {
-                int mcd = i;
-                mcm = (num1 * num2 * num3) / mcd;
-            }
-        }
-        return mcm;
+        int maximo;
+        int i;
+ 
+        // Como minimo, sera el mayor de los 3
+        maximo = num1;
+ 
+        if ( num2 > maximo )
+            maximo = num2;
+ 
+        if ( num3 > maximo )
+            maximo = num3;
+ 
+        // Solo queda buscar a partir de ese valor
+        i = maximo;
+        while ((i % num1 != 0) || (i % num2 != 0) || (i % num3 != 0))
+            i++;
+        
+        return i;
     }
 
 }
