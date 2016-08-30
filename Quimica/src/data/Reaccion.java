@@ -226,9 +226,10 @@ public class Reaccion {
         return ao;
     }
 
-    /*
+    
     private Compuesto acido_hidracido(Elemento ele) {
         Compuesto  ah=null;
+        
         
     }
 /*
