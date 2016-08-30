@@ -204,7 +204,6 @@ public class Reaccion {
         
     }
      */
-
     private String nom(ArrayList<Elemento> eles, ArrayList<Integer> cant) {
         String nom = null;
 
@@ -250,17 +249,33 @@ public class Reaccion {
             }
         } else if (eles.size() == 3) {
             if (eles.get(1).getId() == 1) {
+                boolean flag = false;
                 for (Elemento i : Base.getTodosNoMetales()) {
                     if (i.equals(eles.get(0))) {
-                        nom = eles.get(0).getNom()+"%a"+eles.get()
-                                
-                        
+                        flag = true;
+                        nom = eles.get(2).getNom() + "%a" + eles.get(0).getNom() + "%b" + eles.get(1).getNom() + "%c";
+                        if (cant.get(0) != 1) {
+                            nom = nom.replace("%b", cant.get(0) + "");
+                        } else {
+                            nom = nom.replace("%b", "");
+                        }
+                        if (cant.get(1) != 1) {
+                            nom = nom.replace("%c", cant.get(1) + "");
+                        } else {
+                            nom = nom.replace("%c", "");
+                        }
+                        if (cant.get(2) != 1) {
+                            nom = nom.replace("%a", cant.get(2) + "");
+                        } else {
+                            nom = nom.replace("%a", "");
+                        }
+
                     }
                 }
             }
-            return nom;
-
-    
+        }
+        return nom;
+    }
 
     private int mcm(int num1, int num2) {
         int min = Math.min(num1, num2);

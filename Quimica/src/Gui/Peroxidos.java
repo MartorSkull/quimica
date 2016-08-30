@@ -29,7 +29,7 @@ public class Peroxidos extends javax.swing.JFrame {
         for (Elemento e : Base.getMetalesEnColumna(2)) {
             model.addElement(e);
         }
-        this.cbmetales.setModel(model);   
+        this.cbametales.setModel(model);   
     }
 
     /**
@@ -57,7 +57,7 @@ public class Peroxidos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbametales = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
 
         cbmetales.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +67,8 @@ public class Peroxidos extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(500, 350));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
@@ -140,18 +142,14 @@ public class Peroxidos extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(38, 214, 371, 87);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
         jLabel9.setText("jLabel9");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(0, 0, 0, 0);
 
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(29, 149, 100, 27);
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
-        jLabel10.setText("jLabel10");
+        getContentPane().add(cbametales);
+        cbametales.setBounds(29, 149, 100, 27);
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(0, 0, 450, 320);
+        jLabel10.setBounds(0, 0, 430, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -167,10 +165,10 @@ VentanaPricipal aux = new VentanaPricipal();
     }//GEN-LAST:event_cbmetalesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbametales;
     private javax.swing.JComboBox<String> cbmetales;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
