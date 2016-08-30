@@ -9,6 +9,7 @@ import data.Base;
 import data.Elemento;
 import data.Reaccion;
 import java.sql.SQLException;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 /**
  *
@@ -47,8 +48,8 @@ public class Oxoacidos extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        btn = new javax.swing.JButton();
+        res = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
@@ -57,6 +58,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        states = new javax.swing.JComboBox<>();
 
         jLabel7.setText("jLabel7");
 
@@ -79,6 +81,11 @@ public class Oxoacidos extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(315, 155, 82, 18);
 
+        cbnometales.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbnometalesItemStateChanged(evt);
+            }
+        });
         getContentPane().add(cbnometales);
         cbnometales.setBounds(168, 151, 106, 27);
 
@@ -100,18 +107,18 @@ public class Oxoacidos extends javax.swing.JFrame {
         getContentPane().add(jLabel11);
         jLabel11.setBounds(404, 155, 16, 18);
 
-        jButton1.setText("Combinar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn.setText("Combinar");
+        btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(28, 192, 492, 29);
+        getContentPane().add(btn);
+        btn.setBounds(28, 192, 492, 29);
 
-        jTextField2.setEditable(false);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(427, 144, 94, 42);
+        res.setEditable(false);
+        getContentPane().add(res);
+        res.setBounds(427, 144, 94, 42);
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -155,6 +162,14 @@ public class Oxoacidos extends javax.swing.JFrame {
         getContentPane().add(jLabel8);
         jLabel8.setBounds(0, 0, 0, 0);
 
+        states.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(states);
+        states.setBounds(250, 120, 50, 27);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -164,13 +179,41 @@ public class Oxoacidos extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
+        ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
+        Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
+        ele.setEstado_used(ele.getEstados().indexOf(this.states.getModel().getSelectedItem()));
+        System.out.println(ele.getNombre());
+        Reaccion r = new Reaccion(ele, Reaccion.ACIDO_OXACIDO);
+        this.res.setText(r.getCompuesto().getNom());      
+    }//GEN-LAST:event_btnActionPerformed
+
+    private void statesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statesActionPerformed
+
+    private void cbnometalesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbnometalesItemStateChanged
+        boolean flag = false;
+        DefaultComboBoxModel estados = new DefaultComboBoxModel();
+        ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
+        Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
+        for (int i : ele.getEstados()) {
+            if (i < 0) {
+                flag = true;
+                estados.addElement(i);
+            }
+        }
+        if (flag) {
+            btn.setEnabled(true);
+        } else {
+            btn.setEnabled(false);
+        }
+        this.states.setModel(estados);
+    }//GEN-LAST:event_cbnometalesItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbnometales;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn;
+    private javax.swing.JComboBox<Elemento> cbnometales;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -185,7 +228,8 @@ public class Oxoacidos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField res;
+    private javax.swing.JComboBox<Integer> states;
     // End of variables declaration//GEN-END:variables
 }
