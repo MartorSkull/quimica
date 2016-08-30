@@ -74,6 +74,8 @@ public class Oxidos extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         cbStatesM = new javax.swing.JComboBox<>();
         cbStatesNM = new javax.swing.JComboBox<>();
 
@@ -92,11 +94,13 @@ public class Oxidos extends javax.swing.JFrame {
         setAutoRequestFocus(false);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/image3398.png"))); // NOI18N
         jLabel1.setText("Oxidos");
         jLabel1.setFocusCycleRoot(true);
 
         jLabel2.setFont(new java.awt.Font("Ubuntu Medium", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Basicos");
 
         jSeparator2.setForeground(new java.awt.Color(76, 91, 180));
@@ -112,14 +116,20 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("Metal");
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
         jLabel5.setText("+");
 
+        jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(254, 254, 254));
         jLabel6.setText("Oxigeno");
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("=");
 
         btnNM.setText("Combinar");
@@ -137,6 +147,7 @@ public class Oxidos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(res1);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(253, 251, 251));
         jLabel8.setText("Acidos");
 
         btnmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecharec.png"))); // NOI18N
@@ -153,14 +164,19 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(254, 254, 254));
         jLabel9.setText("No Metal");
 
         jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(254, 254, 254));
         jLabel10.setText("+");
 
+        jLabel11.setForeground(new java.awt.Color(254, 254, 254));
         jLabel11.setText("Oxigeno");
 
         jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(254, 254, 254));
         jLabel12.setText("=");
 
         btnM.setText("Combinar");
@@ -175,11 +191,19 @@ public class Oxidos extends javax.swing.JFrame {
         jTextArea2.setText("informacion:");
         jScrollPane2.setViewportView(jTextArea2);
 
+        jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(254, 254, 254));
         jLabel13.setText("compuesto");
 
+        jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(254, 254, 254));
         jLabel14.setText("compuesto");
 
         jLabel15.setFocusCycleRoot(true);
+
+        jLabel16.setText("jLabel16");
+
+        jLabel17.setText("jLabel17");
 
         cbStatesM.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -337,13 +361,13 @@ public class Oxidos extends javax.swing.JFrame {
         ComboBoxModel<Elemento> modelo = this.cbmetales.getModel();
         Elemento ele = modelo.getElementAt(this.cbmetales.getSelectedIndex());
         ele.setEstado_used(ele.getEstados().indexOf(this.cbStatesM.getModel().getSelectedItem()));
-        Reaccion r = new Reaccion(ele, Reaccion.HIDROXIDO);
-   //     this.resM.setText(r.getCompuesto().getNom());
+        Reaccion r = new Reaccion(ele, Reaccion.OXIDO_BASICO);
+        this.resM.setText(r.getCompuesto().getNom());
     }//GEN-LAST:event_btnMActionPerformed
 
-    private void cbmetalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalesActionPerformed
+    private void cbmetalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalActionPerformed
             
-    }//GEN-LAST:event_cbmetalesActionPerformed
+    }//GEN-LAST:event_cbmetalActionPerformed
 
     private void cbStatesMItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbStatesMItemStateChanged
 
@@ -410,6 +434,8 @@ public class Oxidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

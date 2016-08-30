@@ -287,7 +287,6 @@ public class Hidruros extends javax.swing.JFrame {
         ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
         Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
         ele.setEstado_used(ele.getEstados().indexOf(this.statesNM.getModel().getSelectedItem()));
-        System.out.println(ele.getNombre());
         Reaccion r = new Reaccion(ele, Reaccion.HIDRURO_NOMETALICO);
         this.resNM.setText(r.getCompuesto().getNom());
     }//GEN-LAST:event_btnNMActionPerformed

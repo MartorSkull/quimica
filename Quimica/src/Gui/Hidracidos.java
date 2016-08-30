@@ -65,7 +65,7 @@ public class Hidracidos extends javax.swing.JFrame {
         jTextPane2 = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
         halogenosok = new javax.swing.JRadioButton();
-        antigenosok = new javax.swing.JRadioButton();
+        anfigenosok = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
         tfRes = new javax.swing.JTextField();
 
@@ -115,8 +115,8 @@ public class Hidracidos extends javax.swing.JFrame {
             }
         });
 
-        grupo1.add(antigenosok);
-        antigenosok.setText("Antigenos");
+        grupo1.add(anfigenosok);
+        anfigenosok.setText("Antigenos");
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecharec.png"))); // NOI18N
         jButton2.setText("Menu");
@@ -150,7 +150,7 @@ public class Hidracidos extends javax.swing.JFrame {
                                 .addGap(139, 139, 139)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(antigenosok)
+                                        .addComponent(anfigenosok)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(cbantigenos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(4, 4, 4))
@@ -204,7 +204,7 @@ public class Hidracidos extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(tfRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(antigenosok)
+                .addComponent(anfigenosok)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
@@ -243,7 +243,7 @@ public class Hidracidos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton antigenosok;
+    private javax.swing.JRadioButton anfigenosok;
     private javax.swing.JComboBox<String> cbantigenos;
     private javax.swing.JComboBox<String> cbhalogenos;
     private javax.swing.ButtonGroup grupo1;

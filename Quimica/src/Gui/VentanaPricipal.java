@@ -45,12 +45,21 @@ public class VentanaPricipal extends javax.swing.JFrame {
         cbcuaternario = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(320, 465));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Ubuntu Medium", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(254, 242, 242));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/image3398.png"))); // NOI18N
         jLabel1.setText("QUIMICAREAC");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(12, 12, 210, 49);
+        getContentPane().add(jSeparator2);
+        jSeparator2.setBounds(12, 73, 324, 4);
 
         lsbinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxidos ", "Hidruros ", "Hidracidos", "Peroxidos ", "Sales Binarias " }));
         lsbinario.addActionListener(new java.awt.event.ActionListener() {
@@ -58,10 +67,16 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 lsbinarioActionPerformed(evt);
             }
         });
+        getContentPane().add(lsbinario);
+        lsbinario.setBounds(12, 163, 221, 24);
 
         lsterciario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxoacidos ", "Hidroxidos ", "Sal terciaria " }));
+        getContentPane().add(lsterciario);
+        lsterciario.setBounds(12, 254, 221, 24);
 
         lscuaternario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sales Cuaternarias " }));
+        getContentPane().add(lscuaternario);
+        lscuaternario.setBounds(12, 339, 219, 24);
 
         btnListo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecha.png"))); // NOI18N
         btnListo.addActionListener(new java.awt.event.ActionListener() {
@@ -69,77 +84,45 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 btnListoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnListo);
+        btnListo.setBounds(212, 399, 95, 52);
 
         buttonGroup1.add(Cbbinario);
+        Cbbinario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        Cbbinario.setForeground(new java.awt.Color(254, 254, 254));
         Cbbinario.setText("Compuestos binarios ");
         Cbbinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CbbinarioActionPerformed(evt);
             }
         });
+        getContentPane().add(Cbbinario);
+        Cbbinario.setBounds(12, 133, 221, 26);
 
         buttonGroup1.add(cbterciario);
+        cbterciario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        cbterciario.setForeground(new java.awt.Color(254, 254, 254));
         cbterciario.setText("Compuesto Terciario");
+        getContentPane().add(cbterciario);
+        cbterciario.setBounds(12, 218, 221, 26);
 
         buttonGroup1.add(cbcuaternario);
+        cbcuaternario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        cbcuaternario.setForeground(new java.awt.Color(254, 254, 254));
         cbcuaternario.setText("Compuestos cuaternarios");
+        getContentPane().add(cbcuaternario);
+        cbcuaternario.setBounds(12, 309, 219, 26);
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(254, 202, 202));
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Seleccione el compuesto q decea crear...");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(Cbbinario, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lsbinario, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbterciario, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lsterciario, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbcuaternario, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(lscuaternario, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 93, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnListo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Cbbinario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lsbinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(cbterciario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lsterciario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(cbcuaternario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lscuaternario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnListo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-        );
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(12, 89, 240, 15);
+        getContentPane().add(jSeparator4);
+        jSeparator4.setBounds(12, 110, 324, 17);
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(10, 0, 350, 480);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,24 +137,19 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 this.setVisible(false);
 
             }
-            if (lsbinario.getSelectedIndex() == 1) {
+            else if (lsbinario.getSelectedIndex() == 1) {
                 Hidruros aux = new Hidruros();
                 aux.setVisible(true);
                 this.setVisible(false);
 
             }
-            if (lsbinario.getSelectedIndex() == 2) {
+            else if (lsbinario.getSelectedIndex() == 2) {
                 Hidracidos aux = new Hidracidos();
                 aux.setVisible(true);
                 this.setVisible(false);
 
             }
-            if (lsbinario.getSelectedIndex() == 3) {
-                Peroxidos aux = new Peroxidos();
-                aux.setVisible(true);
-                this.setVisible(false);
-            }
-            if (lsbinario.getSelectedIndex() == 4) {
+            else if (lsbinario.getSelectedIndex() == 4) {
                 SalBinaria aux = new SalBinaria();
                 aux.setVisible(true);
                 this.setVisible(false);
@@ -182,12 +160,12 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 aux.setVisible(true);
                 this.setVisible(false);
             }
-            if (lsterciario.getSelectedIndex() == 1) {
+            else if (lsterciario.getSelectedIndex() == 1) {
                 Hidroxidos aux = new Hidroxidos();
                 aux.setVisible(true);
                 this.setVisible(false);
             }
-            if (lsterciario.getSelectedIndex() == 2) {
+            else if (lsterciario.getSelectedIndex() == 2) {
                 SalTerciaria aux = new SalTerciaria();
                 aux.setVisible(true);
                 this.setVisible(false);
@@ -256,6 +234,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton cbterciario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JComboBox<String> lsbinario;

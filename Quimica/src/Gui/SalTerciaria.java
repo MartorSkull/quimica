@@ -41,14 +41,20 @@ public class SalTerciaria extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel6.setText("jLabel6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/image3398.png"))); // NOI18N
         jLabel1.setText("Sales Terciarias");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(12, 12, 195, 49);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(0, 67, 530, 10);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecharec.png"))); // NOI18N
         jButton1.setText("Menu");
@@ -57,21 +63,47 @@ public class SalTerciaria extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(420, 20, 113, 42);
+
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(10, 120, 117, 27);
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel2.setText("+");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(140, 130, 10, 18);
+
+        getContentPane().add(jComboBox2);
+        jComboBox2.setBounds(160, 120, 107, 27);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setText("=");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(420, 130, 21, 18);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(430, 120, 103, 37);
 
         jButton2.setText("crear");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(10, 180, 520, 54);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(10, 240, 520, 110);
+
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel7.setText("+");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(280, 130, 10, 18);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,6 +169,10 @@ VentanaPricipal aux = new VentanaPricipal();
     this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -146,6 +182,7 @@ VentanaPricipal aux = new VentanaPricipal();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
