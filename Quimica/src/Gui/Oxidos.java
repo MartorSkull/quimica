@@ -78,6 +78,8 @@ public class Oxidos extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         cbStatesM = new javax.swing.JComboBox<>();
         cbStatesNM = new javax.swing.JComboBox<>();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -92,18 +94,27 @@ public class Oxidos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
+        getContentPane().setLayout(null);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(0, 70, 629, 10);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/image3398.png"))); // NOI18N
         jLabel1.setText("Oxidos");
         jLabel1.setFocusCycleRoot(true);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(24, 12, 152, 49);
 
         jLabel2.setFont(new java.awt.Font("Ubuntu Medium", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Basicos");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(12, 91, 89, 38);
 
         jSeparator2.setForeground(new java.awt.Color(76, 91, 180));
+        getContentPane().add(jSeparator2);
+        jSeparator2.setBounds(0, 372, 629, 32);
 
         cbmetales.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -115,22 +126,34 @@ public class Oxidos extends javax.swing.JFrame {
                 cbmetalesActionPerformed(evt);
             }
         });
+        getContentPane().add(cbmetales);
+        cbmetales.setBounds(12, 204, 110, 27);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("Metal");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(12, 170, 91, 18);
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(264, 115, 0, 0);
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(254, 254, 254));
         jLabel5.setText("+");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(134, 206, 10, 21);
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel6.setText("Oxigeno");
+        jLabel6.setText("Oxigeno(O)");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(150, 210, 90, 18);
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("=");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(250, 210, 20, 17);
 
         btnNM.setText("Combinar");
         btnNM.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +161,10 @@ public class Oxidos extends javax.swing.JFrame {
                 btnNMActionPerformed(evt);
             }
         });
+        getContentPane().add(btnNM);
+        btnNM.setBounds(12, 562, 375, 56);
+        getContentPane().add(resM);
+        resM.setBounds(269, 199, 104, 38);
 
         jScrollPane1.setForeground(new java.awt.Color(30, 4, 4));
 
@@ -146,9 +173,14 @@ public class Oxidos extends javax.swing.JFrame {
         res1.setText("informacion:");
         jScrollPane1.setViewportView(res1);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(394, 150, 210, 188);
+
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(253, 251, 251));
         jLabel8.setText("Acidos");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(12, 410, 58, 21);
 
         btnmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecharec.png"))); // NOI18N
         btnmenu.setText("Menu");
@@ -157,27 +189,42 @@ public class Oxidos extends javax.swing.JFrame {
                 btnmenuActionPerformed(evt);
             }
         });
+        getContentPane().add(btnmenu);
+        btnmenu.setBounds(498, 16, 110, 42);
 
         cbnometales.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbnometalesItemStateChanged(evt);
             }
         });
+        getContentPane().add(cbnometales);
+        cbnometales.setBounds(12, 499, 110, 27);
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(254, 254, 254));
         jLabel9.setText("No Metal");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(12, 465, 65, 18);
 
         jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(254, 254, 254));
         jLabel10.setText("+");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(134, 503, 10, 18);
 
+        jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel11.setText("Oxigeno");
+        jLabel11.setText("Oxigeno(O)");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(150, 500, 90, 18);
 
         jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(254, 254, 254));
         jLabel12.setText("=");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(250, 500, 20, 18);
+        getContentPane().add(resNM);
+        resNM.setBounds(270, 490, 104, 37);
 
         btnM.setText("Combinar");
         btnM.addActionListener(new java.awt.event.ActionListener() {
@@ -185,167 +232,60 @@ public class Oxidos extends javax.swing.JFrame {
                 btnMActionPerformed(evt);
             }
         });
+        getContentPane().add(btnM);
+        btnM.setBounds(10, 290, 370, 51);
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jTextArea2.setText("informacion:");
         jScrollPane2.setViewportView(jTextArea2);
 
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(399, 410, 203, 208);
+
         jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(254, 254, 254));
         jLabel13.setText("compuesto");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(269, 170, 79, 18);
 
         jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(254, 254, 254));
         jLabel14.setText("compuesto");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(270, 460, 79, 18);
 
         jLabel15.setFocusCycleRoot(true);
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(12, 12, 0, 0);
 
         jLabel16.setText("jLabel16");
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(0, 0, 0, 0);
 
         jLabel17.setText("jLabel17");
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(0, 0, 0, 0);
 
         cbStatesM.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbStatesMItemStateChanged(evt);
             }
         });
+        getContentPane().add(cbStatesM);
+        cbStatesM.setBounds(115, 166, 44, 27);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
-            .addComponent(jSeparator2)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(163, 163, 163)
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(cbnometales, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel10)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel11)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel12)
-                                                .addGap(18, 18, 18))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(cbStatesNM, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(101, 101, 101)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel14)
-                                            .addComponent(resNM, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(btnNM, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(cbmetales, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel5))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(cbStatesM, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel13)
-                                            .addComponent(resM, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(btnM, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(38, 38, 38)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(15, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnmenu, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel15)
-                        .addGap(60, 60, 60))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(btnmenu))
-                        .addGap(30, 30, 30)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel13)
-                            .addComponent(cbStatesM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbmetales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(resM, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
-                        .addComponent(btnM, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)))
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel14)
-                            .addComponent(cbStatesNM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbnometales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(resNM, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addComponent(btnNM, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
+        getContentPane().add(cbStatesNM);
+        cbStatesNM.setBounds(102, 461, 45, 27);
+
+        jLabel18.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
+        jLabel18.setText("jLabel18");
+        getContentPane().add(jLabel18);
+        jLabel18.setBounds(0, 0, 630, 630);
+
+        jLabel19.setText("jLabel19");
+        getContentPane().add(jLabel19);
+        jLabel19.setBounds(0, 0, 630, 90);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -436,6 +376,8 @@ public class Oxidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

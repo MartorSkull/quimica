@@ -59,6 +59,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         states = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
 
         jLabel7.setText("jLabel7");
 
@@ -170,6 +171,11 @@ public class Oxoacidos extends javax.swing.JFrame {
         getContentPane().add(states);
         states.setBounds(250, 120, 50, 27);
 
+        jLabel9.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(0, 0, 560, 380);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -225,6 +231,7 @@ public class Oxoacidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;

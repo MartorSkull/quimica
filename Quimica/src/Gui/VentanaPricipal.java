@@ -121,8 +121,10 @@ public class VentanaPricipal extends javax.swing.JFrame {
         jLabel2.setBounds(12, 89, 240, 15);
         getContentPane().add(jSeparator4);
         jSeparator4.setBounds(12, 110, 324, 17);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 0, 350, 480);
+        jLabel3.setBounds(0, 0, 320, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
