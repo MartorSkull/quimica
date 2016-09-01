@@ -48,6 +48,8 @@ public class VentanaPricipal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(320, 465));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Medium", 1, 18)); // NOI18N
@@ -59,7 +61,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
         getContentPane().add(jSeparator2);
         jSeparator2.setBounds(12, 73, 324, 4);
 
-        lsbinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxidos ", "Hidruros ", "Hidracidos", "Peroxidos ", "Sales Binarias " }));
+        lsbinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxidos ", "Hidruros ", "Hidracidos", "Sales Binarias " }));
         lsbinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lsbinarioActionPerformed(evt);
@@ -119,10 +121,8 @@ public class VentanaPricipal extends javax.swing.JFrame {
         jLabel2.setBounds(12, 89, 240, 15);
         getContentPane().add(jSeparator4);
         jSeparator4.setBounds(12, 110, 324, 17);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 0, 350, 480);
+        jLabel3.setBounds(20, 0, 350, 480);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -137,24 +137,19 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 this.setVisible(false);
 
             }
-            if (lsbinario.getSelectedIndex() == 1) {
+            else if (lsbinario.getSelectedIndex() == 1) {
                 Hidruros aux = new Hidruros();
                 aux.setVisible(true);
                 this.setVisible(false);
 
             }
-            if (lsbinario.getSelectedIndex() == 2) {
+            else if (lsbinario.getSelectedIndex() == 2) {
                 Hidracidos aux = new Hidracidos();
                 aux.setVisible(true);
                 this.setVisible(false);
 
             }
-            if (lsbinario.getSelectedIndex() == 3) {
-                Peroxidos aux = new Peroxidos();
-                aux.setVisible(true);
-                this.setVisible(false);
-            }
-            if (lsbinario.getSelectedIndex() == 4) {
+            else if (lsbinario.getSelectedIndex() == 3) {
                 SalBinaria aux = new SalBinaria();
                 aux.setVisible(true);
                 this.setVisible(false);
@@ -165,12 +160,12 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 aux.setVisible(true);
                 this.setVisible(false);
             }
-            if (lsterciario.getSelectedIndex() == 1) {
+            else if (lsterciario.getSelectedIndex() == 1) {
                 Hidroxidos aux = new Hidroxidos();
                 aux.setVisible(true);
                 this.setVisible(false);
             }
-            if (lsterciario.getSelectedIndex() == 2) {
+            else if (lsterciario.getSelectedIndex() == 2) {
                 SalTerciaria aux = new SalTerciaria();
                 aux.setVisible(true);
                 this.setVisible(false);
