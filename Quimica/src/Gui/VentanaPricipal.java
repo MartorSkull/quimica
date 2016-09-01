@@ -61,22 +61,23 @@ public class VentanaPricipal extends javax.swing.JFrame {
         getContentPane().add(jSeparator2);
         jSeparator2.setBounds(12, 73, 324, 4);
 
-        lsbinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxidos ", "Hidruros ", "Hidracidos", "Sales Binarias " }));
+        lsbinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxidos ", "Hidruros ", "Hidracidos", " " }));
         lsbinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lsbinarioActionPerformed(evt);
             }
         });
         getContentPane().add(lsbinario);
-        lsbinario.setBounds(12, 163, 221, 27);
+        lsbinario.setBounds(12, 163, 221, 24);
 
-        lsterciario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxoacidos ", "Hidroxidos ", "Sal terciaria " }));
+        lsterciario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxoacidos ", "Hidroxidos ", " " }));
         getContentPane().add(lsterciario);
-        lsterciario.setBounds(12, 254, 221, 27);
+        lsterciario.setBounds(12, 254, 221, 24);
 
         lscuaternario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sales Cuaternarias " }));
+        lscuaternario.setEnabled(false);
         getContentPane().add(lscuaternario);
-        lscuaternario.setBounds(12, 339, 219, 27);
+        lscuaternario.setBounds(12, 339, 219, 24);
 
         btnListo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecha.png"))); // NOI18N
         btnListo.addActionListener(new java.awt.event.ActionListener() {
@@ -97,21 +98,22 @@ public class VentanaPricipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Cbbinario);
-        Cbbinario.setBounds(12, 133, 221, 24);
+        Cbbinario.setBounds(12, 133, 221, 26);
 
         buttonGroup1.add(cbterciario);
         cbterciario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         cbterciario.setForeground(new java.awt.Color(254, 254, 254));
         cbterciario.setText("Compuesto Terciario");
         getContentPane().add(cbterciario);
-        cbterciario.setBounds(12, 218, 221, 24);
+        cbterciario.setBounds(12, 218, 221, 26);
 
         buttonGroup1.add(cbcuaternario);
         cbcuaternario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         cbcuaternario.setForeground(new java.awt.Color(254, 254, 254));
         cbcuaternario.setText("Compuestos cuaternarios");
+        cbcuaternario.setEnabled(false);
         getContentPane().add(cbcuaternario);
-        cbcuaternario.setBounds(12, 309, 219, 24);
+        cbcuaternario.setBounds(12, 309, 219, 26);
 
         jLabel2.setBackground(new java.awt.Color(254, 202, 202));
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
@@ -121,8 +123,6 @@ public class VentanaPricipal extends javax.swing.JFrame {
         jLabel2.setBounds(12, 89, 240, 15);
         getContentPane().add(jSeparator4);
         jSeparator4.setBounds(12, 110, 324, 17);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 320, 470);
 
