@@ -75,6 +75,8 @@ public class Hidruros extends javax.swing.JFrame {
         jLabel11.setText("jLabel11");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(460, 420));
+        setPreferredSize(new java.awt.Dimension(460, 490));
         getContentPane().setLayout(null);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(12, 67, 721, 10);
@@ -94,7 +96,7 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(320, 10, 128, 42);
+        jButton1.setBounds(320, 10, 128, 40);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
@@ -140,7 +142,7 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmetales);
-        cbmetales.setBounds(178, 143, 120, 27);
+        cbmetales.setBounds(178, 143, 120, 24);
 
         cbnometales.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -148,7 +150,7 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbnometales);
-        cbnometales.setBounds(180, 340, 113, 27);
+        cbnometales.setBounds(180, 340, 113, 24);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(254, 254, 254));
@@ -195,7 +197,7 @@ public class Hidruros extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(1, 1, 1));
         jLabel10.setText("Nota: el estado de oxidacion del (H) en M es -1. En los NM es +1");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(10, 470, 442, 17);
+        jLabel10.setBounds(10, 470, 442, 15);
 
         btn1.setText("combinar");
         btn1.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +206,7 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn1);
-        btn1.setBounds(336, 95, 105, 29);
+        btn1.setBounds(336, 95, 105, 25);
 
         btnNM.setText("combinar");
         btnNM.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +215,7 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnNM);
-        btnNM.setBounds(340, 290, 101, 29);
+        btnNM.setBounds(340, 290, 101, 25);
 
         statesNM.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -221,12 +223,9 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(statesNM);
-        statesNM.setBounds(260, 310, 50, 27);
-
-        jLabel12.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
-        jLabel12.setText("jLabel12");
+        statesNM.setBounds(260, 310, 50, 24);
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(0, 0, 730, 500);
+        jLabel12.setBounds(0, 0, 450, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

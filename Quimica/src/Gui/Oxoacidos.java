@@ -88,7 +88,7 @@ public class Oxoacidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbnometales);
-        cbnometales.setBounds(168, 151, 106, 27);
+        cbnometales.setBounds(168, 151, 106, 24);
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(254, 254, 254));
@@ -145,7 +145,7 @@ public class Oxoacidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(440, 0, 86, 42);
+        jToggleButton1.setBounds(440, 0, 107, 40);
         getContentPane().add(jLabel14);
         jLabel14.setBounds(133, 78, 0, 0);
 
@@ -169,9 +169,8 @@ public class Oxoacidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(states);
-        states.setBounds(250, 120, 50, 27);
+        states.setBounds(250, 120, 50, 24);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
         jLabel9.setText("jLabel9");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(0, 0, 560, 380);

@@ -57,6 +57,7 @@ public class Hidracidos extends javax.swing.JFrame {
         states = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(500, 280));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
@@ -89,7 +90,7 @@ public class Hidracidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbnometales);
-        cbnometales.setBounds(133, 104, 102, 27);
+        cbnometales.setBounds(133, 104, 102, 24);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(254, 254, 254));
@@ -120,11 +121,11 @@ public class Hidracidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(364, 16, 129, 42);
+        jButton2.setBounds(364, 16, 129, 40);
 
         res.setEditable(false);
         getContentPane().add(res);
-        res.setBounds(300, 104, 82, 27);
+        res.setBounds(300, 104, 82, 19);
 
         states.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,12 +133,9 @@ public class Hidracidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(states);
-        states.setBounds(207, 73, 47, 27);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
-        jLabel4.setText("jLabel4");
+        states.setBounds(207, 73, 47, 24);
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 510, 260);
+        jLabel4.setBounds(0, 0, 500, 260);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

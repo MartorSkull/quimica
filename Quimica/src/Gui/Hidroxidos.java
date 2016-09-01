@@ -29,6 +29,7 @@ public class Hidroxidos extends javax.swing.JFrame {
             model.addElement(i);
         }
         this.cbmetales.setModel(model);
+        change();
     }
 
     /**
@@ -62,6 +63,8 @@ public class Hidroxidos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(470, 375));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         cbmetales.addItemListener(new java.awt.event.ItemListener() {
@@ -75,7 +78,7 @@ public class Hidroxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmetales);
-        cbmetales.setBounds(22, 178, 120, 27);
+        cbmetales.setBounds(22, 178, 120, 24);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
@@ -117,7 +120,7 @@ public class Hidroxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(350, 30, 111, 42);
+        jButton2.setBounds(350, 30, 111, 40);
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(254, 254, 254));
@@ -155,6 +158,7 @@ public class Hidroxidos extends javax.swing.JFrame {
         jLabel13.setBounds(0, 0, 0, 0);
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("(");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(12, 180, 8, 22);
@@ -172,12 +176,9 @@ public class Hidroxidos extends javax.swing.JFrame {
         jLabel2.setBounds(285, 183, 80, 18);
 
         getContentPane().add(states);
-        states.setBounds(110, 140, 48, 27);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
-        jLabel4.setText("jLabel4");
+        states.setBounds(110, 140, 48, 24);
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 630, 490);
+        jLabel4.setBounds(0, 0, 490, 410);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -202,23 +203,7 @@ public class Hidroxidos extends javax.swing.JFrame {
     }//GEN-LAST:event_cbmetalesActionPerformed
 
     private void cbmetalesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbmetalesItemStateChanged
-        // TODO add your handling code here:
-        boolean flag = false;
-        DefaultComboBoxModel estados = new DefaultComboBoxModel();
-        ComboBoxModel<Elemento> modelo = this.cbmetales.getModel();
-        Elemento ele = modelo.getElementAt(this.cbmetales.getSelectedIndex());
-        for (int i : ele.getEstados()) {
-            if (i > 0) {
-                flag = true;
-                estados.addElement(i);
-            }
-        }
-        if (flag) {
-            btn.setEnabled(true);
-        } else {
-            btn.setEnabled(false);
-        }
-        this.states.setModel(estados);
+change();
     }//GEN-LAST:event_cbmetalesItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -243,4 +228,23 @@ public class Hidroxidos extends javax.swing.JFrame {
     private javax.swing.JTextField res;
     private javax.swing.JComboBox<Integer> states;
     // End of variables declaration//GEN-END:variables
+private void change() {
+        // TODO add your handling code here:
+        boolean flag = false;
+        DefaultComboBoxModel estados = new DefaultComboBoxModel();
+        ComboBoxModel<Elemento> modelo = this.cbmetales.getModel();
+        Elemento ele = modelo.getElementAt(this.cbmetales.getSelectedIndex());
+        for (int i : ele.getEstados()) {
+            if (i > 0) {
+                flag = true;
+                estados.addElement(i);
+            }
+        }
+        if (flag) {
+            btn.setEnabled(true);
+        } else {
+            btn.setEnabled(false);
+        }
+        this.states.setModel(estados);
+    }
 }

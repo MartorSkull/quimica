@@ -94,6 +94,7 @@ public class Oxidos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
+        setPreferredSize(new java.awt.Dimension(620, 650));
         getContentPane().setLayout(null);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(0, 70, 629, 10);
@@ -127,7 +128,7 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmetales);
-        cbmetales.setBounds(12, 204, 110, 27);
+        cbmetales.setBounds(12, 204, 110, 24);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
@@ -190,7 +191,7 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnmenu);
-        btnmenu.setBounds(498, 16, 110, 42);
+        btnmenu.setBounds(498, 16, 110, 40);
 
         cbnometales.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -198,7 +199,7 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbnometales);
-        cbnometales.setBounds(12, 499, 110, 27);
+        cbnometales.setBounds(12, 499, 110, 24);
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(254, 254, 254));
@@ -273,17 +274,12 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbStatesM);
-        cbStatesM.setBounds(115, 166, 44, 27);
+        cbStatesM.setBounds(115, 166, 44, 24);
 
         getContentPane().add(cbStatesNM);
-        cbStatesNM.setBounds(102, 461, 45, 27);
-
-        jLabel18.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
-        jLabel18.setText("jLabel18");
+        cbStatesNM.setBounds(102, 461, 45, 24);
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(0, 0, 630, 630);
-
-        jLabel19.setText("jLabel19");
+        jLabel18.setBounds(0, 0, 620, 630);
         getContentPane().add(jLabel19);
         jLabel19.setBounds(0, 0, 630, 90);
 
