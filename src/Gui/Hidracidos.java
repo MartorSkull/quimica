@@ -103,6 +103,8 @@ public class Hidracidos extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(10, 180, 481, 70);
 
+        btn.setBackground(new java.awt.Color(254, 254, 254));
+        btn.setForeground(new java.awt.Color(1, 1, 1));
         btn.setText("combinar");
         btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +114,7 @@ public class Hidracidos extends javax.swing.JFrame {
         getContentPane().add(btn);
         btn.setBounds(10, 139, 480, 40);
 
+        jButton2.setForeground(new java.awt.Color(1, 1, 1));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecharec.png"))); // NOI18N
         jButton2.setText("Menu");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +155,7 @@ public class Hidracidos extends javax.swing.JFrame {
         ele.setEstado_used(ele.getEstados().indexOf(this.states.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.ACIDO_HIDRACIDO);
         this.res.setText(r.getCompuesto().getNom());
+        
     }//GEN-LAST:event_btnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
