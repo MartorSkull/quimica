@@ -94,6 +94,7 @@ public class Oxidos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
+        setPreferredSize(new java.awt.Dimension(630, 645));
         getContentPane().setLayout(null);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(0, 70, 629, 10);
@@ -162,7 +163,7 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnNM);
-        btnNM.setBounds(12, 562, 375, 56);
+        btnNM.setBounds(10, 540, 375, 56);
         getContentPane().add(resM);
         resM.setBounds(269, 199, 104, 38);
 
@@ -174,7 +175,7 @@ public class Oxidos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(res1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(394, 150, 210, 188);
+        jScrollPane1.setBounds(390, 140, 210, 188);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(253, 251, 251));
@@ -233,7 +234,7 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnM);
-        btnM.setBounds(10, 290, 370, 51);
+        btnM.setBounds(10, 280, 370, 51);
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -241,7 +242,7 @@ public class Oxidos extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextArea2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(399, 410, 203, 208);
+        jScrollPane2.setBounds(399, 410, 203, 190);
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(254, 254, 254));
@@ -282,8 +283,6 @@ public class Oxidos extends javax.swing.JFrame {
         jLabel18.setText("jLabel18");
         getContentPane().add(jLabel18);
         jLabel18.setBounds(0, 0, 630, 630);
-
-        jLabel19.setText("jLabel19");
         getContentPane().add(jLabel19);
         jLabel19.setBounds(0, 0, 630, 90);
 

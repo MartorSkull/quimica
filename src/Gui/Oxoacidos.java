@@ -64,7 +64,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         jLabel7.setText("jLabel7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
+        setPreferredSize(new java.awt.Dimension(560, 380));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -145,7 +145,7 @@ public class Oxoacidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(440, 0, 86, 42);
+        jToggleButton1.setBounds(410, 10, 110, 42);
         getContentPane().add(jLabel14);
         jLabel14.setBounds(133, 78, 0, 0);
 

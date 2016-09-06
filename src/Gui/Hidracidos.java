@@ -57,6 +57,8 @@ public class Hidracidos extends javax.swing.JFrame {
         states = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(510, 300));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
