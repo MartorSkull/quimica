@@ -1,6 +1,7 @@
 package Gui;
 
 import data.Base;
+import data.Compuesto;
 import data.Elemento;
 import data.Reaccion;
 import java.sql.SQLException;
@@ -70,7 +71,7 @@ public class Oxidos extends javax.swing.JFrame {
         resNM = new javax.swing.JTextField();
         btnM = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        res2 = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -94,6 +95,7 @@ public class Oxidos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
+        setResizable(false);
         getContentPane().setLayout(null);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(0, 70, 629, 10);
@@ -235,10 +237,10 @@ public class Oxidos extends javax.swing.JFrame {
         getContentPane().add(btnM);
         btnM.setBounds(10, 290, 370, 51);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("informacion:");
-        jScrollPane2.setViewportView(jTextArea2);
+        res2.setColumns(20);
+        res2.setRows(5);
+        res2.setText("informacion:");
+        jScrollPane2.setViewportView(res2);
 
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(399, 410, 203, 208);
@@ -278,10 +280,10 @@ public class Oxidos extends javax.swing.JFrame {
         getContentPane().add(cbStatesNM);
         cbStatesNM.setBounds(102, 461, 45, 27);
 
-        jLabel18.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
         jLabel18.setText("jLabel18");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(0, 0, 630, 630);
+        jLabel18.setBounds(0, 0, 610, 620);
 
         jLabel19.setText("jLabel19");
         getContentPane().add(jLabel19);
@@ -303,6 +305,17 @@ public class Oxidos extends javax.swing.JFrame {
         ele.setEstado_used(ele.getEstados().indexOf(this.cbStatesM.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.OXIDO_BASICO);
         this.resM.setText(r.getCompuesto().getNom());
+        Compuesto com = r.getCompuesto();
+        String info = "OXIDOS METALICOS\n";
+        int a = 0;
+        for (Elemento i : com.getElementos()) {
+            info = info.concat(i.getNombre() + ":\n"
+                    + "     Cantidad: " + com.getCant().get(a) + "\n"
+                    + "     Electronegatividad: " + i.getEleneg() + "\n"
+                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
+            a++;
+        }
+        res1.setText(info);
     }//GEN-LAST:event_btnMActionPerformed
 
     private void cbmetalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalActionPerformed
@@ -356,7 +369,17 @@ public class Oxidos extends javax.swing.JFrame {
         Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
         ele.setEstado_used(ele.getEstados().indexOf(this.cbStatesNM.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.OXIDO_ACIDO);
-        this.resNM.setText(r.getCompuesto().getNom());
+        this.resNM.setText(r.getCompuesto().getNom());Compuesto com = r.getCompuesto();
+        String info = "OXIDOS NO METALICOS\n";
+        int a = 0;
+        for (Elemento i : com.getElementos()) {
+            info = info.concat(i.getNombre() + ":\n"
+                    + "     Cantidad: " + com.getCant().get(a) + "\n"
+                    + "     Electronegatividad: " + i.getEleneg() + "\n"
+                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
+            a++;
+        }
+        res2.setText(info);
     }//GEN-LAST:event_btnNMActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -391,8 +414,8 @@ public class Oxidos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea res1;
+    private javax.swing.JTextArea res2;
     private javax.swing.JTextField resM;
     private javax.swing.JTextField resNM;
     // End of variables declaration//GEN-END:variables

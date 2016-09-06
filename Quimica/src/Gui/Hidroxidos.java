@@ -6,6 +6,7 @@
 package Gui;
 
 import data.Base;
+import data.Compuesto;
 import data.Elemento;
 import data.Reaccion;
 import javax.swing.ComboBoxModel;
@@ -50,7 +51,7 @@ public class Hidroxidos extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        infohidroxidos = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -62,6 +63,7 @@ public class Hidroxidos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         cbmetales.addItemListener(new java.awt.event.ItemListener() {
@@ -125,10 +127,10 @@ public class Hidroxidos extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(12, 144, 41, 18);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Informacion:");
-        jScrollPane1.setViewportView(jTextArea1);
+        infohidroxidos.setColumns(20);
+        infohidroxidos.setRows(5);
+        infohidroxidos.setText("Informacion:");
+        jScrollPane1.setViewportView(infohidroxidos);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 290, 450, 80);
@@ -174,7 +176,7 @@ public class Hidroxidos extends javax.swing.JFrame {
         getContentPane().add(states);
         states.setBounds(110, 140, 48, 27);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(0, 0, 630, 490);
@@ -189,6 +191,17 @@ public class Hidroxidos extends javax.swing.JFrame {
         ele.setEstado_used(ele.getEstados().indexOf(this.states.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.HIDROXIDO);
         this.res.setText(r.getCompuesto().getNom());
+         Compuesto com = r.getCompuesto();
+        String info = "HIDROXIDOS\n";
+        int a = 0;
+        for (Elemento i : com.getElementos()) {
+            info = info.concat(i.getNombre() + ":\n"
+                    + "     Cantidad: " + com.getCant().get(a) + "\n"
+                    + "     Electronegatividad: " + i.getEleneg() + "\n"
+                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
+            a++;
+        }
+        infohidroxidos.setText(info);
     }//GEN-LAST:event_btnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -224,6 +237,7 @@ public class Hidroxidos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn;
     private javax.swing.JComboBox<Elemento> cbmetales;
+    private javax.swing.JTextArea infohidroxidos;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -239,7 +253,6 @@ public class Hidroxidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField res;
     private javax.swing.JComboBox<Integer> states;
     // End of variables declaration//GEN-END:variables

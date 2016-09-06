@@ -6,6 +6,7 @@
 package Gui;
 
 import data.Base;
+import data.Compuesto;
 import data.Elemento;
 import data.Reaccion;
 import java.sql.SQLException;
@@ -51,7 +52,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         btn = new javax.swing.JButton();
         res = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        infooxoaciodos = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel14 = new javax.swing.JLabel();
@@ -64,7 +65,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         jLabel7.setText("jLabel7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
+        setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -121,11 +122,11 @@ public class Oxoacidos extends javax.swing.JFrame {
         getContentPane().add(res);
         res.setBounds(427, 144, 94, 42);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("informacion:");
-        jScrollPane1.setViewportView(jTextArea1);
+        infooxoaciodos.setEditable(false);
+        infooxoaciodos.setColumns(20);
+        infooxoaciodos.setRows(5);
+        infooxoaciodos.setText("informacion:");
+        jScrollPane1.setViewportView(infooxoaciodos);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(30, 260, 490, 90);
@@ -171,7 +172,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         getContentPane().add(states);
         states.setBounds(250, 120, 50, 27);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(0, 0, 560, 380);
@@ -191,7 +192,18 @@ public class Oxoacidos extends javax.swing.JFrame {
         ele.setEstado_used(ele.getEstados().indexOf(this.states.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.ACIDO_OXACIDO);
         System.out.println(r.getCompuesto().getNom());
-        this.res.setText(r.getCompuesto().getNom());      
+        this.res.setText(r.getCompuesto().getNom());
+        Compuesto com = r.getCompuesto();
+        String info = "OXOACIODOS\n";
+        int a = 0;
+        for (Elemento i : com.getElementos()) {
+            info = info.concat(i.getNombre() + ":\n"
+                    + "     Cantidad: " + com.getCant().get(a) + "\n"
+                    + "     Electronegatividad: " + i.getEleneg() + "\n"
+                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
+            a++;
+        }
+        infooxoaciodos.setText(info);
     }//GEN-LAST:event_btnActionPerformed
 
     private void statesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statesActionPerformed
@@ -220,6 +232,7 @@ public class Oxoacidos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn;
     private javax.swing.JComboBox<Elemento> cbnometales;
+    private javax.swing.JTextArea infooxoaciodos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -234,7 +247,6 @@ public class Oxoacidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField res;
     private javax.swing.JComboBox<Integer> states;
