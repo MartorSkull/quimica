@@ -6,13 +6,11 @@
 package Gui;
 
 import data.Base;
-import data.Compuesto;
 import data.Elemento;
 import data.Reaccion;
 import java.sql.SQLException;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
-
 /**
  *
  * @author tobias
@@ -31,7 +29,6 @@ public class Oxoacidos extends javax.swing.JFrame {
             }
         }
         this.cbnometales.setModel(nometal);
-        change();
     }
 
     /**
@@ -54,7 +51,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         btn = new javax.swing.JButton();
         res = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        infooxoaciodos = new javax.swing.JTextArea();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel14 = new javax.swing.JLabel();
@@ -67,7 +64,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         jLabel7.setText("jLabel7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setPreferredSize(new java.awt.Dimension(560, 380));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -91,7 +88,7 @@ public class Oxoacidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbnometales);
-        cbnometales.setBounds(168, 151, 106, 24);
+        cbnometales.setBounds(168, 151, 106, 27);
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(254, 254, 254));
@@ -124,11 +121,11 @@ public class Oxoacidos extends javax.swing.JFrame {
         getContentPane().add(res);
         res.setBounds(427, 144, 94, 42);
 
-        infooxoaciodos.setEditable(false);
-        infooxoaciodos.setColumns(20);
-        infooxoaciodos.setRows(5);
-        infooxoaciodos.setText("informacion:");
-        jScrollPane1.setViewportView(infooxoaciodos);
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("informacion:");
+        jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(30, 260, 490, 90);
@@ -148,7 +145,7 @@ public class Oxoacidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(440, 0, 107, 40);
+        jToggleButton1.setBounds(410, 10, 110, 42);
         getContentPane().add(jLabel14);
         jLabel14.setBounds(133, 78, 0, 0);
 
@@ -172,7 +169,7 @@ public class Oxoacidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(states);
-        states.setBounds(250, 120, 50, 24);
+        states.setBounds(250, 120, 50, 27);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
@@ -194,18 +191,7 @@ public class Oxoacidos extends javax.swing.JFrame {
         ele.setEstado_used(ele.getEstados().indexOf(this.states.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.ACIDO_OXACIDO);
         System.out.println(r.getCompuesto().getNom());
-        this.res.setText(r.getCompuesto().getNom());
-        Compuesto com = r.getCompuesto();
-        String info = "OXOACIODOS\n";
-        int a = 0;
-        for (Elemento i : com.getElementos()) {
-            info = info.concat(i.getNombre() + ":\n"
-                    + "     Cantidad: " + com.getCant().get(a) + "\n"
-                    + "     Electronegatividad: " + i.getEleneg() + "\n"
-                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
-            a++;
-        }
-        infooxoaciodos.setText(info);
+        this.res.setText(r.getCompuesto().getNom());      
     }//GEN-LAST:event_btnActionPerformed
 
     private void statesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statesActionPerformed
@@ -213,32 +199,6 @@ public class Oxoacidos extends javax.swing.JFrame {
     }//GEN-LAST:event_statesActionPerformed
 
     private void cbnometalesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbnometalesItemStateChanged
-        change();
-    }//GEN-LAST:event_cbnometalesItemStateChanged
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn;
-    private javax.swing.JComboBox<Elemento> cbnometales;
-    private javax.swing.JTextArea infooxoaciodos;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JTextField res;
-    private javax.swing.JComboBox<Integer> states;
-    // End of variables declaration//GEN-END:variables
-private void change() {
         boolean flag = false;
         DefaultComboBoxModel estados = new DefaultComboBoxModel();
         ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
@@ -255,5 +215,28 @@ private void change() {
             btn.setEnabled(false);
         }
         this.states.setModel(estados);
-    }
+    }//GEN-LAST:event_cbnometalesItemStateChanged
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn;
+    private javax.swing.JComboBox<Elemento> cbnometales;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField res;
+    private javax.swing.JComboBox<Integer> states;
+    // End of variables declaration//GEN-END:variables
 }

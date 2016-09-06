@@ -68,15 +68,15 @@ public class VentanaPricipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lsbinario);
-        lsbinario.setBounds(12, 163, 221, 24);
+        lsbinario.setBounds(12, 163, 221, 27);
 
         lsterciario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxoacidos ", "Hidroxidos ", "Sal terciaria " }));
         getContentPane().add(lsterciario);
-        lsterciario.setBounds(12, 254, 221, 24);
+        lsterciario.setBounds(12, 254, 221, 27);
 
         lscuaternario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sales Cuaternarias " }));
         getContentPane().add(lscuaternario);
-        lscuaternario.setBounds(12, 339, 219, 24);
+        lscuaternario.setBounds(12, 339, 219, 27);
 
         btnListo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecha.png"))); // NOI18N
         btnListo.addActionListener(new java.awt.event.ActionListener() {
@@ -97,21 +97,21 @@ public class VentanaPricipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Cbbinario);
-        Cbbinario.setBounds(12, 133, 221, 26);
+        Cbbinario.setBounds(12, 133, 221, 24);
 
         buttonGroup1.add(cbterciario);
         cbterciario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         cbterciario.setForeground(new java.awt.Color(254, 254, 254));
         cbterciario.setText("Compuesto Terciario");
         getContentPane().add(cbterciario);
-        cbterciario.setBounds(12, 218, 221, 26);
+        cbterciario.setBounds(12, 218, 221, 24);
 
         buttonGroup1.add(cbcuaternario);
         cbcuaternario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         cbcuaternario.setForeground(new java.awt.Color(254, 254, 254));
         cbcuaternario.setText("Compuestos cuaternarios");
         getContentPane().add(cbcuaternario);
-        cbcuaternario.setBounds(12, 309, 219, 26);
+        cbcuaternario.setBounds(12, 309, 219, 24);
 
         jLabel2.setBackground(new java.awt.Color(254, 202, 202));
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
@@ -124,7 +124,7 @@ public class VentanaPricipal extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 0, 310, 470);
+        jLabel3.setBounds(0, 0, 320, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,37 +138,51 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 aux.setVisible(true);
                 this.setVisible(false);
 
-            } else if (lsbinario.getSelectedIndex() == 1) {
+            }
+            else if (lsbinario.getSelectedIndex() == 1) {
                 Hidruros aux = new Hidruros();
                 aux.setVisible(true);
                 this.setVisible(false);
 
-            } else if (lsbinario.getSelectedIndex() == 2) {
+            }
+            else if (lsbinario.getSelectedIndex() == 2) {
                 Hidracidos aux = new Hidracidos();
                 aux.setVisible(true);
                 this.setVisible(false);
-            } else if (lsbinario.getSelectedIndex() == 3) {
-                JOptionPane.showMessageDialog(this, "Esta funcion no esta lista para tu zona");
-            }
 
+            }
+            else if (lsbinario.getSelectedIndex() == 3) {
+                SalBinaria aux = new SalBinaria();
+                aux.setVisible(true);
+                this.setVisible(false);
+            }
         } else if (cbterciario.isSelected()) {
             if (lsterciario.getSelectedIndex() == 0) {
                 Oxoacidos aux = new Oxoacidos();
                 aux.setVisible(true);
                 this.setVisible(false);
-            } else if (lsterciario.getSelectedIndex() == 1) {
+            }
+            else if (lsterciario.getSelectedIndex() == 1) {
                 Hidroxidos aux = new Hidroxidos();
                 aux.setVisible(true);
                 this.setVisible(false);
             }
-        } else if (cbcuaternario.isSelected()) {
-            if (lsterciario.getSelectedIndex() == 0) {
-                JOptionPane.showMessageDialog(this, "Esta funcion no esta lista para tu zona");
+            else if (lsterciario.getSelectedIndex() == 2) {
+                SalTerciaria aux = new SalTerciaria();
+                aux.setVisible(true);
+                this.setVisible(false);
             }
-
+        } else if (cbcuaternario.isSelected()) {
+            if (lscuaternario.getSelectedIndex() == 0) {
+                SalCuaternaria aux = new SalCuaternaria();
+                aux.setVisible(true);
+                this.setVisible(false);
+            }
         } else {
             JOptionPane.showMessageDialog(this, "seleciona un tipo de compuesto");
+
         }
+
     }//GEN-LAST:event_btnListoActionPerformed
 
     private void lsbinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lsbinarioActionPerformed

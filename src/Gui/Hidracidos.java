@@ -6,7 +6,6 @@
 package Gui;
 
 import data.Base;
-import data.Compuesto;
 import data.Elemento;
 import data.Reaccion;
 import java.sql.SQLException;
@@ -26,13 +25,13 @@ public class Hidracidos extends javax.swing.JFrame {
         initComponents();
         DefaultComboBoxModel modelant = new DefaultComboBoxModel();
         for (Elemento i : Base.getTodosNoMetales()) {
-            if (!i.getNombre().equals("Oxigeno") && !i.getNombre().equals("Hidrogeno")) {
+            if (!i.getNombre().equals("Oxigeno") ) {
                 modelant.addElement(i);
             }
 
         }
+
         this.cbnometales.setModel(modelant);
-        change();
     }
 
     /**
@@ -51,15 +50,14 @@ public class Hidracidos extends javax.swing.JFrame {
         cbnometales = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        infohidracidos = new javax.swing.JTextPane();
+        jTextPane2 = new javax.swing.JTextPane();
         btn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         res = new javax.swing.JTextField();
         states = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(550, 350));
+        setPreferredSize(new java.awt.Dimension(510, 330));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -93,7 +91,7 @@ public class Hidracidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbnometales);
-        cbnometales.setBounds(133, 104, 102, 24);
+        cbnometales.setBounds(133, 104, 102, 27);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(254, 254, 254));
@@ -101,12 +99,14 @@ public class Hidracidos extends javax.swing.JFrame {
         getContentPane().add(jLabel8);
         jLabel8.setBounds(263, 109, 22, 18);
 
-        infohidracidos.setEditable(false);
-        jScrollPane2.setViewportView(infohidracidos);
+        jTextPane2.setEditable(false);
+        jScrollPane2.setViewportView(jTextPane2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(30, 210, 481, 70);
+        jScrollPane2.setBounds(10, 190, 481, 120);
 
+        btn.setBackground(new java.awt.Color(254, 254, 254));
+        btn.setForeground(new java.awt.Color(1, 1, 1));
         btn.setText("combinar");
         btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +116,7 @@ public class Hidracidos extends javax.swing.JFrame {
         getContentPane().add(btn);
         btn.setBounds(10, 139, 480, 40);
 
+        jButton2.setForeground(new java.awt.Color(1, 1, 1));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecharec.png"))); // NOI18N
         jButton2.setText("Menu");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -124,11 +125,11 @@ public class Hidracidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(364, 16, 129, 40);
+        jButton2.setBounds(364, 16, 129, 42);
 
         res.setEditable(false);
         getContentPane().add(res);
-        res.setBounds(300, 104, 82, 19);
+        res.setBounds(300, 104, 82, 27);
 
         states.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,11 +137,12 @@ public class Hidracidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(states);
-        states.setBounds(210, 70, 47, 24);
+        states.setBounds(207, 73, 47, 27);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 580, 300);
+        jLabel4.setBounds(0, 0, 510, 330);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -155,17 +157,7 @@ public class Hidracidos extends javax.swing.JFrame {
         ele.setEstado_used(ele.getEstados().indexOf(this.states.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.ACIDO_HIDRACIDO);
         this.res.setText(r.getCompuesto().getNom());
-        Compuesto com = r.getCompuesto();
-        String info = "HIDRACIDO\n";
-        int a = 0;
-        for (Elemento i : com.getElementos()) {
-            info = info.concat(i.getNombre() + ":\n"
-                    + "     Cantidad: " + com.getCant().get(a) + "\n"
-                    + "     Electronegatividad: " + i.getEleneg() + "\n"
-                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
-            a++;
-        }
-        infohidracidos.setText(info);
+        
     }//GEN-LAST:event_btnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -180,25 +172,6 @@ public class Hidracidos extends javax.swing.JFrame {
 
     private void cbnometalesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbnometalesItemStateChanged
         // TODO add your handling code here:
-        change();
-    }//GEN-LAST:event_cbnometalesItemStateChanged
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn;
-    private javax.swing.JComboBox<Elemento> cbnometales;
-    private javax.swing.ButtonGroup grupo1;
-    private javax.swing.JTextPane infohidracidos;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField res;
-    private javax.swing.JComboBox<Integer> states;
-    // End of variables declaration//GEN-END:variables
-private void change() {
         boolean flag = false;
         DefaultComboBoxModel estados = new DefaultComboBoxModel();
         ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
@@ -215,7 +188,21 @@ private void change() {
             btn.setEnabled(false);
         }
         this.states.setModel(estados);
-        this.res.setText("");
-        this.infohidracidos.setText("");
-    }
+    }//GEN-LAST:event_cbnometalesItemStateChanged
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn;
+    private javax.swing.JComboBox<Elemento> cbnometales;
+    private javax.swing.ButtonGroup grupo1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JTextField res;
+    private javax.swing.JComboBox<Integer> states;
+    // End of variables declaration//GEN-END:variables
 }

@@ -1,15 +1,17 @@
 package Gui;
 
 import data.Base;
-import data.Compuesto;
 import data.Elemento;
 import data.Reaccion;
 import java.sql.SQLException;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 
+
+
 public class Oxidos extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form Oxidos
      */
@@ -22,16 +24,16 @@ public class Oxidos extends javax.swing.JFrame {
             model.addElement(i);
         }
         this.cbmetales.setModel(model);
-
+        
         DefaultComboBoxModel nometal = new DefaultComboBoxModel();
-        for (Elemento i : Base.getTodosNoMetales()) {
+        for(Elemento i : Base.getTodosNoMetales()){
             System.out.println(i);
-            if (!i.getNombre().equals("Oxigeno")) {
+            if (!i.getNombre().equals("Oxigeno") ) {
                 nometal.addElement(i);
             }
         }
-        this.cbnometales.setModel(nometal);
-
+        this.cbnometales.setModel(nometal);   
+    
     }
 
     /**
@@ -68,7 +70,7 @@ public class Oxidos extends javax.swing.JFrame {
         resNM = new javax.swing.JTextField();
         btnM = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        res2 = new javax.swing.JTextArea();
+        jTextArea2 = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -92,7 +94,7 @@ public class Oxidos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(630, 645));
         getContentPane().setLayout(null);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(0, 70, 629, 10);
@@ -126,7 +128,7 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmetales);
-        cbmetales.setBounds(12, 204, 110, 24);
+        cbmetales.setBounds(12, 204, 110, 27);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
@@ -161,7 +163,7 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnNM);
-        btnNM.setBounds(12, 562, 375, 56);
+        btnNM.setBounds(10, 540, 375, 56);
         getContentPane().add(resM);
         resM.setBounds(269, 199, 104, 38);
 
@@ -173,7 +175,7 @@ public class Oxidos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(res1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(394, 150, 210, 188);
+        jScrollPane1.setBounds(390, 140, 210, 188);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(253, 251, 251));
@@ -189,7 +191,7 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnmenu);
-        btnmenu.setBounds(498, 16, 110, 40);
+        btnmenu.setBounds(498, 16, 110, 42);
 
         cbnometales.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -197,7 +199,7 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbnometales);
-        cbnometales.setBounds(12, 499, 110, 24);
+        cbnometales.setBounds(12, 499, 110, 27);
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(254, 254, 254));
@@ -232,15 +234,15 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnM);
-        btnM.setBounds(10, 290, 370, 51);
+        btnM.setBounds(10, 280, 370, 51);
 
-        res2.setColumns(20);
-        res2.setRows(5);
-        res2.setText("informacion:");
-        jScrollPane2.setViewportView(res2);
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("informacion:");
+        jScrollPane2.setViewportView(jTextArea2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(399, 410, 203, 208);
+        jScrollPane2.setBounds(399, 410, 203, 190);
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(254, 254, 254));
@@ -272,7 +274,7 @@ public class Oxidos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbStatesM);
-        cbStatesM.setBounds(115, 166, 44, 24);
+        cbStatesM.setBounds(115, 166, 44, 27);
 
         getContentPane().add(cbStatesNM);
         cbStatesNM.setBounds(102, 461, 45, 27);
@@ -280,9 +282,7 @@ public class Oxidos extends javax.swing.JFrame {
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
         jLabel18.setText("jLabel18");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(0, 0, 610, 620);
-
-        jLabel19.setText("jLabel19");
+        jLabel18.setBounds(0, 0, 630, 630);
         getContentPane().add(jLabel19);
         jLabel19.setBounds(0, 0, 630, 90);
 
@@ -290,10 +290,10 @@ public class Oxidos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenuActionPerformed
-        VentanaPricipal aux = new VentanaPricipal();
-        aux.setVisible(true);
-        this.setVisible(false);
-
+ VentanaPricipal aux = new VentanaPricipal();
+    aux.setVisible(true);
+    this.setVisible(false);
+                
     }//GEN-LAST:event_btnmenuActionPerformed
 
     private void btnMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMActionPerformed
@@ -302,21 +302,10 @@ public class Oxidos extends javax.swing.JFrame {
         ele.setEstado_used(ele.getEstados().indexOf(this.cbStatesM.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.OXIDO_BASICO);
         this.resM.setText(r.getCompuesto().getNom());
-        Compuesto com = r.getCompuesto();
-        String info = "OXIDOS METALICOS\n";
-        int a = 0;
-        for (Elemento i : com.getElementos()) {
-            info = info.concat(i.getNombre() + ":\n"
-                    + "     Cantidad: " + com.getCant().get(a) + "\n"
-                    + "     Electronegatividad: " + i.getEleneg() + "\n"
-                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
-            a++;
-        }
-        res1.setText(info);
     }//GEN-LAST:event_btnMActionPerformed
 
     private void cbmetalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmetalActionPerformed
-
+            
     }//GEN-LAST:event_cbmetalActionPerformed
 
     private void cbStatesMItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbStatesMItemStateChanged
@@ -343,7 +332,22 @@ public class Oxidos extends javax.swing.JFrame {
     }//GEN-LAST:event_cbmetalesItemStateChanged
 
     private void cbnometalesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbnometalesItemStateChanged
-        change();
+        boolean flag = false;
+        DefaultComboBoxModel estados = new DefaultComboBoxModel();
+        ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
+        Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
+        for (int i : ele.getEstados()) {
+            if (i > 0) {
+                flag = true;
+                estados.addElement(i);
+            }
+        }
+        if (flag) {
+            btnNM.setEnabled(true);
+        } else {
+            btnNM.setEnabled(false);
+        }
+        this.cbStatesNM.setModel(estados);
     }//GEN-LAST:event_cbnometalesItemStateChanged
 
     private void btnNMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNMActionPerformed
@@ -352,17 +356,6 @@ public class Oxidos extends javax.swing.JFrame {
         ele.setEstado_used(ele.getEstados().indexOf(this.cbStatesNM.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.OXIDO_ACIDO);
         this.resNM.setText(r.getCompuesto().getNom());
-        Compuesto com = r.getCompuesto();
-        String info = "OXIDOS NO METALICOS\n";
-        int a = 0;
-        for (Elemento i : com.getElementos()) {
-            info = info.concat(i.getNombre() + ":\n"
-                    + "     Cantidad: " + com.getCant().get(a) + "\n"
-                    + "     Electronegatividad: " + i.getEleneg() + "\n"
-                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
-            a++;
-        }
-        res2.setText(info);
     }//GEN-LAST:event_btnNMActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -397,27 +390,9 @@ public class Oxidos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea res1;
-    private javax.swing.JTextArea res2;
     private javax.swing.JTextField resM;
     private javax.swing.JTextField resNM;
     // End of variables declaration//GEN-END:variables
-private void change() {
-        boolean flag = false;
-        DefaultComboBoxModel estados = new DefaultComboBoxModel();
-        ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
-        Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
-        for (int i : ele.getEstados()) {
-            if (i > 0) {
-                flag = true;
-                estados.addElement(i);
-            }
-        }
-        if (flag) {
-            btnNM.setEnabled(true);
-        } else {
-            btnNM.setEnabled(false);
-        }
-        this.cbStatesNM.setModel(estados);
-    }
 }

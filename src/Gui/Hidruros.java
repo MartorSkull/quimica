@@ -29,11 +29,9 @@ public class Hidruros extends javax.swing.JFrame {
         DefaultComboBoxModel nometal = new DefaultComboBoxModel();
         for (Elemento i : Base.getTodosNoMetales()) {
             if (!i.getNombre().equals("Hidrogeno") && !i.getNombre().equals("Oxigeno")) {
-                nometal.addElement(i);
-            }
-        }
+            nometal.addElement(i);
+        }}
         this.cbnometales.setModel(nometal);
-        change();
     }
 
     /**
@@ -77,8 +75,7 @@ public class Hidruros extends javax.swing.JFrame {
         jLabel11.setText("jLabel11");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(500, 500));
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(465, 520));
         getContentPane().setLayout(null);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(12, 67, 721, 10);
@@ -98,7 +95,7 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(320, 10, 128, 40);
+        jButton1.setBounds(320, 10, 128, 42);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
@@ -144,7 +141,7 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmetales);
-        cbmetales.setBounds(178, 143, 120, 24);
+        cbmetales.setBounds(178, 143, 120, 27);
 
         cbnometales.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -152,7 +149,7 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbnometales);
-        cbnometales.setBounds(180, 340, 113, 24);
+        cbnometales.setBounds(180, 340, 113, 27);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(254, 254, 254));
@@ -199,7 +196,7 @@ public class Hidruros extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(1, 1, 1));
         jLabel10.setText("Nota: el estado de oxidacion del (H) en M es -1. En los NM es +1");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(10, 470, 442, 15);
+        jLabel10.setBounds(10, 470, 442, 17);
 
         btn1.setText("combinar");
         btn1.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +205,7 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn1);
-        btn1.setBounds(336, 95, 105, 25);
+        btn1.setBounds(336, 95, 105, 29);
 
         btnNM.setText("combinar");
         btnNM.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +214,7 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnNM);
-        btnNM.setBounds(340, 290, 101, 25);
+        btnNM.setBounds(340, 290, 101, 29);
 
         statesNM.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -225,11 +222,12 @@ public class Hidruros extends javax.swing.JFrame {
             }
         });
         getContentPane().add(statesNM);
-        statesNM.setBounds(260, 310, 50, 24);
+        statesNM.setBounds(260, 310, 50, 27);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
+        jLabel12.setText("jLabel12");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(-10, -10, 520, 520);
+        jLabel12.setBounds(0, 0, 470, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -240,17 +238,6 @@ public class Hidruros extends javax.swing.JFrame {
         Elemento ele = modelo.getElementAt(this.cbmetales.getSelectedIndex());
         Reaccion r = new Reaccion(ele, Reaccion.HIDRURO_METALICO);
         this.resM.setText(r.getCompuesto().getNom());
-        Compuesto com = r.getCompuesto();
-        String info = "HIDRUROS\n";
-        int a = 0;
-        for (Elemento i : com.getElementos()) {
-            info = info.concat(i.getNombre() + ":\n"
-                    + "     Cantidad: " + com.getCant().get(a) + "\n"
-                    + "     Electronegatividad: " + i.getEleneg() + "\n"
-                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
-            a++;
-        }
-        txtinfo1.setText(info);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btnNMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNMActionPerformed
@@ -259,18 +246,6 @@ public class Hidruros extends javax.swing.JFrame {
         ele.setEstado_used(ele.getEstados().indexOf(this.statesNM.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.HIDRURO_NOMETALICO);
         this.resNM.setText(r.getCompuesto().getNom());
-        Compuesto com = r.getCompuesto();
-        String info = "HIDRUROS\n";
-        int a = 0;
-        for (Elemento i : com.getElementos()) {
-            info = info.concat(i.getNombre() + ":\n"
-                    + "     Cantidad: " + com.getCant().get(a) + "\n"
-                    + "     Electronegatividad: " + i.getEleneg() + "\n"
-                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
-            a++;
-        }
-        txtinfo2.setText(info);
-
     }//GEN-LAST:event_btnNMActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -290,7 +265,22 @@ public class Hidruros extends javax.swing.JFrame {
 
     private void cbnometalesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbnometalesItemStateChanged
         // TODO add your handling code here:
-change();
+        boolean flag = false;
+        DefaultComboBoxModel estados = new DefaultComboBoxModel();
+        ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
+        Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
+        for (int i : ele.getEstados()) {
+            if (i < 0) {
+                flag = true;
+                estados.addElement(i);
+            }
+        }
+        if (flag) {
+            btnNM.setEnabled(true);
+        } else {
+            btnNM.setEnabled(false);
+        }
+        this.statesNM.setModel(estados);
     }//GEN-LAST:event_cbnometalesItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -323,22 +313,4 @@ change();
     private javax.swing.JTextArea txtinfo1;
     private javax.swing.JTextArea txtinfo2;
     // End of variables declaration//GEN-END:variables
-private void change() {
-        boolean flag = false;
-        DefaultComboBoxModel estados = new DefaultComboBoxModel();
-        ComboBoxModel<Elemento> modelo = this.cbnometales.getModel();
-        Elemento ele = modelo.getElementAt(this.cbnometales.getSelectedIndex());
-        for (int i : ele.getEstados()) {
-            if (i < 0) {
-                flag = true;
-                estados.addElement(i);
-            }
-        }
-        if (flag) {
-            btnNM.setEnabled(true);
-        } else {
-            btnNM.setEnabled(false);
-        }
-        this.statesNM.setModel(estados);
-    }
 }
