@@ -227,7 +227,7 @@ public class Hidruros extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
         jLabel12.setText("jLabel12");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(0, 0, 460, 500);
+        jLabel12.setBounds(0, 0, 470, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

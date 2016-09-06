@@ -57,7 +57,7 @@ public class Hidracidos extends javax.swing.JFrame {
         states = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(510, 300));
+        setPreferredSize(new java.awt.Dimension(510, 330));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -103,7 +103,7 @@ public class Hidracidos extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextPane2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(10, 180, 481, 70);
+        jScrollPane2.setBounds(10, 190, 481, 120);
 
         btn.setBackground(new java.awt.Color(254, 254, 254));
         btn.setForeground(new java.awt.Color(1, 1, 1));
@@ -142,7 +142,7 @@ public class Hidracidos extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 510, 300);
+        jLabel4.setBounds(0, 0, 510, 330);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
