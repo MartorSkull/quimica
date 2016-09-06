@@ -122,9 +122,9 @@ public class VentanaPricipal extends javax.swing.JFrame {
         getContentPane().add(jSeparator4);
         jSeparator4.setBounds(12, 110, 324, 17);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 0, 320, 470);
+        jLabel3.setBounds(0, 0, 310, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,11 +151,8 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 this.setVisible(false);
 
             }
-            else if (lsbinario.getSelectedIndex() == 3) {
-                SalBinaria aux = new SalBinaria();
-                aux.setVisible(true);
-                this.setVisible(false);
-            }
+            
+            
         } else if (cbterciario.isSelected()) {
             if (lsterciario.getSelectedIndex() == 0) {
                 Oxoacidos aux = new Oxoacidos();
@@ -166,21 +163,12 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 Hidroxidos aux = new Hidroxidos();
                 aux.setVisible(true);
                 this.setVisible(false);
-            }
-            else if (lsterciario.getSelectedIndex() == 2) {
-                SalTerciaria aux = new SalTerciaria();
-                aux.setVisible(true);
-                this.setVisible(false);
-            }
-        } else if (cbcuaternario.isSelected()) {
-            if (lscuaternario.getSelectedIndex() == 0) {
-                SalCuaternaria aux = new SalCuaternaria();
-                aux.setVisible(true);
-                this.setVisible(false);
-            }
+            
+        
         } else {
             JOptionPane.showMessageDialog(this, "seleciona un tipo de compuesto");
 
+        }
         }
 
     }//GEN-LAST:event_btnListoActionPerformed

@@ -75,6 +75,8 @@ public class Hidruros extends javax.swing.JFrame {
         jLabel11.setText("jLabel11");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(500, 500));
+        setResizable(false);
         getContentPane().setLayout(null);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(12, 67, 721, 10);
@@ -223,10 +225,9 @@ public class Hidruros extends javax.swing.JFrame {
         getContentPane().add(statesNM);
         statesNM.setBounds(260, 310, 50, 27);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
-        jLabel12.setText("jLabel12");
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg"))); // NOI18N
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(0, 0, 730, 500);
+        jLabel12.setBounds(-10, -10, 520, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,6 +238,17 @@ public class Hidruros extends javax.swing.JFrame {
         Elemento ele = modelo.getElementAt(this.cbmetales.getSelectedIndex());
         Reaccion r = new Reaccion(ele, Reaccion.HIDRURO_METALICO);
         this.resM.setText(r.getCompuesto().getNom());
+         Compuesto com = r.getCompuesto();
+        String info = "HIDRUROS\n";
+        int a = 0;
+        for (Elemento i : com.getElementos()) {
+            info = info.concat(i.getNombre() + ":\n"
+                    + "     Cantidad: " + com.getCant().get(a) + "\n"
+                    + "     Electronegatividad: " + i.getEleneg() + "\n"
+                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
+            a++;
+        }
+        txtinfo1.setText(info);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btnNMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNMActionPerformed
@@ -245,6 +257,18 @@ public class Hidruros extends javax.swing.JFrame {
         ele.setEstado_used(ele.getEstados().indexOf(this.statesNM.getModel().getSelectedItem()));
         Reaccion r = new Reaccion(ele, Reaccion.HIDRURO_NOMETALICO);
         this.resNM.setText(r.getCompuesto().getNom());
+        Compuesto com = r.getCompuesto();
+        String info = "HIDRUROS\n";
+        int a = 0;
+        for (Elemento i : com.getElementos()) {
+            info = info.concat(i.getNombre() + ":\n"
+                    + "     Cantidad: " + com.getCant().get(a) + "\n"
+                    + "     Electronegatividad: " + i.getEleneg() + "\n"
+                    + "     Estado de Oxidacion: " + i.getEstado_used() + "" + "\n");
+            a++;
+        }
+        txtinfo2.setText(info);
+        
     }//GEN-LAST:event_btnNMActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
