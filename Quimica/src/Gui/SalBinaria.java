@@ -5,6 +5,10 @@
  */
 package Gui;
 
+import data.Base;
+import data.Elemento;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author tobias
@@ -16,6 +20,11 @@ public class SalBinaria extends javax.swing.JFrame {
      */
     public SalBinaria() {
         initComponents();
+        DefaultComboBoxModel metales = new DefaultComboBoxModel();
+        for (Elemento aux:Base.getTodosMetales()){
+            metales.addElement(aux);
+        }
+        cbMetales.setModel(metales);
     }
 
     /**
@@ -28,21 +37,29 @@ public class SalBinaria extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        cbMetales = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
 
         jLabel6.setText("jLabel6");
 
@@ -55,52 +72,40 @@ public class SalBinaria extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(12, 12, 178, 49);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(0, 67, 517, 6);
+        jSeparator1.setBounds(0, 69, 700, 2);
 
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(12, 101, 109, 27);
-
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel2.setText("Hidracidos");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(155, 73, 90, 18);
+        getContentPane().add(cbMetales);
+        cbMetales.setBounds(10, 100, 109, 24);
 
         getContentPane().add(jComboBox2);
-        jComboBox2.setBounds(155, 101, 115, 27);
+        jComboBox2.setBounds(250, 100, 115, 24);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("+");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(133, 105, 10, 18);
+        jLabel3.setBounds(220, 100, 10, 18);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("=");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(288, 105, 9, 18);
+        jLabel4.setBounds(450, 100, 9, 18);
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 0, 0);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(310, 90, 100, 40);
-
-        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel7.setText("hidroxido");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(12, 73, 80, 18);
+        jTextField1.setBounds(460, 90, 100, 40);
 
         jButton1.setText("crear");
         getContentPane().add(jButton1);
-        jButton1.setBounds(10, 150, 510, 70);
+        jButton1.setBounds(10, 150, 550, 70);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(12, 228, 505, 90);
+        jScrollPane1.setBounds(10, 230, 550, 90);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesq/flecharec.png"))); // NOI18N
         jButton2.setText("Menu");
@@ -110,12 +115,63 @@ public class SalBinaria extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(379, 16, 132, 42);
+        jButton2.setBounds(379, 16, 132, 40);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("/home/serna/Documentos/quimica-master/Quimica/src/imagenesq/fondo-con-ilustraciones-de-molculas_23-2147491176.jpg")); // NOI18N
-        jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, 0, 530, 350);
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Hidrogeno");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(130, 100, 80, 15);
+
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel10.setText("+");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(370, 100, 10, 18);
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("(");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(230, 100, 10, 15);
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText(")");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(440, 100, 10, 15);
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("(");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(0, 100, 10, 15);
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText(")");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(210, 100, 10, 15);
+
+        jLabel15.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel15.setText("+");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(120, 100, 10, 18);
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Radical");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(380, 100, 51, 15);
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("No Metal");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(250, 80, 80, 15);
+
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Metal");
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(20, 80, 51, 15);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -127,11 +183,18 @@ public class SalBinaria extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<Elemento> cbMetales;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<Elemento> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -139,6 +202,7 @@ public class SalBinaria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;

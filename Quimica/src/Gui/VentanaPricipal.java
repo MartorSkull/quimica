@@ -70,12 +70,11 @@ public class VentanaPricipal extends javax.swing.JFrame {
         getContentPane().add(lsbinario);
         lsbinario.setBounds(12, 163, 221, 24);
 
-        lsterciario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxoacidos ", "Hidroxidos ", " " }));
+        lsterciario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oxoacidos ", "Hidroxidos ", "Sal Ternaria" }));
         getContentPane().add(lsterciario);
         lsterciario.setBounds(12, 254, 221, 24);
 
         lscuaternario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sales Cuaternarias " }));
-        lscuaternario.setEnabled(false);
         getContentPane().add(lscuaternario);
         lscuaternario.setBounds(12, 339, 219, 24);
 
@@ -111,7 +110,6 @@ public class VentanaPricipal extends javax.swing.JFrame {
         cbcuaternario.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         cbcuaternario.setForeground(new java.awt.Color(254, 254, 254));
         cbcuaternario.setText("Compuestos cuaternarios");
-        cbcuaternario.setEnabled(false);
         getContentPane().add(cbcuaternario);
         cbcuaternario.setBounds(12, 309, 219, 26);
 
@@ -168,15 +166,11 @@ public class VentanaPricipal extends javax.swing.JFrame {
                 this.setVisible(false);
             }
             else if (lsterciario.getSelectedIndex() == 2) {
-                SalTerciaria aux = new SalTerciaria();
-                aux.setVisible(true);
-                this.setVisible(false);
+                JOptionPane.showMessageDialog(this, "Esta funcion no esta lista para tu zona en este momento");
             }
         } else if (cbcuaternario.isSelected()) {
             if (lscuaternario.getSelectedIndex() == 0) {
-                SalCuaternaria aux = new SalCuaternaria();
-                aux.setVisible(true);
-                this.setVisible(false);
+                JOptionPane.showMessageDialog(this, "Esta funcion no esta lista para tu zona en este momento");
             }
         } else {
             JOptionPane.showMessageDialog(this, "seleciona un tipo de compuesto");

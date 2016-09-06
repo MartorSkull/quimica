@@ -88,7 +88,7 @@
           <StringArray count="3">
             <StringItem index="0" value="Oxoacidos "/>
             <StringItem index="1" value="Hidroxidos "/>
-            <StringItem index="2" value=" "/>
+            <StringItem index="2" value="Sal Ternaria"/>
           </StringArray>
         </Property>
       </Properties>
@@ -108,7 +108,6 @@
             <StringItem index="0" value="Sales Cuaternarias "/>
           </StringArray>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -187,7 +186,6 @@
           <Color blue="fe" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Compuestos cuaternarios"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

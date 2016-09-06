@@ -5,9 +5,6 @@
  */
 package data;
 
-import data.Base;
-import data.Compuesto;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -45,11 +42,6 @@ public class Reaccion {
      * @param tipo usar alguno de los final
      *
      */
-    public Reaccion(Elemento[] elementos, int tipo) {
-        this.elementos = elementos;
-
-    }
-
     public Reaccion(Compuesto compuesto, int tipo) {
         this.compuesto = compuesto;
     }
@@ -68,10 +60,9 @@ public class Reaccion {
             this.compuesto = this.hidroxido(elemento);
         } else if (tipo == Reaccion.ACIDO_OXACIDO) {
             this.compuesto = this.acido_oxacido(elemento);
-        }else if (tipo == Reaccion.ACIDO_HIDRACIDO){
+        } else if (tipo == Reaccion.ACIDO_HIDRACIDO) {
             this.compuesto = this.acido_hidracido(elemento);
         }
-
     }
 
     public Compuesto getCompuesto() {
@@ -221,7 +212,6 @@ public class Reaccion {
         cant.add(mcm / ele.getEstado_used());
         cant.add(mcm / o.getEstado_used() * -1);
         cant.add(mcm / h.getEstado_used());
-        System.out.println(mcm);
 
         nom = nom(arr, cant);
         ao = new Compuesto(arr, cant, "almost here", nom, Reaccion.ACIDO_OXACIDO);
@@ -229,10 +219,52 @@ public class Reaccion {
     }
 
     private Compuesto acido_hidracido(Elemento ele) {
-        Compuesto  ah=this.hidruro_nometalico(ele);
-        return new Compuesto(ah.getElementos(), ah.getCant(), "amos here",ah.getNom()+"(AC)",ah.getTipo());
+        Compuesto ah = this.hidruro_nometalico(ele);
+        return new Compuesto(ah.getElementos(), ah.getCant(), "amos here", ah.getNom() + "(AC)", ah.getTipo());
     }
-/*
+
+    private Compuesto[] sal_hidracida(Elemento nometal, Elemento metal) {
+        Compuesto[] sh = new Compuesto[2];
+        Compuesto hidracido = acido_hidracido(nometal);
+        Compuesto hidroxido = hidroxido(metal);
+
+        ArrayList<Elemento> arr = new ArrayList();
+        ArrayList<Integer> cant = new ArrayList();
+        arr.add(metal);
+        arr.add(nometal);
+        String nom = null;
+        
+        ArrayList<Elemento> h2oarr = new ArrayList();
+        ArrayList<Integer> h2ocant= new ArrayList();
+        h2oarr.add(hidracido.getElementos().get(1));
+        h2oarr.add(hidroxido.getElementos().get(1));
+        
+        h2ocant.add(2);
+        h2ocant.add(1);
+
+        int mcm = mcm(nometal.getEstado_used(), metal.getEstado_used());
+        cant.add(mcm / metal.getEstado_used());
+        cant.add(mcm / metal.getEstado_used());
+
+        nom = metal.getNombre()+"%a"+nometal.getNombre()+"%b";
+        
+        if (cant.get(0) != 1) {
+            nom = nom.replace("%a", cant.get(0)+"");
+        } else{
+            nom = nom.replace("%a", "");
+        }
+        if (cant.get(1) != 1){
+            nom = nom.replace("%b", cant.get(1)+"");
+        }else{
+            nom = nom.replace("%b", "");
+        }
+        
+        sh[0]= new Compuesto(arr, cant, "Almost here", nom, Reaccion.SAL_HIDRACIDO);
+        sh[1]= new Compuesto(h2oarr, h2ocant, "Almost here", "H2O", Reaccion.HIDRURO_NOMETALICO);
+        return sh;
+    }
+
+    /*
     private Compuesto sal_hidracida(Compuesto hidracido, Compuesto hidroxido) {
 
     }
@@ -339,16 +371,19 @@ public class Reaccion {
     private int mcm(int num1, int num2, int num3) {
         int max = 0;
         int mcm = 0;
-        
+
         max = num1;
-        if(num2>max)
+        if (num2 > max) {
             max = num2;
-        if(num3 > max)
-            max=num3;
-        
-        mcm=max;
-        while((mcm%num1 != 0) || (mcm%num2 != 0) || (mcm % num3!=0))
+        }
+        if (num3 > max) {
+            max = num3;
+        }
+
+        mcm = max;
+        while ((mcm % num1 != 0) || (mcm % num2 != 0) || (mcm % num3 != 0)) {
             mcm++;
+        }
         return mcm;
     }
 

@@ -15,21 +15,65 @@ import java.util.ArrayList;
  * @author martin
  */
 public abstract class Base {
-
     private static ArrayList<Elemento> metales = new ArrayList();
     private static ArrayList<Elemento> nometales = new ArrayList();
+    private static ArrayList<Compuesto> compuestos = new ArrayList();
     private static ArrayList[] tabla = {metales, nometales};
     private static final String archivo = "Elementos.al";
+    private static final String archComp = "Compuestos.db";
     private static FileInputStream fis = null;
     private static ObjectInputStream ois = null;
     private static FileOutputStream fos = null;
     private static ObjectOutputStream oos = null;
 
-    /*
-     * Devuelve un arraylist con las ventas en disco
-     */
+    public static String save() {
+        String ret = "Carga exitosa";
+        boolean flag = true;
+        String fileTmp = "tmpFile.db";
+        //Se carga el array en un archivo temporal
+        try {
+            fos = new FileOutputStream(fileTmp);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(compuestos);
+        } catch (FileNotFoundException ex) {
+            flag = false;
+            ret = "No se encuentra el archivo";
+            return ret;
+        } catch (IOException ex) {
+            flag = false;
+            ret = "Error al guardar el archivo";
+            return ret;
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                    oos = null;
+                }
+                if (fos != null) {
+                    fos.close();
+                    fos = null;
+                }
+            } catch (IOException e) {
+                System.out.println("Error al cerrar archivo");
+            }
+        }
+        //Si todo salió bien, se borra el archivo db actual 
+        //y lo reemplaza por tmpFile.db
+        File fdel = new File(archComp);
+        File ftmp = new File(fileTmp);
+        if (fdel.exists()) {
+            if (fdel.delete()) {
+                if(ftmp.renameTo(new File(archComp)))
+                    System.out.println("Elimino y renombro");
+            }
+        } else {
+            if(ftmp.renameTo(new File(archComp)))
+                System.out.println("solo renombro");
+        }
+        return ret;
+    }
+
     public static void load() {
-        System.out.println("Intentando levantar la lista");
         try {
             fis = new FileInputStream(archivo);
             ois = new ObjectInputStream(fis);
@@ -39,7 +83,18 @@ public abstract class Base {
             }
         } catch (EOFException e1) {
             //END OF FILE!
-            System.out.println("Sale");
+            try {
+                fis = new FileInputStream(archComp);
+                ois = new ObjectInputStream(fis);
+
+                while (true) {
+                    compuestos = (ArrayList) ois.readObject();
+                }
+            } catch (EOFException fin) {
+
+            } catch (Exception e) {
+                System.out.println("Error!!!" + e);
+            }
         } catch (Exception e2) {
             System.out.println("Error!!!" + e2);
         } finally {
@@ -130,5 +185,16 @@ public abstract class Base {
             }
         }
         return e;
+    }
+    
+    public static void addCompuesto(Compuesto comp){
+        compuestos.add(comp);
+        save();
+        load();
+    }
+    
+    public static ArrayList<Compuesto> getCompuestos(){
+        load();
+        return compuestos;
     }
 }
